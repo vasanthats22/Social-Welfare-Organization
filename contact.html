@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Welfare Organization - Contact</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           SOCIAL WELFARE ORGANIZATION — CONTACT PAGE
+           ========================================================= */
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-sage-d:    #4E8A63;
+            --sw-bg:        #FBF8F4;
+            --sw-text:      #1C2A38;
+            --sw-text-soft: #4A5560;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+            --sw-shadow-hi: rgba(28, 42, 56, 0.16);
+            --sw-input-bd:  #E2E8ED;
+            --sw-error:     #D32F2F;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            width: 100%;
+        }
+
+        body {
+            background: var(--sw-bg);
+            min-height: 100vh;
+            padding-top: 110px;
+            color: var(--sw-text);
+            line-height: 1.5;
+            position: relative;
+        }
+
+        section { overflow-x: clip; max-width: 100vw; }
+
+        .sw-section-head {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 46px;
+            padding: 0 16px;
+        }
+        .sw-section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(224, 122, 47, 0.10);
+            color: var(--sw-accent);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border: 1px solid rgba(224, 122, 47, 0.25);
+        }
+        .sw-section-head h2 {
+            font-size: clamp(1.7rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+        .sw-section-head h2 span { color: var(--sw-accent); }
+        .sw-section-head p {
+            font-size: 0.95rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           SECTION 1 — HERO
+           ========================================================= */
+        .sw-hero {
+            position: relative;
+            padding: 130px 20px 110px;
+            margin-top: -110px;
+            background:
+                linear-gradient(135deg, rgba(29, 91, 121, 0.90) 0%, rgba(20, 69, 92, 0.94) 100%),
+                url('swo20.webp') center/cover no-repeat;
+            background-blend-mode: multiply;
+            overflow: hidden;
+            width: 100%;
+        }
+        .sw-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 340px; height: 340px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.22);
+            pointer-events: none;
+        }
+        .sw-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: rgba(123, 168, 140, 0.22);
+            pointer-events: none;
+        }
+        .sw-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 0 4px;
+        }
+        .sw-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(224, 122, 47, 0.22);
+            color: #FFD9B3;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            border: 1px solid rgba(224, 122, 47, 0.45);
+            max-width: 100%;
+        }
+        .sw-hero-badge i { color: var(--sw-accent); flex-shrink: 0; }
+        .sw-hero h1 {
+            font-size: clamp(2rem, 4.6vw, 3.6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.12;
+        }
+        .sw-hero h1 span { color: var(--sw-accent); }
+        .sw-hero p {
+            font-size: clamp(0.98rem, 1.4vw, 1.15rem);
+            max-width: 680px;
+            margin: 0 auto 32px;
+            color: #D8E4EC;
+            line-height: 1.75;
+        }
+        .sw-hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+        .sw-hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .sw-hero-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 26px rgba(224, 122, 47, 0.45);
+        }
+        .sw-hero-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(196, 99, 28, 0.55);
+        }
+        .sw-hero-btn.outline {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .sw-hero-btn.outline:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+        .sw-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: #B5CDD8;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            max-width: 100%;
+        }
+        .sw-breadcrumb a { color: #B5CDD8; text-decoration: none; transition: color 0.3s; }
+        .sw-breadcrumb a:hover { color: var(--sw-accent); }
+        .sw-breadcrumb i { font-size: 0.6rem; color: var(--sw-accent); }
+        .sw-breadcrumb .current { color: #fff; font-weight: 600; }
+
+        /* =========================================================
+           SECTION 2 — INFO CARDS
+           ========================================================= */
+        .sw-info {
+            max-width: 1200px;
+            margin: -70px auto 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 5;
+        }
+        .sw-info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .sw-info-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px 24px;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 10px 30px var(--sw-shadow);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+        }
+        .sw-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--sw-primary), var(--sw-accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .sw-info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 50px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.28);
+        }
+        .sw-info-card:hover::before { transform: scaleX(1); }
+        .sw-info-icon {
+            width: 64px; height: 64px;
+            border-radius: 18px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+        .sw-info-card:hover .sw-info-icon { transform: scale(1.1) rotate(-6deg); }
+        .sw-info-icon.teal   { background: rgba(29, 91, 121, 0.12);  color: var(--sw-primary); }
+        .sw-info-icon.amber  { background: rgba(224, 122, 47, 0.14); color: var(--sw-accent); }
+        .sw-info-icon.sage   { background: rgba(123, 168, 140, 0.20); color: var(--sw-sage-d); }
+        .sw-info-icon.purple { background: rgba(139, 92, 246, 0.14); color: #6D28D9; }
+        .sw-info-card h3 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--sw-text-soft);
+            margin-bottom: 10px;
+        }
+        .sw-info-card .info-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--sw-text);
+            line-height: 1.55;
+            word-break: break-word;
+            margin-bottom: 6px;
+        }
+        .sw-info-card .info-value a {
+            color: var(--sw-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            word-break: break-all;
+        }
+        .sw-info-card .info-value a:hover { color: var(--sw-accent); }
+        .sw-info-card .info-sub {
+            font-size: 0.74rem;
+            color: var(--sw-text-soft);
+        }
+
+        /* =========================================================
+           SECTION 3 — WHY REACH OUT
+           ========================================================= */
+        .sw-why {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .sw-why-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 26px;
+            border: 1px solid var(--sw-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+        }
+        .sw-why-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--sw-accent), var(--sw-sage));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .sw-why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px var(--sw-shadow-hi);
+            border-color: rgba(224, 122, 47, 0.35);
+        }
+        .sw-why-card:hover::after { transform: scaleX(1); }
+        .sw-why-icon {
+            width: 54px; height: 54px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(29, 91, 121, 0.12), rgba(224, 122, 47, 0.12));
+            color: var(--sw-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+        }
+        .sw-why-card h3 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--sw-text);
+            margin-bottom: 10px;
+        }
+        .sw-why-card p {
+            font-size: 0.86rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+        .sw-why-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--sw-accent);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .sw-why-link:hover { color: var(--sw-accent-d); gap: 12px; }
+        .sw-why-link i { font-size: 0.7rem; transition: transform 0.3s; }
+        .sw-why-link:hover i { transform: translateX(3px); }
+
+        /* =========================================================
+           SECTION 4 — FORM WITH IMAGE
+           ========================================================= */
+        .sw-form {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-form-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 0;
+            background: #fff;
+            border-radius: 26px;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 24px 60px var(--sw-shadow);
+            overflow: hidden;
+            width: 100%;
+            min-width: 0;
+        }
+        .sw-form-image {
+            position: relative;
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            overflow: hidden;
+            min-height: 620px;
+            min-width: 0;
+        }
+        .sw-form-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.95;
+            transition: transform 0.6s ease;
+        }
+        .sw-form-image:hover img { transform: scale(1.05); }
+        .sw-form-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(29, 91, 121, 0.30) 0%, rgba(20, 69, 92, 0.85) 100%);
+        }
+        .sw-form-image-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 34px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: #fff;
+        }
+        .sw-form-image-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(224, 122, 47, 0.25);
+            color: #FFD9B3;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            width: fit-content;
+            max-width: 100%;
+            border: 1px solid rgba(224, 122, 47, 0.45);
+        }
+        .sw-form-image-content h3 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+        .sw-form-image-content h3 span { color: #FFD9B3; }
+        .sw-form-image-content p {
+            font-size: 0.9rem;
+            color: #D8E4EC;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .sw-form-image-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .sw-form-image-stats .stat { text-align: center; min-width: 0; }
+        .sw-form-image-stats .stat strong {
+            display: block;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #FFD9B3;
+        }
+        .sw-form-image-stats .stat span {
+            font-size: 0.68rem;
+            color: #B5CDD8;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .sw-form-content {
+            padding: 44px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+        .sw-form-content .sw-form-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            width: fit-content;
+            border: 1px solid var(--sw-border);
+        }
+        .sw-form-content .sw-form-tag i { color: var(--sw-accent); }
+        .sw-form-content h2 {
+            font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .sw-form-content h2 span { color: var(--sw-accent); }
+        .sw-form-content > p {
+            font-size: 0.88rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+            margin-bottom: 22px;
+        }
+
+        .sw-feedback {
+            display: none;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        .sw-feedback.show { display: block; }
+        .sw-feedback.success {
+            background: #ECFDF5;
+            color: #065F46;
+            border: 1px solid #A7F3D0;
+            border-left: 4px solid #10B981;
+        }
+        .sw-feedback.error {
+            background: #FEF2F2;
+            color: #991B1B;
+            border: 1px solid #FECACA;
+            border-left: 4px solid #DC2626;
+        }
+        .sw-feedback i { margin-right: 6px; }
+
+        .sw-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            width: 100%;
+            align-items: start;
+        }
+        .sw-form-grid .full { grid-column: 1 / -1; }
+
+        .sw-field {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .sw-input-group { position: relative; width: 100%; min-width: 0; }
+        .sw-input-group i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--sw-primary);
+            font-size: 0.85rem;
+            width: 1.1rem;
+            text-align: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .sw-input-group.textarea i { top: 18px; transform: none; }
+        .sw-input-group input,
+        .sw-input-group select,
+        .sw-input-group textarea {
+            width: 100%;
+            max-width: 100%;
+            padding: 0.72rem 0.9rem 0.72rem 2.5rem;
+            border: 1.5px solid var(--sw-input-bd);
+            border-radius: 10px;
+            font-size: 0.87rem;
+            background: var(--sw-bg);
+            transition: all 0.2s ease;
+            outline: none;
+            color: var(--sw-text);
+            font-family: inherit;
+            resize: none;
+        }
+        .sw-input-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            padding-right: 2.5rem;
+            cursor: pointer;
+            background-image: url("swo25.webp");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 12px;
+        }
+        .sw-input-group textarea { min-height: 110px; padding-top: 0.75rem; }
+        .sw-input-group input:focus,
+        .sw-input-group select:focus,
+        .sw-input-group textarea:focus {
+            border-color: var(--sw-primary);
+            box-shadow: 0 0 0 3px rgba(29, 91, 121, 0.15);
+            background: #fff;
+        }
+        .sw-input-group input::placeholder,
+        .sw-input-group textarea::placeholder { color: #8B98A5; font-weight: 400; }
+
+        .sw-field.has-error .sw-input-group input,
+        .sw-field.has-error .sw-input-group select,
+        .sw-field.has-error .sw-input-group textarea {
+            border-color: var(--sw-error);
+            background: #FFF7F7;
+        }
+        .sw-field.has-error .sw-input-group i { color: var(--sw-error); }
+
+        .sw-error-msg {
+            color: var(--sw-error);
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-top: 5px;
+            display: none;
+            padding-left: 0.3rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+        .sw-error-msg.show { display: block; }
+        .sw-error-msg i { font-size: 0.68rem; margin-right: 4px; }
+
+        .sw-submit-row {
+            grid-column: 1 / -1;
+            margin-top: 4px;
+        }
+        .sw-submit-btn {
+            width: 100%;
+            padding: 0.88rem 1rem;
+            background: var(--sw-accent);
+            color: #fff;
+            border: 2px solid var(--sw-accent);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: inherit;
+            box-shadow: 0 6px 18px rgba(224, 122, 47, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .sw-submit-btn:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(196, 99, 28, 0.45);
+        }
+        .sw-submit-btn:disabled { opacity: 0.75; cursor: wait; transform: none; }
+
+        /* =========================================================
+           ✅ NEW SECTION 5 — MAP / LOCATION
+           ========================================================= */
+        .sw-map {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-map-wrap {
+            position: relative;
+            border-radius: 26px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 24px 60px var(--sw-shadow);
+            background: #fff;
+            width: 100%;
+        }
+        .sw-map-wrap iframe {
+            width: 100%;
+            height: 480px;
+            border: 0;
+            display: block;
+            filter: saturate(0.9);
+        }
+        .sw-map-overlay {
+            position: absolute;
+            top: 26px;
+            left: 26px;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(14px);
+            padding: 22px 26px;
+            border-radius: 16px;
+            border-left: 5px solid var(--sw-accent);
+            box-shadow: 0 14px 36px var(--sw-shadow-hi);
+            max-width: 320px;
+            z-index: 3;
+        }
+        .sw-map-overlay-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(29, 91, 121, 0.10);
+            color: var(--sw-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .sw-map-overlay h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sw-map-overlay h4 i { color: var(--sw-accent); }
+        .sw-map-overlay p {
+            font-size: 0.82rem;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .sw-map-overlay-divider {
+            height: 1px;
+            background: var(--sw-border);
+            margin: 14px 0;
+        }
+        .sw-map-overlay-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            color: var(--sw-text);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .sw-map-overlay-row i {
+            color: var(--sw-primary);
+            font-size: 0.85rem;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .sw-map-overlay-row:last-child { margin-bottom: 0; }
+        .sw-map-overlay-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--sw-accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 14px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sw-accent);
+            box-shadow: 0 6px 18px rgba(224, 122, 47, 0.35);
+        }
+        .sw-map-overlay-btn:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(196, 99, 28, 0.45);
+        }
+
+        /* =========================================================
+           SECTION 6 — CTA + SOCIAL
+           ========================================================= */
+        .sw-cta {
+            max-width: 1200px;
+            margin: 100px auto 80px;
+            padding: 0 20px;
+        }
+        .sw-cta-wrap {
+            background:
+                linear-gradient(135deg, rgba(29, 91, 121, 0.94) 0%, rgba(20, 69, 92, 0.98) 100%),
+                url('swo26.webp') center/cover no-repeat;
+            background-blend-mode: multiply;
+            border-radius: 26px;
+            padding: 70px 50px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 55px rgba(29, 91, 121, 0.30);
+            width: 100%;
+        }
+        .sw-cta-wrap::before {
+            content: '';
+            position: absolute;
+            top: -70px; right: -70px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.22);
+            pointer-events: none;
+        }
+        .sw-cta-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: -90px; left: -90px;
+            width: 240px; height: 240px;
+            border-radius: 50%;
+            background: rgba(123, 168, 140, 0.22);
+            pointer-events: none;
+        }
+        .sw-cta-inner { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+        .sw-cta-inner h2 {
+            font-size: clamp(1.7rem, 3vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .sw-cta-inner h2 span { color: #FFD9B3; }
+        .sw-cta-inner p {
+            font-size: 1rem;
+            color: #D8E4EC;
+            line-height: 1.75;
+            margin-bottom: 34px;
+        }
+        .sw-cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
+        }
+        .sw-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .sw-cta-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 26px rgba(224, 122, 47, 0.45);
+        }
+        .sw-cta-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(196, 99, 28, 0.55);
+        }
+        .sw-cta-btn.outline {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .sw-cta-btn.outline:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+        .sw-cta-social-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: #B5CDD8;
+            margin-bottom: 20px;
+        }
+        .sw-cta-socials {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .sw-cta-socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.10);
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+        }
+        .sw-cta-socials a:hover {
+            background: var(--sw-accent);
+            border-color: var(--sw-accent);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 26px rgba(224, 122, 47, 0.5);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 992px) {
+            .sw-info-grid { grid-template-columns: repeat(2, 1fr); }
+            .sw-why-grid { grid-template-columns: 1fr; }
+            .sw-form-wrap { grid-template-columns: 1fr; }
+            .sw-form-image { min-height: 340px; }
+            .sw-form-image-content { padding: 32px 26px; }
+            .sw-form-content { padding: 36px 28px; }
+            .sw-map-wrap iframe { height: 400px; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 90px; }
+            .sw-hero { padding: 130px 20px 90px; margin-top: -90px; }
+            .sw-info { margin-top: -50px; }
+            .sw-why, .sw-form, .sw-map, .sw-cta { margin-top: 70px; }
+            .sw-form-wrap { border-radius: 20px; }
+            .sw-cta-wrap { padding: 50px 26px; border-radius: 20px; }
+            .sw-cta { margin-bottom: 60px; }
+            .sw-map-wrap { border-radius: 20px; }
+            .sw-map-wrap iframe { height: 360px; }
+            .sw-map-overlay {
+                position: relative;
+                top: 0; left: 0;
+                margin: 16px;
+                max-width: calc(100% - 32px);
+            }
+        }
+        @media (max-width: 480px) {
+            body { padding-top: 84px; }
+            .sw-hero { padding: 120px 18px 80px; }
+            .sw-info { padding: 0 16px; }
+            .sw-why { padding: 0 16px; }
+            .sw-form { padding: 0 16px; }
+            .sw-map { padding: 0 16px; }
+            .sw-cta { padding: 0 16px; }
+            .sw-info-grid { grid-template-columns: 1fr; gap: 14px; }
+            .sw-info-card { padding: 26px 20px; }
+            .sw-form-grid { grid-template-columns: 1fr; }
+            .sw-form-content { padding: 28px 20px; }
+            .sw-form-image-content { padding: 24px 20px; }
+            .sw-form-image-content h3 { font-size: 1.35rem; }
+            .sw-cta-btn, .sw-hero-btn { width: 100%; justify-content: center; }
+            .sw-cta-socials a { width: 44px; height: 44px; font-size: 0.9rem; }
+            .sw-form-image-stats { gap: 8px; }
+            .sw-form-image-stats .stat strong { font-size: 1.15rem; }
+            .sw-map-wrap iframe { height: 300px; }
+            .sw-map-overlay { padding: 18px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- ============================================================
+         SECTION 1 — HERO
+         ============================================================ -->
+    <section class="sw-hero">
+        <div class="sw-hero-inner">
+            <div class="sw-hero-badge" data-aos="fade-down" data-aos-duration="700">
+                <i class="fas fa-comments"></i> We'd Love to Hear From You
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                Let's <span>Connect</span> &amp; Create Change Together
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                Whether you want to volunteer, donate, partner with us, or simply learn more about our work —
+                our team is here to help. Reach out and let's build a kinder world, together.
+            </p>
+            <div class="sw-hero-buttons" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <a href="404.html" class="sw-hero-btn primary">
+                    <i class="fas fa-paper-plane"></i> Send Us a Message
+                </a>
+                <a href="404.html" class="sw-hero-btn outline">
+                    <i class="fas fa-hand-holding-heart"></i> Support a Cause
+                </a>
+            </div>
+            <div class="sw-breadcrumb" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Contact</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — INFO CARDS
+         ============================================================ -->
+    <section class="sw-info">
+        <div class="sw-info-grid">
+            <div class="sw-info-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="sw-info-icon teal"><i class="fas fa-envelope"></i></div>
+                <h3>Email Us</h3>
+                <p class="info-value"><a href="404.html">hello@helpinghands.org</a></p>
+                <p class="info-sub">We reply within 24 hours</p>
+            </div>
+            <div class="sw-info-card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="sw-info-icon amber"><i class="fas fa-phone-volume"></i></div>
+                <h3>Call Us</h3>
+                <p class="info-value"><a href="404.html">+91 12345 67890</a></p>
+                <p class="info-sub">Mon–Fri · 9 AM – 6 PM</p>
+            </div>
+            <div class="sw-info-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="sw-info-icon sage"><i class="fas fa-location-dot"></i></div>
+                <h3>Visit Us</h3>
+                <p class="info-value">42 Harmony Lane, Sector 7<br>New Delhi, 110001</p>
+                <p class="info-sub">India</p>
+            </div>
+            <div class="sw-info-card" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                <div class="sw-info-icon purple"><i class="fas fa-clock"></i></div>
+                <h3>Office Hours</h3>
+                <p class="info-value">Mon – Fri · 9 AM – 6 PM</p>
+                <p class="info-sub">Sat · 10 AM – 2 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — WHY REACH OUT
+         ============================================================ -->
+    <section class="sw-why">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-hands-helping"></i> How We Can Help</div>
+            <h2>Why <span>Reach Out</span> to Us?</h2>
+            <p>There are many ways to get involved. Choose the path that fits you best — every contribution counts.</p>
+        </div>
+
+        <div class="sw-why-grid">
+            <div class="sw-why-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="sw-why-icon"><i class="fas fa-people-carry-box"></i></div>
+                <h3>Become a Volunteer</h3>
+                <p>Join 186 active volunteers bringing hope to communities across 6 districts. Choose your skill, your hours, your impact.</p>
+                <a href="404.html" class="sw-why-link">Start Volunteering <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="sw-why-card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="sw-why-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                <h3>Make a Donation</h3>
+                <p>Fund education, nutrition, healthcare, or women's empowerment. Every rupee goes directly to the field — verified and transparent.</p>
+                <a href="404.html" class="sw-why-link">Donate Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="sw-why-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="sw-why-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Partner with Us</h3>
+                <p>CSR programs, in-kind support, or joint initiatives — let's co-create lasting impact for the communities that need it most.</p>
+                <a href="404.html" class="sw-why-link">Explore Partnership <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — FORM WITH IMAGE
+         ============================================================ -->
+    <section class="sw-form">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-paper-plane"></i> Send a Message</div>
+            <h2>Get in <span>Touch</span> With Us</h2>
+            <p>Fill the form below and our team will get back to you within 24 hours.</p>
+        </div>
+
+        <div class="sw-form-wrap" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+
+            <div class="sw-form-image">
+                <img src="swo9.webp"
+                     alt="Volunteers working together"
+                     onerror="this.style.display='none';" />
+                <div class="sw-form-image-content">
+                    <div class="sw-form-image-tag">
+                        <i class="fas fa-hand-holding-heart"></i> Every Message Matters
+                    </div>
+                    <h3>Together, we bring <span>hope &amp; dignity</span> to those who need it most.</h3>
+                    <p>Since 2018, Helping Hands has been on the ground — enrolling children in school, feeding families, running health camps, and empowering women with skills.</p>
+                    <div class="sw-form-image-stats">
+                        <div class="stat"><strong>4,820</strong><span>Lives Helped</span></div>
+                        <div class="stat"><strong>186</strong><span>Volunteers</span></div>
+                        <div class="stat"><strong>6</strong><span>Districts</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sw-form-content">
+                <div class="sw-form-tag"><i class="fas fa-comment-dots"></i> Contact Form</div>
+                <h2>Fill the form &amp; <span>we'll reply soon</span></h2>
+                <p>Have a question, want to volunteer, or interested in partnering? Drop us a message below.</p>
+
+                <div class="sw-feedback" id="swFeedback" role="status" aria-live="polite"></div>
+
+                <form id="swContactForm" novalidate>
+                    <div class="sw-form-grid">
+
+                        <!-- NAME -->
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="swName" placeholder="Enter your full name" />
+                            </div>
+                            <div class="sw-error-msg" id="swNameError">
+                                <i class="fas fa-circle-exclamation"></i>Please enter your full name (letters and spaces only).
+                            </div>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="swEmail" placeholder="Enter your email address" />
+                            </div>
+                            <div class="sw-error-msg" id="swEmailError">
+                                <i class="fas fa-circle-exclamation"></i>Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <!-- PHONE -->
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="swPhone" placeholder="10-digit phone number" />
+                            </div>
+                            <div class="sw-error-msg" id="swPhoneError">
+                                <i class="fas fa-circle-exclamation"></i>Please enter a valid 10-digit phone number.
+                            </div>
+                        </div>
+
+                        <!-- SUBJECT -->
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-tag"></i>
+                                <select id="swSubject">
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="volunteer">Volunteer with Us</option>
+                                    <option value="donate">Make a Donation</option>
+                                    <option value="partner">Partner with Us</option>
+                                    <option value="media">Media / Press</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="sw-error-msg" id="swSubjectError">
+                                <i class="fas fa-circle-exclamation"></i>Please select a subject.
+                            </div>
+                        </div>
+
+                        <!-- MESSAGE (full width) -->
+                        <div class="sw-field full">
+                            <div class="sw-input-group textarea">
+                                <i class="fas fa-comment-dots"></i>
+                                <textarea id="swMessage" placeholder="Write your message here... (min 5 characters)"></textarea>
+                            </div>
+                            <div class="sw-error-msg" id="swMessageError">
+                                <i class="fas fa-circle-exclamation"></i>Please write a message of at least 5 characters.
+                            </div>
+                        </div>
+
+                        <!-- SUBMIT -->
+                        <div class="sw-submit-row">
+                            <button type="submit" class="sw-submit-btn" id="swSubmitBtn">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ✅ NEW SECTION 5 — MAP / LOCATION
+         ============================================================ -->
+    <section class="sw-map">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-map-location-dot"></i> Find Us</div>
+            <h2>Visit Our <span>Office</span></h2>
+            <p>Come say hello — we'd love to meet you in person and show you the work we do on the ground.</p>
+        </div>
+
+        <div class="sw-map-wrap" data-aos="zoom-in" data-aos-duration="900">
+            <div class="sw-map-overlay">
+                <div class="sw-map-overlay-tag">
+                    <i class="fas fa-building"></i> Head Office
+                </div>
+                <h4><i class="fas fa-location-dot"></i> Helping Hands HQ</h4>
+                <p>42 Harmony Lane, Sector 7, New Delhi, 110001, India</p>
+                <div class="sw-map-overlay-divider"></div>
+                <div class="sw-map-overlay-row">
+                    <i class="fas fa-clock"></i> Mon – Fri · 9 AM – 6 PM
+                </div>
+                <div class="sw-map-overlay-row">
+                    <i class="fas fa-phone"></i> +91 12345 67890
+                </div>
+                <div class="sw-map-overlay-row">
+                    <i class="fas fa-envelope"></i> hello@helpinghands.org
+                </div>
+                <a href="404.html" class="sw-map-overlay-btn">
+                    <i class="fas fa-diamond-turn-right"></i> Get Directions
+                </a>
+            </div>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.1102736959795!2d77.20882531508198!3d28.613939982424623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2e7cbe7e6e3%3A0x7a1c5b4d0d7e8f0b!2sNew%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Helping Hands Office Location">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6 — CTA + SOCIAL
+         ============================================================ -->
+    <section class="sw-cta">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-star"></i> Get Involved</div>
+            <h2>Ready to <span>Make a Difference?</span></h2>
+            <p>Every action counts. Join us as a volunteer, donor, or partner — and help us build a kinder world.</p>
+        </div>
+
+        <div class="sw-cta-wrap" data-aos="zoom-in" data-aos-duration="900">
+            <div class="sw-cta-inner">
+                <h2 data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    Your Support <span>Changes Lives</span>
+                </h2>
+                <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    From a single meal to a lifetime of education — every act of kindness you give today
+                    writes a better tomorrow for someone in need.
+                </p>
+                <div class="sw-cta-buttons" data-aos="fade-up" data-aos-delay="350" data-aos-duration="700">
+                    <a href="404.html" class="sw-cta-btn primary">
+                        <i class="fas fa-people-carry-box"></i> Become a Volunteer
+                    </a>
+                    <a href="404.html" class="sw-cta-btn outline">
+                        <i class="fas fa-hand-holding-heart"></i> Support a Cause
+                    </a>
+                </div>
+
+                <div class="sw-cta-social-label" data-aos="fade-up" data-aos-delay="450" data-aos-duration="700">
+                    Follow Our Journey
+                </div>
+                <div class="sw-cta-socials" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                    <a href="404.html" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404.html" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="404.html" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="404.html" aria-label="X (Twitter)" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                    <a href="404.html" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('header.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Header not found'))
+                .then(d => { document.getElementById('header-placeholder').innerHTML = d; initHeader(); })
+                .catch(err => console.error('Header load failed:', err));
+
+            fetch('footer.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Footer not found'))
+                .then(d => { document.getElementById('footer-placeholder').innerHTML = d; initFooter(); })
+                .catch(err => console.error('Footer load failed:', err));
+        });
+
+        function initHeader() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const header = document.getElementById('mainHeader');
+
+            if (menuBtn && mobileMenu && mobileOverlay) {
+                menuBtn.addEventListener('click', e => {
+                    e.preventDefault(); e.stopPropagation();
+                    mobileMenu.classList.add('open');
+                    mobileOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            if (closeBtn && mobileMenu && mobileOverlay) {
+                closeBtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', e => {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 20);
+                });
+            }
+        }
+
+        /* =========================================================
+           FOOTER INIT — FIXED
+           Hamburger uses preventDefault (it's a <button>).
+           Nav links & social icons: NO preventDefault — native <a href> navigates.
+           ========================================================= */
+        function initFooter() {
+            const footerHamburger = document.getElementById('mobileHamburger');
+            const footerNavMenu = document.getElementById('mobileNavMenu');
+
+            if (footerHamburger && footerNavMenu) {
+                const newH = footerHamburger.cloneNode(true);
+                footerHamburger.parentNode.replaceChild(newH, footerHamburger);
+
+                newH.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    footerNavMenu.classList.toggle('open');
+                });
+
+                footerNavMenu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        footerNavMenu.classList.remove('open');
+                        // NO preventDefault — native <a href> navigates
+                    });
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!footerNavMenu.classList.contains('open')) return;
+                    if (footerNavMenu.contains(e.target)) return;
+                    if (newH.contains(e.target)) return;
+                    footerNavMenu.classList.remove('open');
+                });
+            }
+        }
+
+        (function contactFormLogic() {
+            const form = document.getElementById('swContactForm');
+            const nameInput = document.getElementById('swName');
+            const emailInput = document.getElementById('swEmail');
+            const phoneInput = document.getElementById('swPhone');
+            const subjectSelect = document.getElementById('swSubject');
+            const messageInput = document.getElementById('swMessage');
+            const submitBtn = document.getElementById('swSubmitBtn');
+            const feedback = document.getElementById('swFeedback');
+
+            const nameErr = document.getElementById('swNameError');
+            const emailErr = document.getElementById('swEmailError');
+            const phoneErr = document.getElementById('swPhoneError');
+            const subjErr = document.getElementById('swSubjectError');
+            const msgErr = document.getElementById('swMessageError');
+
+            function setFieldError(input, errEl, show) {
+                const field = input.closest('.sw-field');
+                if (show) {
+                    errEl.classList.add('show');
+                    if (field) field.classList.add('has-error');
+                } else {
+                    errEl.classList.remove('show');
+                    if (field) field.classList.remove('has-error');
+                }
+            }
+
+            const clearG = () => { feedback.className = 'sw-feedback'; feedback.innerHTML = ''; };
+            const showG = (msg, type) => {
+                feedback.className = 'sw-feedback show ' + type;
+                feedback.innerHTML = (type === 'success'
+                    ? '<i class="fas fa-check-circle"></i>'
+                    : '<i class="fas fa-exclamation-circle"></i>') + msg;
+            };
+
+            nameInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+                if (this.value.trim()) setFieldError(nameInput, nameErr, false);
+                clearG();
+            });
+            emailInput.addEventListener('input', () => {
+                if (emailInput.value.trim()) setFieldError(emailInput, emailErr, false);
+                clearG();
+            });
+            phoneInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+                if (this.value.trim()) setFieldError(phoneInput, phoneErr, false);
+                clearG();
+            });
+            subjectSelect.addEventListener('change', () => {
+                if (subjectSelect.value) setFieldError(subjectSelect, subjErr, false);
+                clearG();
+            });
+            messageInput.addEventListener('input', () => {
+                if (messageInput.value.trim()) setFieldError(messageInput, msgErr, false);
+                clearG();
+            });
+
+            const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            const phoneOk = v => /^[0-9]{10}$/.test(v);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                clearG();
+                let valid = true;
+
+                const name = nameInput.value.trim();
+                if (!name || name.length < 2) {
+                    setFieldError(nameInput, nameErr, true);
+                    valid = false;
+                } else setFieldError(nameInput, nameErr, false);
+
+                const email = emailInput.value.trim().toLowerCase();
+                if (!email || !emailOk(email)) {
+                    setFieldError(emailInput, emailErr, true);
+                    valid = false;
+                } else setFieldError(emailInput, emailErr, false);
+
+                const phone = phoneInput.value.trim();
+                if (!phone || !phoneOk(phone)) {
+                    setFieldError(phoneInput, phoneErr, true);
+                    valid = false;
+                } else setFieldError(phoneInput, phoneErr, false);
+
+                if (!subjectSelect.value) {
+                    setFieldError(subjectSelect, subjErr, true);
+                    valid = false;
+                } else setFieldError(subjectSelect, subjErr, false);
+
+                const msg = messageInput.value.trim();
+                if (!msg || msg.length < 5) {
+                    setFieldError(messageInput, msgErr, true);
+                    valid = false;
+                } else setFieldError(messageInput, msgErr, false);
+
+                if (!valid) {
+                    const firstErr = form.querySelector('.sw-field.has-error');
+                    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    showG('Please fix the highlighted fields and try again.', 'error');
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                submitBtn.style.background = '#10B981';
+                submitBtn.style.borderColor = '#10B981';
+                showG('Thank you, <strong>' + name.split(' ')[0] + '</strong>! Your message is received. Redirecting…', 'success');
+                setTimeout(() => window.location.href = '404.html', 1500);
+            });
+
+            form.querySelectorAll('input, select').forEach(el => {
+                el.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') { e.preventDefault(); submitBtn.click(); }
+                });
+            });
+        })();
+
+        console.log('✅ Contact page ready — footer links navigate natively, form redirects to 404.html');
+    </script>
+</body>
+</html>

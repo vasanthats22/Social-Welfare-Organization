@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Welfare Organization - Volunteer</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           SOCIAL WELFARE ORGANIZATION — VOLUNTEER PAGE
+           Primary  : #1D5B79  teal
+           Accent   : #E07A2F  amber
+           Sage     : #7BA88C
+           Bg       : #FBF8F4  warm off-white
+           Text     : #1C2A38  navy-charcoal
+           ========================================================= */
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-sage-d:    #4E8A63;
+            --sw-bg:        #FBF8F4;
+            --sw-text:      #1C2A38;
+            --sw-text-soft: #4A5560;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+            --sw-shadow-hi: rgba(28, 42, 56, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            width: 100%;
+        }
+
+        body {
+            background: var(--sw-bg);
+            min-height: 100vh;
+            padding-top: 110px;
+            color: var(--sw-text);
+            line-height: 1.5;
+        }
+
+        section { overflow-x: clip; max-width: 100vw; }
+
+        /* Common section head */
+        .sw-section-head {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 46px;
+            padding: 0 16px;
+        }
+        .sw-section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(224, 122, 47, 0.10);
+            color: var(--sw-accent);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border: 1px solid rgba(224, 122, 47, 0.25);
+        }
+        .sw-section-head h2 {
+            font-size: clamp(1.7rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+        .sw-section-head h2 span { color: var(--sw-accent); }
+        .sw-section-head p {
+            font-size: 0.95rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+        }
+
+        /* Common CTA button */
+        .sw-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .sw-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 26px rgba(224, 122, 47, 0.45);
+        }
+        .sw-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(196, 99, 28, 0.55);
+        }
+        .sw-btn.teal {
+            background: var(--sw-primary);
+            color: #fff;
+            border-color: var(--sw-primary);
+            box-shadow: 0 8px 26px rgba(29, 91, 121, 0.35);
+        }
+        .sw-btn.teal:hover {
+            background: var(--sw-primary-d);
+            border-color: var(--sw-primary-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(20, 69, 92, 0.45);
+        }
+        .sw-btn.outline {
+            background: transparent;
+            color: var(--sw-primary);
+            border-color: var(--sw-primary);
+        }
+        .sw-btn.outline:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(29, 91, 121, 0.30);
+        }
+        .sw-btn.outline-white {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.55);
+        }
+        .sw-btn.outline-white:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* =========================================================
+           SECTION 1 — HERO with BG IMAGE
+           ========================================================= */
+        .sw-hero {
+            position: relative;
+            padding: 130px 20px 120px;
+            margin-top: -110px;
+            background:
+                linear-gradient(135deg, rgba(29, 91, 121, 0.92) 0%, rgba(20, 69, 92, 0.95) 100%),
+                url('swo11.webp') center/cover no-repeat;
+            background-blend-mode: multiply;
+            overflow: hidden;
+            width: 100%;
+        }
+        .sw-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 380px; height: 380px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.22);
+            pointer-events: none;
+        }
+        .sw-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -120px; left: -120px;
+            width: 320px; height: 320px;
+            border-radius: 50%;
+            background: rgba(123, 168, 140, 0.22);
+            pointer-events: none;
+        }
+        .sw-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 0 4px;
+        }
+        .sw-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(224, 122, 47, 0.22);
+            color: #FFD9B3;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            border: 1px solid rgba(224, 122, 47, 0.45);
+            max-width: 100%;
+        }
+        .sw-hero-badge i { color: var(--sw-accent); flex-shrink: 0; }
+        .sw-hero h1 {
+            font-size: clamp(2rem, 4.6vw, 3.6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.12;
+        }
+        .sw-hero h1 span { color: var(--sw-accent); }
+        .sw-hero p {
+            font-size: clamp(0.98rem, 1.4vw, 1.15rem);
+            max-width: 680px;
+            margin: 0 auto 32px;
+            color: #D8E4EC;
+            line-height: 1.75;
+        }
+        .sw-hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .sw-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: #B5CDD8;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            max-width: 100%;
+        }
+        .sw-breadcrumb a { color: #B5CDD8; text-decoration: none; transition: color 0.3s; }
+        .sw-breadcrumb a:hover { color: var(--sw-accent); }
+        .sw-breadcrumb i { font-size: 0.6rem; color: var(--sw-accent); }
+        .sw-breadcrumb .current { color: #fff; font-weight: 600; }
+
+        /* Floating hero stats strip */
+        .sw-hero-stats {
+            max-width: 1100px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .sw-hero-stat {
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            padding: 22px 18px;
+            text-align: center;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .sw-hero-stat:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(224, 122, 47, 0.5);
+        }
+        .sw-hero-stat strong {
+            display: block;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #FFD9B3;
+            letter-spacing: -0.02em;
+        }
+        .sw-hero-stat span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #B5CDD8;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* =========================================================
+           SECTION 2 — WHY VOLUNTEER (4 benefit cards)
+           ========================================================= */
+        .sw-why {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+        .sw-why-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px 24px;
+            border: 1px solid var(--sw-border);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+        }
+        .sw-why-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--sw-primary), var(--sw-accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .sw-why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 46px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.28);
+        }
+        .sw-why-card:hover::before { transform: scaleX(1); }
+        .sw-why-icon {
+            width: 68px; height: 68px;
+            border-radius: 18px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+        .sw-why-card:hover .sw-why-icon { transform: scale(1.12) rotate(-6deg); }
+        .sw-why-icon.teal   { background: rgba(29, 91, 121, 0.12);  color: var(--sw-primary); }
+        .sw-why-icon.amber  { background: rgba(224, 122, 47, 0.14); color: var(--sw-accent); }
+        .sw-why-icon.sage   { background: rgba(123, 168, 140, 0.20); color: var(--sw-sage-d); }
+        .sw-why-icon.purple { background: rgba(139, 92, 246, 0.14); color: #6D28D9; }
+        .sw-why-card h3 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--sw-text);
+            margin-bottom: 10px;
+        }
+        .sw-why-card p {
+            font-size: 0.85rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           SECTION 3 — VIDEO / STORY
+           ========================================================= */
+        .sw-video {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-video-wrap {
+            position: relative;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px var(--sw-shadow-hi);
+            background: linear-gradient(135deg, var(--sw-primary), var(--sw-primary-d));
+            aspect-ratio: 16/8;
+            border: 1px solid var(--sw-border);
+        }
+        .sw-video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .sw-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(29, 91, 121, 0.25) 0%, rgba(20, 69, 92, 0.75) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+        .sw-video-play {
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6);
+            animation: pulse 2s infinite;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
+        }
+        .sw-video-play:hover {
+            transform: scale(1.08);
+            background: var(--sw-accent-d);
+        }
+        @keyframes pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6); }
+            70%  { box-shadow: 0 0 0 24px rgba(224, 122, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0); }
+        }
+        .sw-video-overlay h3 {
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+            max-width: 640px;
+        }
+        .sw-video-overlay p {
+            font-size: 0.92rem;
+            color: #D8E4EC;
+            max-width: 540px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           SECTION 4 — VOLUNTEER ROLES (6 role cards with images)
+           ========================================================= */
+        .sw-roles {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-roles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+        .sw-role-card {
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 10px 26px var(--sw-shadow);
+            transition: all 0.4s ease;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .sw-role-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.28);
+        }
+        .sw-role-image {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--sw-primary), var(--sw-primary-d));
+        }
+        .sw-role-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .sw-role-card:hover .sw-role-image img { transform: scale(1.08); }
+        .sw-role-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(20, 69, 92, 0.55) 100%);
+            pointer-events: none;
+        }
+        .sw-role-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--sw-primary);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            z-index: 2;
+            border-left: 3px solid var(--sw-accent);
+        }
+        .sw-role-content {
+            padding: 26px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .sw-role-content h3 {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .sw-role-content .role-meta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .sw-role-content .role-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+        .sw-role-content .role-meta i { color: var(--sw-accent); font-size: 0.75rem; }
+        .sw-role-content p {
+            font-size: 0.85rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+            margin-bottom: 18px;
+            flex: 1;
+        }
+        .sw-role-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--sw-accent);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+        .sw-role-link:hover { color: var(--sw-accent-d); gap: 12px; }
+        .sw-role-link i { font-size: 0.7rem; transition: transform 0.3s; }
+        .sw-role-link:hover i { transform: translateX(3px); }
+
+        /* =========================================================
+           SECTION 5 — HOW IT WORKS (4-step timeline)
+           ========================================================= */
+        .sw-steps {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-steps-wrap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        .sw-steps-wrap::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 8%;
+            right: 8%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--sw-border), var(--sw-border), transparent);
+            z-index: 0;
+        }
+        .sw-step {
+            background: #fff;
+            border-radius: 18px;
+            padding: 26px 22px;
+            text-align: center;
+            border: 1px solid var(--sw-border);
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+            min-width: 0;
+        }
+        .sw-step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px var(--sw-shadow-hi);
+            border-color: rgba(224, 122, 47, 0.32);
+        }
+        .sw-step-num {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sw-primary), var(--sw-primary-d));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0 auto 18px;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 22px rgba(29, 91, 121, 0.30);
+            transition: transform 0.4s ease;
+        }
+        .sw-step:hover .sw-step-num {
+            transform: scale(1.08);
+            background: linear-gradient(135deg, var(--sw-accent), var(--sw-accent-d));
+        }
+        .sw-step h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 8px;
+        }
+        .sw-step p {
+            font-size: 0.82rem;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           SECTION 6 — VOLUNTEER STORIES (3 testimonial cards)
+           ========================================================= */
+        .sw-stories {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-stories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .sw-story {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 26px;
+            border: 1px solid var(--sw-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+        }
+        .sw-story::before {
+            content: '\201C';
+            position: absolute;
+            top: 12px;
+            right: 22px;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            color: rgba(224, 122, 47, 0.14);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .sw-story:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 46px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.28);
+        }
+        .sw-story-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 14px;
+            color: var(--sw-accent);
+            font-size: 0.85rem;
+        }
+        .sw-story-text {
+            font-size: 0.92rem;
+            color: var(--sw-text);
+            line-height: 1.75;
+            margin-bottom: 22px;
+            font-weight: 500;
+        }
+        .sw-story-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-top: 18px;
+            border-top: 1px solid var(--sw-border);
+        }
+        .sw-story-avatar {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--sw-primary), var(--sw-primary-d));
+            flex-shrink: 0;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 14px var(--sw-shadow);
+        }
+        .sw-story-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .sw-story-author-info strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            line-height: 1.2;
+        }
+        .sw-story-author-info span {
+            font-size: 0.74rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           SECTION 7 — VOLUNTEER STATS (impact numbers)
+           ========================================================= */
+        .sw-stats {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+        }
+        .sw-stats-wrap {
+            background:
+                linear-gradient(135deg, rgba(29, 91, 121, 0.94) 0%, rgba(20, 69, 92, 0.98) 100%),
+                url('swo12.webp') center/cover no-repeat;
+            background-blend-mode: multiply;
+            border-radius: 26px;
+            padding: 60px 50px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(29, 91, 121, 0.30);
+            width: 100%;
+        }
+        .sw-stats-wrap::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.22);
+            pointer-events: none;
+        }
+        .sw-stats-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            background: rgba(123, 168, 140, 0.22);
+            pointer-events: none;
+        }
+        .sw-stats-inner { position: relative; z-index: 2; }
+        .sw-stats-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .sw-stats-title h2 {
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .sw-stats-title h2 span { color: #FFD9B3; }
+        .sw-stats-title p {
+            font-size: 0.95rem;
+            color: #D8E4EC;
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .sw-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .sw-stat-block {
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .sw-stat-block:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(224, 122, 47, 0.5);
+        }
+        .sw-stat-block i {
+            font-size: 1.7rem;
+            color: #FFD9B3;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .sw-stat-block strong {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .sw-stat-block span {
+            font-size: 0.74rem;
+            color: #B5CDD8;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           SECTION 8 — JOIN CTA + FORM
+           ========================================================= */
+        .sw-join {
+            max-width: 1200px;
+            margin: 100px auto 80px;
+            padding: 0 20px;
+        }
+        .sw-join-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: #fff;
+            border-radius: 26px;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 24px 60px var(--sw-shadow);
+            overflow: hidden;
+            width: 100%;
+        }
+        .sw-join-image {
+            position: relative;
+            background: linear-gradient(135deg, var(--sw-primary), var(--sw-primary-d));
+            overflow: hidden;
+            min-height: 520px;
+        }
+        .sw-join-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.95;
+            transition: transform 0.6s ease;
+        }
+        .sw-join-image:hover img { transform: scale(1.05); }
+        .sw-join-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(29, 91, 121, 0.30) 0%, rgba(20, 69, 92, 0.85) 100%);
+        }
+        .sw-join-image-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 34px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: #fff;
+        }
+        .sw-join-image-content .sw-form-image-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(224, 122, 47, 0.25);
+            color: #FFD9B3;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            width: fit-content;
+            border: 1px solid rgba(224, 122, 47, 0.45);
+        }
+        .sw-join-image-content h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+        .sw-join-image-content h3 span { color: #FFD9B3; }
+        .sw-join-image-content p {
+            font-size: 0.9rem;
+            color: #D8E4EC;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .sw-join-perks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .sw-join-perk {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: #D8E4EC;
+            font-weight: 600;
+        }
+        .sw-join-perk i {
+            color: var(--sw-accent);
+            font-size: 0.9rem;
+            width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sw-join-content {
+            padding: 44px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+        .sw-join-content .sw-form-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            width: fit-content;
+            border: 1px solid var(--sw-border);
+        }
+        .sw-join-content .sw-form-tag i { color: var(--sw-accent); }
+        .sw-join-content h2 {
+            font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .sw-join-content h2 span { color: var(--sw-accent); }
+        .sw-join-content > p {
+            font-size: 0.88rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+            margin-bottom: 22px;
+        }
+
+        .sw-feedback {
+            display: none;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .sw-feedback.show { display: block; }
+        .sw-feedback.success {
+            background: #ECFDF5;
+            color: #065F46;
+            border: 1px solid #A7F3D0;
+            border-left: 4px solid #10B981;
+        }
+        .sw-feedback.error {
+            background: #FEF2F2;
+            color: #991B1B;
+            border: 1px solid #FECACA;
+            border-left: 4px solid #DC2626;
+        }
+        .sw-feedback i { margin-right: 6px; }
+
+        .sw-join-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            width: 100%;
+            align-items: start;
+        }
+        .sw-join-form-grid .full { grid-column: 1 / -1; }
+        .sw-field {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+        }
+        .sw-input-group { position: relative; width: 100%; min-width: 0; }
+        .sw-input-group i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--sw-primary);
+            font-size: 0.85rem;
+            width: 1.1rem;
+            text-align: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .sw-input-group input,
+        .sw-input-group select {
+            width: 100%;
+            max-width: 100%;
+            padding: 0.72rem 0.9rem 0.72rem 2.5rem;
+            border: 1.5px solid #E2E8ED;
+            border-radius: 10px;
+            font-size: 0.87rem;
+            background: var(--sw-bg);
+            transition: all 0.2s ease;
+            outline: none;
+            color: var(--sw-text);
+            font-family: inherit;
+        }
+        .sw-input-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            padding-right: 2.5rem;
+            cursor: pointer;
+            background-image: url("swo13.webp");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 12px;
+        }
+        .sw-input-group input:focus,
+        .sw-input-group select:focus {
+            border-color: var(--sw-primary);
+            box-shadow: 0 0 0 3px rgba(29, 91, 121, 0.15);
+            background: #fff;
+        }
+        .sw-input-group input::placeholder { color: #8B98A5; font-weight: 400; }
+
+        .sw-field.has-error .sw-input-group input,
+        .sw-field.has-error .sw-input-group select {
+            border-color: #D32F2F;
+            background: #FFF7F7;
+        }
+        .sw-field.has-error .sw-input-group i { color: #D32F2F; }
+
+        .sw-error-msg {
+            color: #D32F2F;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-top: 5px;
+            display: none;
+            padding-left: 0.3rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+        .sw-error-msg.show { display: block; }
+        .sw-error-msg i { font-size: 0.68rem; margin-right: 4px; }
+
+        .sw-submit-row {
+            grid-column: 1 / -1;
+            margin-top: 4px;
+        }
+        .sw-submit-btn {
+            width: 100%;
+            padding: 0.88rem 1rem;
+            background: var(--sw-accent);
+            color: #fff;
+            border: 2px solid var(--sw-accent);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: inherit;
+            box-shadow: 0 6px 18px rgba(224, 122, 47, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .sw-submit-btn:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(196, 99, 28, 0.45);
+        }
+        .sw-submit-btn:disabled { opacity: 0.75; cursor: wait; transform: none; }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 992px) {
+            .sw-hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .sw-why-grid { grid-template-columns: repeat(2, 1fr); }
+            .sw-roles-grid { grid-template-columns: repeat(2, 1fr); }
+            .sw-steps-wrap { grid-template-columns: repeat(2, 1fr); }
+            .sw-steps-wrap::before { display: none; }
+            .sw-stories-grid { grid-template-columns: repeat(2, 1fr); }
+            .sw-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .sw-join-wrap { grid-template-columns: 1fr; }
+            .sw-join-image { min-height: 340px; }
+            .sw-join-image-content { padding: 32px 26px; }
+            .sw-join-content { padding: 36px 28px; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 90px; }
+            .sw-hero { padding: 130px 20px 90px; margin-top: -90px; }
+            .sw-why, .sw-video, .sw-roles, .sw-steps, .sw-stories, .sw-stats, .sw-join { margin-top: 70px; }
+            .sw-video-wrap { aspect-ratio: 16/10; }
+            .sw-video-play { width: 70px; height: 70px; font-size: 1.3rem; }
+            .sw-stats-wrap { padding: 46px 26px; border-radius: 20px; }
+            .sw-join-wrap { border-radius: 20px; }
+            .sw-join { margin-bottom: 60px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding-top: 84px; }
+            .sw-hero { padding: 120px 18px 80px; }
+            .sw-why, .sw-video, .sw-roles, .sw-steps, .sw-stories, .sw-stats, .sw-join { padding: 0 16px; }
+            .sw-hero-stats { grid-template-columns: 1fr; gap: 12px; margin-top: 44px; }
+            .sw-why-grid { grid-template-columns: 1fr; }
+            .sw-roles-grid { grid-template-columns: 1fr; }
+            .sw-steps-wrap { grid-template-columns: 1fr; }
+            .sw-stories-grid { grid-template-columns: 1fr; }
+            .sw-stats-grid { grid-template-columns: 1fr; }
+            .sw-join-form-grid { grid-template-columns: 1fr; }
+            .sw-join-content { padding: 28px 20px; }
+            .sw-join-image-content { padding: 24px 20px; }
+            .sw-join-image-content h3 { font-size: 1.4rem; }
+            .sw-btn { width: 100%; justify-content: center; }
+            .sw-hero-buttons { flex-direction: column; }
+            .sw-video-overlay h3 { font-size: 1.2rem; }
+            .sw-video-overlay p { font-size: 0.82rem; }
+            .sw-stat-block strong { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- ============================================================
+         SECTION 1 — HERO with BG IMAGE + floating stats
+         ============================================================ -->
+    <section class="sw-hero">
+        <div class="sw-hero-inner">
+            <div class="sw-hero-badge" data-aos="fade-down" data-aos-duration="700">
+                <i class="fas fa-people-carry-box"></i> Join 186 Active Volunteers
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                Be the <span>Change</span> You Want to See
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                Every hour you give becomes a meal for a family, a book for a child, a check-up for a mother.
+                Become a volunteer today — and turn your compassion into lasting impact.
+            </p>
+            <div class="sw-hero-buttons" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <a href="404.html" class="sw-btn primary">
+                    <i class="fas fa-hand-holding-heart"></i> Join as Volunteer
+                </a>
+                <a href="404.html" class="sw-btn outline-white">
+                    <i class="fas fa-circle-play"></i> Watch Our Story
+                </a>
+            </div>
+            <div class="sw-breadcrumb" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Volunteer</span>
+            </div>
+
+            <div class="sw-hero-stats">
+                <div class="sw-hero-stat" data-aos="zoom-in" data-aos-delay="650" data-aos-duration="600">
+                    <strong>186</strong>
+                    <span>Active Volunteers</span>
+                </div>
+                <div class="sw-hero-stat" data-aos="zoom-in" data-aos-delay="750" data-aos-duration="600">
+                    <strong>4,820</strong>
+                    <span>Lives Impacted</span>
+                </div>
+                <div class="sw-hero-stat" data-aos="zoom-in" data-aos-delay="850" data-aos-duration="600">
+                    <strong>6</strong>
+                    <span>Districts Served</span>
+                </div>
+                <div class="sw-hero-stat" data-aos="zoom-in" data-aos-delay="950" data-aos-duration="600">
+                    <strong>12,400</strong>
+                    <span>Hours Contributed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — WHY VOLUNTEER
+         ============================================================ -->
+    <section class="sw-why">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-star"></i> The Rewards</div>
+            <h2>Why <span>Volunteer</span> With Us?</h2>
+            <p>Volunteering isn't just about giving — it's about growing, connecting, and discovering what you're truly capable of.</p>
+        </div>
+
+        <div class="sw-why-grid">
+            <div class="sw-why-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="sw-why-icon teal"><i class="fas fa-heart-pulse"></i></div>
+                <h3>Create Real Impact</h3>
+                <p>Your hours become meals, books, medicines, and hope for real people in your community.</p>
+            </div>
+
+            <div class="sw-why-card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="sw-why-icon amber"><i class="fas fa-people-group"></i></div>
+                <h3>Build a Community</h3>
+                <p>Meet like-minded people who share your values. Many of our volunteers become lifelong friends.</p>
+            </div>
+
+            <div class="sw-why-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="sw-why-icon sage"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Learn New Skills</h3>
+                <p>Free access to our training programs — leadership, communication, first aid, and program management.</p>
+            </div>
+
+            <div class="sw-why-card" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                <div class="sw-why-icon purple"><i class="fas fa-award"></i></div>
+                <h3>Earn Recognition</h3>
+                <p>Certificates, references, and our annual "Volunteer of the Year" award for outstanding contributors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — VIDEO STORY
+         ============================================================ -->
+    <section class="sw-video">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-video"></i> Our Story</div>
+            <h2>See the <span>Impact</span> in Action</h2>
+            <p>Watch how a single volunteer's weekend transforms lives — and why thousands keep coming back.</p>
+        </div>
+
+        <div class="sw-video-wrap" data-aos="zoom-in" data-aos-duration="900">
+            <video autoplay muted loop playsinline poster="swo14.webp">
+                <source src="swov4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="sw-video-overlay">
+                <!-- <div class="sw-video-play" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="700">
+                    <i class="fas fa-play"></i>
+                </div> -->
+                <h3 data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                    A Weekend That Changed 200 Lives
+                </h3>
+                <p data-aos="fade-up" data-aos-delay="450" data-aos-duration="700">
+                    From dawn to dusk, our volunteers packed meals, taught classes, and ran health checks —
+                    all for communities that needed it most.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — VOLUNTEER ROLES
+         ============================================================ -->
+    <section class="sw-roles">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-list-check"></i> Pick Your Path</div>
+            <h2>Volunteer <span>Roles</span> Available</h2>
+            <p>Whatever your skill or schedule, there's a place for you. Choose the role that fits your strengths and time.</p>
+        </div>
+
+        <div class="sw-roles-grid">
+
+            <div class="sw-role-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="sw-role-image">
+                    <span class="sw-role-badge">Most Needed</span>
+                    <img src="swo16.webp" alt="Teaching volunteer" loading="lazy">
+                </div>
+                <div class="sw-role-content">
+                    <h3>Teaching &amp; Tutoring</h3>
+                    <div class="role-meta">
+                        <span><i class="fas fa-clock"></i> 4–8 hrs/week</span>
+                        <span><i class="fas fa-location-dot"></i> On-site</span>
+                    </div>
+                    <p>Help children from underserved communities with reading, math, and life skills. No degree needed — just patience and heart.</p>
+                    <a href="404.html" class="sw-role-link">Apply for this role <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="sw-role-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                <div class="sw-role-image">
+                    <span class="sw-role-badge">Flexible</span>
+                    <img src="swo17.webp" alt="Food distribution volunteer" loading="lazy">
+                </div>
+                <div class="sw-role-content">
+                    <h3>Food Distribution</h3>
+                    <div class="role-meta">
+                        <span><i class="fas fa-clock"></i> 3–6 hrs/week</span>
+                        <span><i class="fas fa-location-dot"></i> Field</span>
+                    </div>
+                    <p>Pack and distribute meal kits to families in need. Physically active, deeply rewarding, and always team-led.</p>
+                    <a href="404.html" class="sw-role-link">Apply for this role <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="sw-role-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <div class="sw-role-image">
+                    <span class="sw-role-badge">Medical</span>
+                    <img src="swo18.webp" alt="Health camp volunteer" loading="lazy">
+                </div>
+                <div class="sw-role-content">
+                    <h3>Health Camp Support</h3>
+                    <div class="role-meta">
+                        <span><i class="fas fa-clock"></i> Weekend only</span>
+                        <span><i class="fas fa-location-dot"></i> Rural</span>
+                    </div>
+                    <p>Assist doctors and nurses at our rural health camps. Ideal for medical students and healthcare professionals.</p>
+                    <a href="404.html" class="sw-role-link">Apply for this role <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="sw-role-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="sw-role-image">
+                    <span class="sw-role-badge">Remote</span>
+                    <img src="swo19.webp" alt="Digital volunteer" loading="lazy">
+                </div>
+                <div class="sw-role-content">
+                    <h3>Digital &amp; Design</h3>
+                    <div class="role-meta">
+                        <span><i class="fas fa-clock"></i> 5–10 hrs/week</span>
+                        <span><i class="fas fa-location-dot"></i> Remote</span>
+                    </div>
+                    <p>Help with social media, graphic design, content writing, or web development — from anywhere in the world.</p>
+                    <a href="404.html" class="sw-role-link">Apply for this role <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="sw-role-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                <div class="sw-role-image">
+                    <span class="sw-role-badge">Empowerment</span>
+                    <img src="swo20.webp" alt="Women empowerment volunteer" loading="lazy">
+                </div>
+                <div class="sw-role-content">
+                    <h3>Women Skill Training</h3>
+                    <div class="role-meta">
+                        <span><i class="fas fa-clock"></i> 6 hrs/week</span>
+                        <span><i class="fas fa-location-dot"></i> On-site</span>
+                    </div>
+                    <p>Teach tailoring, cooking, computer basics, or financial literacy to women building their independence.</p>
+                    <a href="404.html" class="sw-role-link">Apply for this role <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="sw-role-card" data-aos="fade-up" data-aos-delay="600" data-aos-duration="700">
+                <div class="sw-role-image">
+                    <span class="sw-role-badge">Logistics</span>
+                    <img src="swo21.webp" alt="Logistics volunteer" loading="lazy">
+                </div>
+                <div class="sw-role-content">
+                    <h3>Logistics &amp; Driving</h3>
+                    <div class="role-meta">
+                        <span><i class="fas fa-clock"></i> Flexible</span>
+                        <span><i class="fas fa-location-dot"></i> Field</span>
+                    </div>
+                    <p>Help transport supplies, aid kits, and volunteers between our warehouse and field locations.</p>
+                    <a href="404.html" class="sw-role-link">Apply for this role <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5 — HOW IT WORKS (4 steps)
+         ============================================================ -->
+    <section class="sw-steps">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-route"></i> Simple Process</div>
+            <h2>How to <span>Get Started</span></h2>
+            <p>From application to your first shift in under a week. Here's exactly how it works.</p>
+        </div>
+
+        <div class="sw-steps-wrap">
+            <div class="sw-step" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="sw-step-num">1</div>
+                <h3>Apply Online</h3>
+                <p>Fill the short application form below. Takes 2 minutes.</p>
+            </div>
+
+            <div class="sw-step" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="sw-step-num">2</div>
+                <h3>Quick Interview</h3>
+                <p>15-minute chat with our coordinator to match you with the right role.</p>
+            </div>
+
+            <div class="sw-step" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="sw-step-num">3</div>
+                <h3>Orientation</h3>
+                <p>Attend our free 2-hour orientation — online or in person.</p>
+            </div>
+
+            <div class="sw-step" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                <div class="sw-step-num">4</div>
+                <h3>Start Volunteering</h3>
+                <p>Pick your shifts and start making a real difference.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6 — VOLUNTEER STORIES
+         ============================================================ -->
+    <section class="sw-stories">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-quote-left"></i> Real Voices</div>
+            <h2>Stories From Our <span>Volunteers</span></h2>
+            <p>Hear from people just like you — who took the first step and never looked back.</p>
+        </div>
+
+        <div class="sw-stories-grid">
+
+            <div class="sw-story" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="sw-story-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="sw-story-text">
+                    "I started by teaching two kids on weekends. Two years later, I've helped 40+ children read.
+                    Nothing in my career has felt more meaningful."
+                </p>
+                <div class="sw-story-author">
+                    <div class="sw-story-avatar">
+                        <img src="swo22.webp" alt="Priya Sharma" loading="lazy">
+                    </div>
+                    <div class="sw-story-author-info">
+                        <strong>Priya Sharma</strong>
+                        <span>Teaching Volunteer · 2 years</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sw-story" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="sw-story-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="sw-story-text">
+                    "As a nurse, I thought I was busy. But one Sunday a month at the health camp changed my life —
+                    and the lives of hundreds of families."
+                </p>
+                <div class="sw-story-author">
+                    <div class="sw-story-avatar">
+                        <img src="swo23.webp" alt="Kavita Rao" loading="lazy">
+                    </div>
+                    <div class="sw-story-author-info">
+                        <strong>Kavita Rao</strong>
+                        <span>Medical Volunteer · 18 months</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sw-story" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="sw-story-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="sw-story-text">
+                    "I design posters from my laptop in the evenings. It's small, but knowing it brings people
+                    to our camps makes every minute worth it."
+                </p>
+                <div class="sw-story-author">
+                    <div class="sw-story-avatar">
+                        <img src="swo24.webp" alt="Arjun Mehta" loading="lazy">
+                    </div>
+                    <div class="sw-story-author-info">
+                        <strong>Arjun Mehta</strong>
+                        <span>Design Volunteer · 1 year</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7 — IMPACT STATS
+         ============================================================ -->
+    <section class="sw-stats">
+        <div class="sw-stats-wrap">
+            <div class="sw-stats-inner">
+                <div class="sw-stats-title" data-aos="fade-up" data-aos-duration="700">
+                    <h2>Our Collective <span>Impact</span></h2>
+                    <p>What 186 volunteers achieved together — one hour, one meal, one life at a time.</p>
+                </div>
+
+                <div class="sw-stats-grid">
+                    <div class="sw-stat-block" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600">
+                        <i class="fas fa-clock"></i>
+                        <strong>12,400</strong>
+                        <span>Volunteer Hours</span>
+                    </div>
+                    <div class="sw-stat-block" data-aos="zoom-in" data-aos-delay="250" data-aos-duration="600">
+                        <i class="fas fa-utensils"></i>
+                        <strong>48,600</strong>
+                        <span>Meals Served</span>
+                    </div>
+                    <div class="sw-stat-block" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="600">
+                        <i class="fas fa-book-open"></i>
+                        <strong>1,000+</strong>
+                        <span>Children Educated</span>
+                    </div>
+                    <div class="sw-stat-block" data-aos="zoom-in" data-aos-delay="550" data-aos-duration="600">
+                        <i class="fas fa-stethoscope"></i>
+                        <strong>3,200</strong>
+                        <span>Health Check-ups</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 8 — JOIN CTA + FORM
+         ============================================================ -->
+    <section class="sw-join">
+        <div class="sw-section-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="sw-section-tag"><i class="fas fa-hand-holding-heart"></i> Join Us</div>
+            <h2>Ready to <span>Volunteer?</span></h2>
+            <p>Fill the form below and our coordinator will reach out within 48 hours.</p>
+        </div>
+
+        <div class="sw-join-wrap" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+
+            <div class="sw-join-image">
+                <img src="swo25.webp"
+                     alt="Volunteers working together"
+                     onerror="this.style.display='none';" />
+                <div class="sw-join-image-content">
+                    <div class="sw-form-image-tag">
+                        <i class="fas fa-hand-holding-heart"></i> You Belong Here
+                    </div>
+                    <h3>Join a family of <span>186 change-makers</span> today.</h3>
+                    <p>No experience required. Just bring your heart, and we'll take care of the rest.</p>
+                    <div class="sw-join-perks">
+                        <div class="sw-join-perk"><i class="fas fa-check-circle"></i> Free orientation &amp; training</div>
+                        <div class="sw-join-perk"><i class="fas fa-check-circle"></i> Flexible shifts — weekdays or weekends</div>
+                        <div class="sw-join-perk"><i class="fas fa-check-circle"></i> Certificate after 50 hours</div>
+                        <div class="sw-join-perk"><i class="fas fa-check-circle"></i> Remote roles available</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sw-join-content">
+                <div class="sw-form-tag"><i class="fas fa-user-plus"></i> Volunteer Sign-Up</div>
+                <h2>Apply &amp; <span>start your journey</span></h2>
+                <p>Fill in your details and we'll match you with the perfect volunteer role.</p>
+
+                <div class="sw-feedback" id="swFeedback" role="status" aria-live="polite"></div>
+
+                <form id="swVolunteerForm" novalidate>
+                    <div class="sw-join-form-grid">
+
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="swVName" placeholder="Enter your full name" />
+                            </div>
+                            <div class="sw-error-msg" id="swVNameError"><i class="fas fa-circle-exclamation"></i>Please enter your full name.</div>
+                        </div>
+
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="swVEmail" placeholder="Enter your email" />
+                            </div>
+                            <div class="sw-error-msg" id="swVEmailError"><i class="fas fa-circle-exclamation"></i>Please enter a valid email.</div>
+                        </div>
+
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="swVPhone" placeholder="10-digit phone number" />
+                            </div>
+                            <div class="sw-error-msg" id="swVPhoneError"><i class="fas fa-circle-exclamation"></i>Please enter a valid 10-digit phone.</div>
+                        </div>
+
+                        <div class="sw-field">
+                            <div class="sw-input-group">
+                                <i class="fas fa-list-check"></i>
+                                <select id="swVRole">
+                                    <option value="">Select a role</option>
+                                    <option value="teaching">Teaching &amp; Tutoring</option>
+                                    <option value="food">Food Distribution</option>
+                                    <option value="medical">Health Camp Support</option>
+                                    <option value="digital">Digital &amp; Design</option>
+                                    <option value="women">Women Skill Training</option>
+                                    <option value="logistics">Logistics &amp; Driving</option>
+                                </select>
+                            </div>
+                            <div class="sw-error-msg" id="swVRoleError"><i class="fas fa-circle-exclamation"></i>Please select a role.</div>
+                        </div>
+
+                        <div class="sw-field full">
+                            <div class="sw-input-group">
+                                <i class="fas fa-clock"></i>
+                                <select id="swVAvailability">
+                                    <option value="">Select availability</option>
+                                    <option value="weekday">Weekdays (Mon–Fri)</option>
+                                    <option value="weekend">Weekends only</option>
+                                    <option value="both">Both weekdays &amp; weekends</option>
+                                    <option value="remote">Remote / Flexible</option>
+                                </select>
+                            </div>
+                            <div class="sw-error-msg" id="swVAvailError"><i class="fas fa-circle-exclamation"></i>Please select availability.</div>
+                        </div>
+
+                        <div class="sw-submit-row">
+                            <button type="submit" class="sw-submit-btn" id="swVSubmitBtn">
+                                <i class="fas fa-paper-plane"></i> Submit Application
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('header.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Header not found'))
+                .then(d => { document.getElementById('header-placeholder').innerHTML = d; initHeader(); })
+                .catch(err => console.error('Header load failed:', err));
+
+            fetch('footer.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Footer not found'))
+                .then(d => { document.getElementById('footer-placeholder').innerHTML = d; initFooter(); })
+                .catch(err => console.error('Footer load failed:', err));
+        });
+
+        function initHeader() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const header = document.getElementById('mainHeader');
+
+            if (menuBtn && mobileMenu && mobileOverlay) {
+                menuBtn.addEventListener('click', e => {
+                    e.preventDefault(); e.stopPropagation();
+                    mobileMenu.classList.add('open');
+                    mobileOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            if (closeBtn && mobileMenu && mobileOverlay) {
+                closeBtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', e => {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 20);
+                });
+            }
+        }
+
+        /* =========================================================
+           FOOTER INIT — FIXED
+           Hamburger toggle uses preventDefault (it's a <button>).
+           Nav links & social icons: NO preventDefault — native <a href> navigates.
+           ========================================================= */
+        function initFooter() {
+            const footerHamburger = document.getElementById('mobileHamburger');
+            const footerNavMenu = document.getElementById('mobileNavMenu');
+
+            if (footerHamburger && footerNavMenu) {
+                const newH = footerHamburger.cloneNode(true);
+                footerHamburger.parentNode.replaceChild(newH, footerHamburger);
+
+                newH.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    footerNavMenu.classList.toggle('open');
+                });
+
+                footerNavMenu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        footerNavMenu.classList.remove('open');
+                        // NO preventDefault — native <a href> navigates
+                    });
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!footerNavMenu.classList.contains('open')) return;
+                    if (footerNavMenu.contains(e.target)) return;
+                    if (newH.contains(e.target)) return;
+                    footerNavMenu.classList.remove('open');
+                });
+            }
+        }
+
+        // ============================
+        // VOLUNTEER FORM VALIDATION → 404.html
+        // ============================
+        (function volunteerFormLogic() {
+            const form = document.getElementById('swVolunteerForm');
+            const nameInput = document.getElementById('swVName');
+            const emailInput = document.getElementById('swVEmail');
+            const phoneInput = document.getElementById('swVPhone');
+            const roleSelect = document.getElementById('swVRole');
+            const availSelect = document.getElementById('swVAvailability');
+            const submitBtn = document.getElementById('swVSubmitBtn');
+            const feedback = document.getElementById('swFeedback');
+
+            const nameErr = document.getElementById('swVNameError');
+            const emailErr = document.getElementById('swVEmailError');
+            const phoneErr = document.getElementById('swVPhoneError');
+            const roleErr = document.getElementById('swVRoleError');
+            const availErr = document.getElementById('swVAvailError');
+
+            function setFieldError(input, errEl, show) {
+                const field = input.closest('.sw-field');
+                if (show) {
+                    errEl.classList.add('show');
+                    if (field) field.classList.add('has-error');
+                } else {
+                    errEl.classList.remove('show');
+                    if (field) field.classList.remove('has-error');
+                }
+            }
+            const clearG = () => { feedback.className = 'sw-feedback'; feedback.innerHTML = ''; };
+            const showG = (msg, type) => {
+                feedback.className = 'sw-feedback show ' + type;
+                feedback.innerHTML = (type === 'success'
+                    ? '<i class="fas fa-check-circle"></i>'
+                    : '<i class="fas fa-exclamation-circle"></i>') + msg;
+            };
+
+            nameInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+                if (this.value.trim()) setFieldError(nameInput, nameErr, false);
+                clearG();
+            });
+            emailInput.addEventListener('input', () => {
+                if (emailInput.value.trim()) setFieldError(emailInput, emailErr, false);
+                clearG();
+            });
+            phoneInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+                if (this.value.trim()) setFieldError(phoneInput, phoneErr, false);
+                clearG();
+            });
+            roleSelect.addEventListener('change', () => {
+                if (roleSelect.value) setFieldError(roleSelect, roleErr, false);
+                clearG();
+            });
+            availSelect.addEventListener('change', () => {
+                if (availSelect.value) setFieldError(availSelect, availErr, false);
+                clearG();
+            });
+
+            const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            const phoneOk = v => /^[0-9]{10}$/.test(v);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                clearG();
+                let valid = true;
+
+                const name = nameInput.value.trim();
+                if (!name || name.length < 2) { setFieldError(nameInput, nameErr, true); valid = false; }
+                else setFieldError(nameInput, nameErr, false);
+
+                const email = emailInput.value.trim().toLowerCase();
+                if (!email || !emailOk(email)) { setFieldError(emailInput, emailErr, true); valid = false; }
+                else setFieldError(emailInput, emailErr, false);
+
+                const phone = phoneInput.value.trim();
+                if (!phone || !phoneOk(phone)) { setFieldError(phoneInput, phoneErr, true); valid = false; }
+                else setFieldError(phoneInput, phoneErr, false);
+
+                if (!roleSelect.value) { setFieldError(roleSelect, roleErr, true); valid = false; }
+                else setFieldError(roleSelect, roleErr, false);
+
+                if (!availSelect.value) { setFieldError(availSelect, availErr, true); valid = false; }
+                else setFieldError(availSelect, availErr, false);
+
+                if (!valid) {
+                    const firstErr = form.querySelector('.sw-field.has-error');
+                    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    showG('Please fix the highlighted fields and try again.', 'error');
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Application Sent!';
+                submitBtn.style.background = '#10B981';
+                submitBtn.style.borderColor = '#10B981';
+                showG('Thank you, <strong>' + name.split(' ')[0] + '</strong>! Your volunteer application has been received. Redirecting…', 'success');
+                setTimeout(() => window.location.href = '404.html', 1500);
+            });
+
+            form.querySelectorAll('input, select').forEach(el => {
+                el.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') { e.preventDefault(); submitBtn.click(); }
+                });
+            });
+        })();
+
+        console.log('✅ Volunteer page ready — footer links navigate natively, form redirects to 404.html');
+    </script>
+</body>
+</html>

@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Welfare Organization - Impact & Reports</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           SOCIAL WELFARE ORGANIZATION — IMPACT & REPORTS PAGE
+           Font: Inter only (same as Contact & Volunteer)
+           Max weight: 800 · No italic · No serif
+           ========================================================= */
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-sage-d:    #4E8A63;
+            --sw-bg:        #FBF8F4;
+            --sw-bg-alt:    #F2EDE5;
+            --sw-text:      #1C2A38;
+            --sw-text-soft: #4A5560;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+            --sw-shadow-hi: rgba(28, 42, 56, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+        html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+
+        body {
+            background: var(--sw-bg);
+            min-height: 100vh;
+            padding-top: 110px;
+            color: var(--sw-text);
+            line-height: 1.5;
+        }
+
+        section { overflow-x: clip; max-width: 100vw; }
+
+        /* ---------- Section head ---------- */
+        .sw-head {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 52px;
+            padding: 0 16px;
+        }
+        .sw-head .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 16px;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+        .sw-head .eyebrow::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2px;
+            background: var(--sw-accent);
+            border-radius: 2px;
+        }
+        .sw-head h2 {
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+        .sw-head h2 span { color: var(--sw-accent); }
+        .sw-head p {
+            font-size: 0.95rem;
+            color: var(--sw-text-soft);
+            line-height: 1.75;
+        }
+
+        /* ---------- Generic buttons ---------- */
+        .sw-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.86rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: 2px solid transparent;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        .sw-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 22px rgba(224, 122, 47, 0.35);
+        }
+        .sw-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(196, 99, 28, 0.45);
+        }
+        .sw-btn.teal {
+            background: var(--sw-primary);
+            color: #fff;
+            border-color: var(--sw-primary);
+            box-shadow: 0 8px 22px rgba(29, 91, 121, 0.30);
+        }
+        .sw-btn.teal:hover {
+            background: var(--sw-primary-d);
+            border-color: var(--sw-primary-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(20, 69, 92, 0.40);
+        }
+        .sw-btn.ghost {
+            background: transparent;
+            color: var(--sw-primary);
+            border-color: var(--sw-primary);
+        }
+        .sw-btn.ghost:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .sw-btn.white {
+            background: #fff;
+            color: var(--sw-primary);
+            border-color: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+        }
+        .sw-btn.white:hover {
+            background: var(--sw-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+        }
+        .sw-btn.small {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+        }
+        .sw-btn.full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* =========================================================
+           SECTION 1 — HERO
+           ========================================================= */
+        .ih-hero {
+            max-width: 1300px;
+            margin: -110px auto 0;
+            padding: 180px 24px 100px;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 60px;
+            align-items: center;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(224, 122, 47, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(29, 91, 121, 0.10) 0%, transparent 55%);
+            width: 100%;
+            position: relative;
+        }
+        .ih-hero-left { min-width: 0; }
+        .ih-hero-issue {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 20px;
+            padding: 6px 14px;
+            background: rgba(224, 122, 47, 0.10);
+            border-radius: 6px;
+            border-left: 3px solid var(--sw-accent);
+        }
+        .ih-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+            margin-bottom: 24px;
+        }
+        .ih-hero h1 span {
+            color: var(--sw-accent);
+            position: relative;
+            display: inline-block;
+        }
+        .ih-hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: rgba(224, 122, 47, 0.20);
+            z-index: -1;
+            border-radius: 2px;
+        }
+        .ih-hero-lead {
+            font-size: clamp(1rem, 1.4vw, 1.1rem);
+            color: var(--sw-text-soft);
+            line-height: 1.75;
+            margin-bottom: 30px;
+            max-width: 540px;
+            font-weight: 500;
+        }
+        .ih-hero-meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+        .ih-hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding-left: 14px;
+            border-left: 3px solid var(--sw-border);
+        }
+        .ih-hero-meta-item strong {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--sw-primary);
+            letter-spacing: -0.02em;
+        }
+        .ih-hero-meta-item span {
+            font-size: 0.7rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+        .ih-hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .ih-hero-right {
+            position: relative;
+            min-height: 520px;
+        }
+        .ih-hero-photo {
+            position: absolute;
+            width: 78%;
+            height: 82%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px var(--sw-shadow-hi);
+            border: 6px solid #fff;
+        }
+        .ih-hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ih-hero-photo.main { top: 0; left: 0; z-index: 2; }
+        .ih-hero-photo.secondary {
+            bottom: 0;
+            right: 0;
+            width: 55%;
+            height: 60%;
+            z-index: 3;
+        }
+        .ih-hero-badge {
+            position: absolute;
+            top: 15%;
+            right: 0;
+            z-index: 4;
+            background: var(--sw-accent);
+            color: #fff;
+            padding: 20px 22px;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(224, 122, 47, 0.45);
+            text-align: center;
+            border: 5px solid #fff;
+        }
+        .ih-hero-badge strong {
+            display: block;
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+        .ih-hero-badge span {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.95;
+            margin-top: 4px;
+            display: block;
+        }
+        .ih-hero-dots {
+            position: absolute;
+            bottom: 8%;
+            left: 2%;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .ih-hero-dots span {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            opacity: 0.25;
+        }
+
+        /* =========================================================
+           SECTION 2 — LIVE COUNTER DASHBOARD
+           ========================================================= */
+        .ih-dashboard {
+            background: var(--sw-primary);
+            padding: 80px 24px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ih-dashboard::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(224, 122, 47, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .ih-dashboard::after {
+            content: '';
+            position: absolute;
+            bottom: -150px; left: -150px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(123, 168, 140, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .ih-dashboard-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .ih-dashboard-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+            color: #fff;
+        }
+        .ih-dashboard-head h2 {
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            max-width: 520px;
+        }
+        .ih-dashboard-head h2 span { color: #FFD9B3; }
+        .ih-dashboard-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+        .ih-dashboard-live .dot {
+            width: 8px; height: 8px;
+            background: #4ADE80;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+            animation: livePulse 2s infinite;
+        }
+        @keyframes livePulse {
+            0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+            70%  { box-shadow: 0 0 0 14px rgba(74, 222, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        }
+
+        .ih-dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+        .ih-metric {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 28px 24px;
+            color: #fff;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+        .ih-metric:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: rgba(224, 122, 47, 0.50);
+            transform: translateY(-5px);
+        }
+        .ih-metric::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--sw-accent);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+        .ih-metric:hover::before { transform: scaleY(1); }
+        .ih-metric-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.10;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .ih-metric:hover .ih-metric-bg { opacity: 0.18; }
+        .ih-metric-icon {
+            width: 46px; height: 46px;
+            border-radius: 12px;
+            background: rgba(224, 122, 47, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            color: #FFD9B3;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+        }
+        .ih-metric-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1;
+            color: #fff;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 2;
+        }
+        .ih-metric-label {
+            font-size: 0.78rem;
+            color: #B5CDD8;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 2;
+        }
+        .ih-metric-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.10);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        .ih-metric-bar span {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--sw-accent), var(--sw-sage));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.4s cubic-bezier(.22,.61,.36,1);
+        }
+        .ih-metric-growth {
+            font-size: 0.7rem;
+            color: #4ADE80;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Dashboard action row (NEW) */
+        .ih-dashboard-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 44px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =========================================================
+           SECTION 3 — IMPACT BY PROGRAM
+           ========================================================= */
+        .ih-programs {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 100px 24px;
+        }
+        .ih-programs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+        }
+        .ih-program-row {
+            display: grid;
+            grid-template-columns: 220px 1fr 200px;
+            gap: 30px;
+            align-items: stretch;
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            transition: all 0.4s ease;
+            min-width: 0;
+        }
+        .ih-program-row:hover {
+            box-shadow: 0 20px 48px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.30);
+            transform: translateX(6px);
+        }
+        .ih-program-thumb {
+            position: relative;
+            overflow: hidden;
+            background: var(--sw-primary);
+            min-height: 200px;
+        }
+        .ih-program-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .ih-program-row:hover .ih-program-thumb img { transform: scale(1.08); }
+        .ih-program-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 69, 92, 0.20) 0%, rgba(20, 69, 92, 0.65) 100%);
+        }
+        .ih-program-thumb-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--sw-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+        }
+        .ih-program-content {
+            min-width: 0;
+            padding: 28px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ih-program-content h3 {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+        .ih-program-content p {
+            font-size: 0.86rem;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .ih-program-stats-inline {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+        .ih-program-stats-inline div { display: flex; flex-direction: column; }
+        .ih-program-stats-inline strong {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--sw-primary);
+            letter-spacing: -0.02em;
+        }
+        .ih-program-stats-inline span {
+            font-size: 0.68rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        /* Right actions column (NEW) */
+        .ih-program-actions {
+            padding: 28px 30px 28px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            min-width: 0;
+        }
+        .ih-program-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            justify-content: center;
+        }
+        .ih-program-tag.grow { background: rgba(74, 222, 128, 0.12); color: #15803D; }
+        .ih-program-tag.stable { background: rgba(29, 91, 121, 0.10); color: var(--sw-primary); }
+        .ih-program-tag.boost { background: rgba(224, 122, 47, 0.12); color: var(--sw-accent-d); }
+        .ih-program-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sw-primary);
+            color: var(--sw-primary);
+            background: transparent;
+            font-family: inherit;
+        }
+        .ih-program-btn:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Programs footer buttons (NEW) */
+        .ih-programs-footer {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 46px;
+        }
+
+        /* =========================================================
+           SECTION 4 — YEARLY GROWTH
+           ========================================================= */
+        .ih-growth {
+            background: var(--sw-bg-alt);
+            padding: 100px 24px;
+            margin-top: 40px;
+        }
+        .ih-growth-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .ih-growth-left { min-width: 0; }
+        .ih-growth-left h2 {
+            font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.18;
+            margin-bottom: 18px;
+        }
+        .ih-growth-left h2 span { color: var(--sw-accent); }
+        .ih-growth-left p {
+            font-size: 0.95rem;
+            color: var(--sw-text-soft);
+            line-height: 1.75;
+            margin-bottom: 26px;
+        }
+        .ih-growth-photo {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 26px;
+            aspect-ratio: 16/10;
+            box-shadow: 0 16px 40px var(--sw-shadow);
+            position: relative;
+        }
+        .ih-growth-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ih-growth-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(20, 69, 92, 0.75) 100%);
+        }
+        .ih-growth-photo-tag {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            z-index: 2;
+            color: #fff;
+        }
+        .ih-growth-photo-tag strong {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .ih-growth-photo-tag span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+        }
+
+        .ih-growth-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .ih-growth-legend-item { display: flex; align-items: center; gap: 14px; }
+        .ih-growth-legend-item .swatch {
+            width: 12px; height: 12px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+        .ih-growth-legend-item .swatch.a { background: var(--sw-primary); }
+        .ih-growth-legend-item .swatch.b { background: var(--sw-accent); }
+        .ih-growth-legend-item span {
+            font-size: 0.86rem;
+            color: var(--sw-text);
+            font-weight: 600;
+        }
+        .ih-growth-legend-item strong {
+            margin-left: auto;
+            font-size: 0.95rem;
+            color: var(--sw-text);
+            font-weight: 800;
+        }
+
+        .ih-chart {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px 36px;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 24px 60px var(--sw-shadow);
+            position: relative;
+            min-width: 0;
+        }
+        .ih-chart-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--sw-text-soft);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .ih-chart-sub {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+            margin-bottom: 30px;
+        }
+        .ih-chart-bars {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 14px;
+            height: 260px;
+            padding-bottom: 30px;
+            position: relative;
+        }
+        .ih-chart-bars::before {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            left: 0; right: 0;
+            height: 1px;
+            background: var(--sw-border);
+        }
+        .ih-bar {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            height: 100%;
+            justify-content: flex-end;
+        }
+        .ih-bar-fill {
+            width: 100%;
+            max-width: 60px;
+            border-radius: 8px 8px 0 0;
+            background: linear-gradient(180deg, var(--sw-primary), var(--sw-primary-d));
+            height: 0;
+            transition: height 1.6s cubic-bezier(.22,.61,.36,1);
+            position: relative;
+            overflow: hidden;
+        }
+        .ih-bar-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.15));
+        }
+        .ih-bar.highlight .ih-bar-fill {
+            background: linear-gradient(180deg, var(--sw-accent), var(--sw-accent-d));
+        }
+        .ih-bar-value {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--sw-text);
+            white-space: nowrap;
+        }
+        .ih-bar-label {
+            position: absolute;
+            bottom: -28px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--sw-text-soft);
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================================================
+           SECTION 5 — REPORT VAULT
+           ========================================================= */
+        .ih-vault {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 100px 24px;
+        }
+        .ih-vault-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .ih-vault-card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid var(--sw-border);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .ih-vault-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 55px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.30);
+        }
+        .ih-vault-cover {
+            padding: 32px 26px 24px;
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .ih-vault-cover-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.30;
+            z-index: 0;
+        }
+        .ih-vault-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(29, 91, 121, 0.75) 0%, rgba(20, 69, 92, 0.85) 100%);
+            z-index: 1;
+        }
+        .ih-vault-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            position: relative;
+            z-index: 2;
+        }
+        .ih-vault-cover h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            position: relative;
+            z-index: 2;
+            margin-top: 14px;
+        }
+        .ih-vault-cover .ih-vault-date {
+            font-size: 0.72rem;
+            color: #B5CDD8;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            margin-top: 4px;
+        }
+        .ih-vault-body {
+            padding: 22px 26px 26px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .ih-vault-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed var(--sw-border);
+        }
+        .ih-vault-meta div { display: flex; flex-direction: column; gap: 2px; }
+        .ih-vault-meta strong {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--sw-text);
+        }
+        .ih-vault-meta span {
+            font-size: 0.68rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .ih-vault-desc {
+            font-size: 0.82rem;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex: 1;
+        }
+        .ih-vault-actions { display: flex; gap: 10px; }
+        .ih-vault-btn {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: 2px solid transparent;
+            font-family: inherit;
+        }
+        .ih-vault-btn.dl {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+        }
+        .ih-vault-btn.dl:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+        }
+        .ih-vault-btn.view {
+            background: transparent;
+            color: var(--sw-primary);
+            border-color: var(--sw-primary);
+        }
+        .ih-vault-btn.view:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        /* Vault footer buttons (NEW) */
+        .ih-vault-footer {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 46px;
+        }
+
+        /* =========================================================
+           SECTION 6 — VIDEO TESTIMONIAL (smaller + real controls)
+           ========================================================= */
+        .ih-video {
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            padding: 90px 24px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ih-video::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224, 122, 47, 0.18) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .ih-video-inner {
+            max-width: 1000px;   /* reduced */
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .ih-video-head {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 36px;
+        }
+        .ih-video-head h2 {
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .ih-video-head h2 span { color: #FFD9B3; }
+        .ih-video-head p {
+            font-size: 0.92rem;
+            color: #D8E4EC;
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Reduced video player (16/10 → 16/9 smaller, max-width 800) */
+        .ih-video-player {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 26px 60px rgba(0, 0, 0, 0.40);
+            aspect-ratio: 16/9;
+            max-width: 800px;   /* reduced */
+            margin: 0 auto;
+            border: 5px solid rgba(255, 255, 255, 0.10);
+            background: #000;
+        }
+        .ih-video-player video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Custom controls — Play/Pause */
+        .ih-video-controls {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+            color: #fff;
+            z-index: 3;
+            transition: opacity 0.3s ease;
+        }
+        .ih-video-player:hover .ih-video-controls { opacity: 1; }
+
+        .ih-video-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(224, 122, 47, 0.45);
+        }
+        .ih-video-btn:hover {
+            background: var(--sw-accent-d);
+            transform: scale(1.08);
+        }
+        .ih-video-btn:active { transform: scale(0.96); }
+
+        .ih-video-time {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.4px;
+            min-width: 84px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .ih-video-progress {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.22);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .ih-video-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--sw-accent);
+            border-radius: 6px;
+            transition: width 0.15s linear;
+        }
+        .ih-video-volume {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 6px;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .ih-video-volume:hover { color: var(--sw-accent); }
+
+        /* Big center play overlay */
+        .ih-video-center-play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+        .ih-video-center-play.hide { opacity: 0; }
+        .ih-video-center-play-btn {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6);
+            animation: ihPulse 2s infinite;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+        }
+        .ih-video-center-play-btn:hover {
+            transform: scale(1.08);
+            background: var(--sw-accent-d);
+        }
+        @keyframes ihPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6); }
+            70%  { box-shadow: 0 0 0 22px rgba(224, 122, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0); }
+        }
+
+        .ih-video-caption {
+            text-align: center;
+            color: #D8E4EC;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-top: 26px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .ih-video-caption strong {
+            color: #FFD9B3;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           SECTION 7 — IMPACT GALLERY
+           ========================================================= */
+        .ih-gallery {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 100px 24px;
+        }
+        .ih-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 220px 220px;
+            gap: 20px;
+        }
+        .ih-gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            background: var(--sw-primary);
+        }
+        .ih-gallery-item:hover { transform: scale(1.02); }
+        .ih-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .ih-gallery-item:hover img { transform: scale(1.08); }
+        .ih-gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(20, 69, 92, 0.85) 100%);
+            pointer-events: none;
+        }
+        .ih-gallery-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 22px;
+            color: #fff;
+            z-index: 2;
+        }
+        .ih-gallery-content .cat {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            margin-bottom: 6px;
+        }
+        .ih-gallery-content h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+        .ih-gallery-item.wide { grid-column: span 2; }
+        .ih-gallery-item.tall { grid-row: span 2; }
+
+        /* Gallery footer buttons (NEW) */
+        .ih-gallery-footer {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 46px;
+        }
+
+        /* =========================================================
+           SECTION 8 — TIMELINE
+           ========================================================= */
+        .ih-timeline {
+            background: var(--sw-bg-alt);
+            padding: 100px 24px;
+            margin-top: 40px;
+        }
+        .ih-timeline-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .ih-timeline-list {
+            position: relative;
+            padding-left: 44px;
+        }
+        .ih-timeline-list::before {
+            content: '';
+            position: absolute;
+            left: 13px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--sw-accent), var(--sw-primary), var(--sw-sage));
+            border-radius: 2px;
+        }
+        .ih-timeline-item {
+            position: relative;
+            padding: 0 0 34px 0;
+        }
+        .ih-timeline-item:last-child { padding-bottom: 0; }
+        .ih-timeline-dot {
+            position: absolute;
+            left: -44px;
+            top: 4px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--sw-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--sw-accent);
+            z-index: 2;
+        }
+        .ih-timeline-item:nth-child(2) .ih-timeline-dot { border-color: var(--sw-primary); color: var(--sw-primary); }
+        .ih-timeline-item:nth-child(3) .ih-timeline-dot { border-color: var(--sw-sage); color: var(--sw-sage-d); }
+        .ih-timeline-item:nth-child(4) .ih-timeline-dot { border-color: #6D28D9; color: #6D28D9; }
+        .ih-timeline-item:nth-child(5) .ih-timeline-dot { border-color: var(--sw-accent); color: var(--sw-accent); }
+
+        .ih-timeline-date {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--sw-accent);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .ih-timeline-item:nth-child(2) .ih-timeline-date { color: var(--sw-primary); }
+        .ih-timeline-item:nth-child(3) .ih-timeline-date { color: var(--sw-sage-d); }
+        .ih-timeline-item:nth-child(4) .ih-timeline-date { color: #6D28D9; }
+
+        .ih-timeline-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 0;
+            border: 1px solid var(--sw-border);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 160px 1fr auto;
+            align-items: stretch;
+        }
+        .ih-timeline-card:hover {
+            box-shadow: 0 14px 34px var(--sw-shadow);
+            border-color: rgba(224, 122, 47, 0.30);
+            transform: translateX(4px);
+        }
+        .ih-timeline-thumb {
+            position: relative;
+            overflow: hidden;
+            background: var(--sw-primary);
+        }
+        .ih-timeline-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .ih-timeline-card:hover .ih-timeline-thumb img { transform: scale(1.08); }
+        .ih-timeline-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 69, 92, 0.20) 0%, rgba(20, 69, 92, 0.55) 100%);
+        }
+        .ih-timeline-body {
+            padding: 22px 26px;
+            min-width: 0;
+        }
+        .ih-timeline-card h4 {
+            font-size: 1.02rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .ih-timeline-card p {
+            font-size: 0.86rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+        .ih-timeline-card-meta {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            padding-top: 14px;
+            border-top: 1px dashed var(--sw-border);
+        }
+        .ih-timeline-card-meta span {
+            font-size: 0.72rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .ih-timeline-card-meta i { color: var(--sw-accent); font-size: 0.75rem; }
+
+        /* Timeline action column (NEW) */
+        .ih-timeline-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 26px 0 0;
+        }
+        .ih-timeline-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--sw-accent);
+            color: #fff;
+            border: 2px solid var(--sw-accent);
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .ih-timeline-btn:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           SECTION 9 — BENEFICIARY VOICES
+           ========================================================= */
+        .ih-voices {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 100px 24px;
+        }
+        .ih-voices-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .ih-voice {
+            background: #fff;
+            border-radius: 22px;
+            padding: 34px 30px;
+            border: 1px solid var(--sw-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .ih-voice::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--sw-primary), var(--sw-accent), var(--sw-sage));
+        }
+        .ih-voice:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px var(--sw-shadow-hi);
+        }
+        .ih-voice-bg {
+            position: absolute;
+            top: 0; right: 0;
+            width: 110px; height: 110px;
+            border-radius: 0 22px 0 110px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        .ih-voice > * { position: relative; z-index: 2; }
+        .ih-voice-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(224, 122, 47, 0.12);
+            color: var(--sw-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        .ih-voice-text {
+            font-size: 0.95rem;
+            color: var(--sw-text);
+            line-height: 1.75;
+            font-weight: 500;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+        .ih-voice-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-top: 20px;
+            border-top: 1px solid var(--sw-border);
+        }
+        .ih-voice-avatar {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--sw-primary);
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 14px var(--sw-shadow);
+        }
+        .ih-voice-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .ih-voice-info strong {
+            display: block;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            line-height: 1.25;
+        }
+        .ih-voice-info span {
+            font-size: 0.72rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+        /* Voices footer buttons (NEW) */
+        .ih-voices-footer {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 46px;
+        }
+
+        /* =========================================================
+           SECTION 10 — DOWNLOAD CTA
+           ========================================================= */
+        .ih-download {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+        .ih-download-wrap {
+            background:
+                linear-gradient(135deg, rgba(29, 91, 121, 0.95) 0%, rgba(20, 69, 92, 0.98) 100%),
+                url('swo1.webp') center/cover no-repeat;
+            background-blend-mode: multiply;
+            border-radius: 28px;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 0;
+            align-items: stretch;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(29, 91, 121, 0.35);
+        }
+        .ih-download-wrap::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 320px; height: 320px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.25);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .ih-download-left {
+            position: relative;
+            z-index: 2;
+            padding: 70px 60px;
+            min-width: 0;
+        }
+        .ih-download-left h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.18;
+            margin-bottom: 18px;
+        }
+        .ih-download-left h2 span { color: #FFD9B3; }
+        .ih-download-left p {
+            font-size: 1rem;
+            color: #D8E4EC;
+            line-height: 1.75;
+            margin-bottom: 30px;
+            max-width: 520px;
+        }
+        .ih-download-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .ih-download-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            max-width: 420px;
+        }
+        .ih-download-stat {
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 14px;
+            padding: 16px 14px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .ih-download-stat:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(224, 122, 47, 0.55);
+            transform: translateY(-3px);
+        }
+        .ih-download-stat i {
+            color: #FFD9B3;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .ih-download-stat strong {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 3px;
+        }
+        .ih-download-stat span {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #B5CDD8;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .ih-download-photo {
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+        }
+        .ih-download-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .ih-download-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(20, 69, 92, 0.55) 0%, rgba(20, 69, 92, 0.10) 100%);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 1100px) {
+            .ih-hero { grid-template-columns: 1fr; gap: 50px; padding-top: 160px; }
+            .ih-hero-right { min-height: 460px; max-width: 560px; margin: 0 auto; width: 100%; }
+            .ih-dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+            .ih-growth-inner { grid-template-columns: 1fr; gap: 44px; }
+            .ih-vault-grid { grid-template-columns: repeat(2, 1fr); }
+            .ih-gallery-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: 200px 200px 200px; }
+            .ih-gallery-item.wide { grid-column: span 1; }
+            .ih-gallery-item.tall { grid-row: span 1; }
+            .ih-voices-grid { grid-template-columns: repeat(2, 1fr); }
+            .ih-download-wrap { grid-template-columns: 1fr; }
+            .ih-download-photo { min-height: 300px; grid-row: 2; }
+        }
+        @media (max-width: 900px) {
+            .ih-program-row { grid-template-columns: 180px 1fr; }
+            .ih-program-actions { grid-column: 1 / -1; padding: 0 30px 24px; flex-direction: row; flex-wrap: wrap; }
+            .ih-timeline-card { grid-template-columns: 130px 1fr; }
+            .ih-timeline-action { grid-column: 1 / -1; padding: 0 26px 22px; justify-content: flex-end; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 90px; }
+            .ih-hero { padding: 150px 20px 80px; margin-top: -90px; }
+            .ih-hero-right { min-height: 380px; }
+            .ih-hero-badge { padding: 16px 18px; }
+            .ih-hero-badge strong { font-size: 1.5rem; }
+            .ih-dashboard { padding: 70px 20px; }
+            .ih-programs { padding: 70px 20px; }
+            .ih-program-row { grid-template-columns: 140px 1fr; gap: 20px; }
+            .ih-program-thumb { min-height: 140px; }
+            .ih-program-content { padding: 22px 0 22px 0; }
+            .ih-growth { padding: 70px 20px; }
+            .ih-chart { padding: 30px 22px; }
+            .ih-chart-bars { height: 200px; }
+            .ih-vault { padding: 70px 20px; }
+            .ih-video { padding: 70px 20px; }
+            .ih-gallery { padding: 70px 20px; }
+            .ih-gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 180px); gap: 14px; }
+            .ih-timeline { padding: 70px 20px; }
+            .ih-voices { padding: 70px 20px; }
+            .ih-download { padding: 0 20px 70px; }
+            .ih-download-left { padding: 46px 28px; }
+            .ih-download-wrap { border-radius: 22px; }
+            .ih-video-center-play-btn { width: 68px; height: 68px; font-size: 1.4rem; }
+        }
+        @media (max-width: 560px) {
+            .ih-hero { padding: 140px 16px 60px; }
+            .ih-hero-right { min-height: 320px; }
+            .ih-hero-badge { padding: 12px 14px; }
+            .ih-hero-badge strong { font-size: 1.25rem; }
+            .ih-hero-badge span { font-size: 0.6rem; }
+            .ih-dashboard-grid { grid-template-columns: 1fr; gap: 14px; }
+            .ih-metric-value { font-size: 1.9rem; }
+            .ih-program-row { grid-template-columns: 1fr; gap: 0; }
+            .ih-program-thumb { min-height: 200px; }
+            .ih-program-content { padding: 22px 22px 0; }
+            .ih-program-actions { padding: 20px 22px 22px; flex-direction: column; }
+            .ih-vault-grid { grid-template-columns: 1fr; }
+            .ih-gallery-grid { grid-template-columns: 1fr; grid-template-rows: repeat(6, 200px); }
+            .ih-voices-grid { grid-template-columns: 1fr; }
+            .ih-download-stats { grid-template-columns: 1fr 1fr; }
+            .ih-hero-buttons { flex-direction: column; }
+            .ih-hero-buttons .sw-btn { width: 100%; justify-content: center; }
+            .ih-download-buttons { flex-direction: column; }
+            .ih-download-buttons .sw-btn { width: 100%; justify-content: center; }
+            .ih-vault-actions { flex-direction: column; }
+            .ih-download-left { padding: 34px 22px; }
+            .ih-chart-bars { gap: 8px; }
+            .ih-bar-value { font-size: 0.68rem; }
+            .ih-bar-label { font-size: 0.65rem; }
+            .ih-timeline-card { grid-template-columns: 1fr; }
+            .ih-timeline-thumb { min-height: 160px; }
+            .ih-timeline-action { padding: 0 22px 22px; }
+            .ih-timeline-list { padding-left: 32px; }
+            .ih-timeline-dot { left: -32px; width: 24px; height: 24px; font-size: 0.65rem; }
+            .ih-video-controls { padding: 10px 14px; gap: 10px; }
+            .ih-video-btn { width: 38px; height: 38px; font-size: 0.85rem; }
+            .ih-video-time { font-size: 0.7rem; min-width: 72px; }
+            .ih-video-center-play-btn { width: 60px; height: 60px; font-size: 1.2rem; }
+            .ih-dashboard-actions .sw-btn { width: 100%; justify-content: center; }
+            .ih-programs-footer .sw-btn,
+            .ih-vault-footer .sw-btn,
+            .ih-gallery-footer .sw-btn,
+            .ih-voices-footer .sw-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- SECTION 1 — HERO -->
+    <section class="ih-hero">
+        <div class="ih-hero-left">
+            <div class="ih-hero-issue" data-aos="fade-right" data-aos-duration="700">
+                <i class="fas fa-book-open"></i> Annual Report · 2026 Edition
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                The Numbers<br>Behind the <span>Change</span>
+            </h1>
+            <p class="ih-hero-lead" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                Every statistic you'll see here is a life touched, a family uplifted, a community transformed.
+                This is our transparent, verified record of impact — from July 2025 to July 2026.
+            </p>
+            <div class="ih-hero-meta" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="ih-hero-meta-item">
+                    <strong>4,820</strong>
+                    <span>Lives Impacted</span>
+                </div>
+                <div class="ih-hero-meta-item">
+                    <strong>87%</strong>
+                    <span>Fund Efficiency</span>
+                </div>
+                <div class="ih-hero-meta-item">
+                    <strong>6</strong>
+                    <span>Districts</span>
+                </div>
+            </div>
+            <div class="ih-hero-buttons" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                <a href="404.html" class="sw-btn primary">
+                    <i class="fas fa-file-arrow-down"></i> Download Full Report
+                </a>
+                <a href="404.html" class="sw-btn ghost">
+                    <i class="fas fa-chart-line"></i> View Live Data
+                </a>
+            </div>
+        </div>
+
+        <div class="ih-hero-right" data-aos="fade-left" data-aos-duration="900">
+            <div class="ih-hero-photo main">
+                <img src="swo2.webp" alt="Community impact" loading="lazy">
+            </div>
+            <div class="ih-hero-photo secondary">
+                <img src="swo3.webp" alt="Field work" loading="lazy">
+            </div>
+            <div class="ih-hero-badge">
+                <strong>+38%</strong>
+                <span>Growth YoY</span>
+            </div>
+            <div class="ih-hero-dots">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 — LIVE COUNTER DASHBOARD -->
+    <section class="ih-dashboard">
+        <div class="ih-dashboard-inner">
+            <div class="ih-dashboard-head">
+                <h2 data-aos="fade-up" data-aos-duration="700">
+                    Our Impact,<br>Updated <span>Live</span>
+                </h2>
+                <div class="ih-dashboard-live" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    <span class="dot"></span>
+                    Live from the field · Jul 2026
+                </div>
+            </div>
+
+            <div class="ih-dashboard-grid">
+                <div class="ih-metric" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
+                    <div class="ih-metric-bg" style="background-image: url('swo4.webp');"></div>
+                    <div class="ih-metric-icon"><i class="fas fa-users"></i></div>
+                    <div class="ih-metric-value" data-count="4820">0</div>
+                    <div class="ih-metric-label">Lives Impacted</div>
+                    <div class="ih-metric-bar"><span data-bar="94"></span></div>
+                    <div class="ih-metric-growth"><i class="fas fa-arrow-up"></i> 38% YoY growth</div>
+                </div>
+
+                <div class="ih-metric" data-aos="zoom-in" data-aos-delay="250" data-aos-duration="700">
+                    <div class="ih-metric-bg" style="background-image: url('swo5.webp');"></div>
+                    <div class="ih-metric-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="ih-metric-value" data-count="48600">0</div>
+                    <div class="ih-metric-label">Meals Distributed</div>
+                    <div class="ih-metric-bar"><span data-bar="88"></span></div>
+                    <div class="ih-metric-growth"><i class="fas fa-arrow-up"></i> 22% YoY growth</div>
+                </div>
+
+                <div class="ih-metric" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="700">
+                    <div class="ih-metric-bg" style="background-image: url('swo6.webp');"></div>
+                    <div class="ih-metric-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="ih-metric-value" data-count="1240">0</div>
+                    <div class="ih-metric-label">Children Educated</div>
+                    <div class="ih-metric-bar"><span data-bar="78"></span></div>
+                    <div class="ih-metric-growth"><i class="fas fa-arrow-up"></i> 45% YoY growth</div>
+                </div>
+
+                <div class="ih-metric" data-aos="zoom-in" data-aos-delay="550" data-aos-duration="700">
+                    <div class="ih-metric-bg" style="background-image: url('swo7.webp');"></div>
+                    <div class="ih-metric-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="ih-metric-value" data-count="3200">0</div>
+                    <div class="ih-metric-label">Health Check-ups</div>
+                    <div class="ih-metric-bar"><span data-bar="82"></span></div>
+                    <div class="ih-metric-growth"><i class="fas fa-arrow-up"></i> 29% YoY growth</div>
+                </div>
+            </div>
+
+            <!-- NEW — Dashboard action buttons -->
+            <div class="ih-dashboard-actions" data-aos="fade-up" data-aos-delay="700" data-aos-duration="700">
+                <a href="404.html" class="sw-btn primary">
+                    <i class="fas fa-file-arrow-down"></i> Download Data Snapshot
+                </a>
+                <a href="404.html" class="sw-btn white">
+                    <i class="fas fa-clock-rotate-left"></i> View Historical Data
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — IMPACT BY PROGRAM -->
+    <section class="ih-programs">
+        <div class="sw-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="eyebrow">Impact by Program</div>
+            <h2>Every Program, <span>Verified</span></h2>
+            <p>Independent third-party audits confirm the numbers below. Programs are ranked by number of direct beneficiaries.</p>
+        </div>
+
+        <div class="ih-programs-list">
+
+            <div class="ih-program-row" data-aos="fade-right" data-aos-duration="700">
+                <div class="ih-program-thumb">
+                    <span class="ih-program-thumb-badge"><i class="fas fa-book"></i></span>
+                    <img src="swo8.webp" alt="Education program" loading="lazy">
+                </div>
+                <div class="ih-program-content">
+                    <h3>Education for All</h3>
+                    <p>Free after-school teaching, learning materials, and mentoring for children from underserved communities — in 12 local schools and 4 community centers.</p>
+                    <div class="ih-program-stats-inline">
+                        <div><strong>1,240</strong><span>Children</span></div>
+                        <div><strong>38</strong><span>Teachers</span></div>
+                        <div><strong>92%</strong><span>Retention</span></div>
+                        <div><strong>4.8★</strong><span>Rating</span></div>
+                    </div>
+                </div>
+                <div class="ih-program-actions">
+                    <div class="ih-program-tag boost">
+                        <i class="fas fa-rocket"></i> +45% YoY
+                    </div>
+                    <a href="404.html" class="ih-program-btn">
+                        <i class="fas fa-arrow-right"></i> View Report
+                    </a>
+                </div>
+            </div>
+
+            <div class="ih-program-row" data-aos="fade-right" data-aos-delay="100" data-aos-duration="700">
+                <div class="ih-program-thumb">
+                    <span class="ih-program-thumb-badge"><i class="fas fa-utensils"></i></span>
+                    <img src="swo9.webp" alt="Food program" loading="lazy">
+                </div>
+                <div class="ih-program-content">
+                    <h3>Nutrition &amp; Food Drive</h3>
+                    <p>Weekly meal distribution, emergency rations, and community kitchens in food-insecure neighborhoods.</p>
+                    <div class="ih-program-stats-inline">
+                        <div><strong>48,600</strong><span>Meals</span></div>
+                        <div><strong>620</strong><span>Families</span></div>
+                        <div><strong>98%</strong><span>On-time</span></div>
+                        <div><strong>4.9★</strong><span>Rating</span></div>
+                    </div>
+                </div>
+                <div class="ih-program-actions">
+                    <div class="ih-program-tag grow">
+                        <i class="fas fa-arrow-up"></i> +22% YoY
+                    </div>
+                    <a href="404.html" class="ih-program-btn">
+                        <i class="fas fa-arrow-right"></i> View Report
+                    </a>
+                </div>
+            </div>
+
+            <div class="ih-program-row" data-aos="fade-right" data-aos-delay="200" data-aos-duration="700">
+                <div class="ih-program-thumb">
+                    <span class="ih-program-thumb-badge"><i class="fas fa-stethoscope"></i></span>
+                    <img src="swo10.webp" alt="Health program" loading="lazy">
+                </div>
+                <div class="ih-program-content">
+                    <h3>Rural Health Outreach</h3>
+                    <p>Free medical camps, check-ups, medications, and referral support across 6 rural districts.</p>
+                    <div class="ih-program-stats-inline">
+                        <div><strong>3,200</strong><span>Patients</span></div>
+                        <div><strong>18</strong><span>Camps</span></div>
+                        <div><strong>76</strong><span>Doctors</span></div>
+                        <div><strong>4.7★</strong><span>Rating</span></div>
+                    </div>
+                </div>
+                <div class="ih-program-actions">
+                    <div class="ih-program-tag grow">
+                        <i class="fas fa-arrow-up"></i> +29% YoY
+                    </div>
+                    <a href="404.html" class="ih-program-btn">
+                        <i class="fas fa-arrow-right"></i> View Report
+                    </a>
+                </div>
+            </div>
+
+            <div class="ih-program-row" data-aos="fade-right" data-aos-delay="300" data-aos-duration="700">
+                <div class="ih-program-thumb">
+                    <span class="ih-program-thumb-badge"><i class="fas fa-venus"></i></span>
+                    <img src="swo11.webp" alt="Women empowerment" loading="lazy">
+                </div>
+                <div class="ih-program-content">
+                    <h3>Women Skill Training</h3>
+                    <p>Tailoring, computer literacy, financial education, and micro-entrepreneurship support for women.</p>
+                    <div class="ih-program-stats-inline">
+                        <div><strong>280</strong><span>Graduates</span></div>
+                        <div><strong>142</strong><span>Employed</span></div>
+                        <div><strong>68%</strong><span>Income Rise</span></div>
+                        <div><strong>4.9★</strong><span>Rating</span></div>
+                    </div>
+                </div>
+                <div class="ih-program-actions">
+                    <div class="ih-program-tag stable">
+                        <i class="fas fa-equals"></i> Steady
+                    </div>
+                    <a href="404.html" class="ih-program-btn">
+                        <i class="fas fa-arrow-right"></i> View Report
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NEW — Programs footer buttons -->
+        <div class="ih-programs-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="sw-btn teal">
+                <i class="fas fa-chart-simple"></i> View All Programs
+            </a>
+            <a href="404.html" class="sw-btn ghost">
+                <i class="fas fa-file-lines"></i> Download Program Report
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — YEARLY GROWTH -->
+    <section class="ih-growth">
+        <div class="ih-growth-inner">
+            <div class="ih-growth-left" data-aos="fade-right" data-aos-duration="700">
+                <div class="sw-head" style="text-align:left; margin: 0 0 30px 0; padding:0;">
+                    <div class="eyebrow">Growth Trajectory</div>
+                    <h2>Five Years of <span>Compounding</span> Impact</h2>
+                </div>
+
+                <div class="ih-growth-photo">
+                    <img src="swo12.webp" alt="Growth over the years" loading="lazy">
+                    <div class="ih-growth-photo-tag">
+                        <strong>Since 2022</strong>
+                        <span>From 1 district to 6</span>
+                    </div>
+                </div>
+
+                <p>From a single neighborhood project in 2022 to a 6-district operation in 2026 — here's how our reach has grown, year on year.</p>
+
+                <div class="ih-growth-legend">
+                    <div class="ih-growth-legend-item">
+                        <span class="swatch a"></span>
+                        <span>Beneficiaries reached</span>
+                        <strong>4,820</strong>
+                    </div>
+                    <div class="ih-growth-legend-item">
+                        <span class="swatch b"></span>
+                        <span>Best year (2025 → 2026)</span>
+                        <strong>+38%</strong>
+                    </div>
+                </div>
+                <a href="404.html" class="sw-btn teal">
+                    <i class="fas fa-file-arrow-down"></i> Download Growth Report
+                </a>
+            </div>
+
+            <div class="ih-chart" data-aos="fade-left" data-aos-duration="900">
+                <div class="ih-chart-title">Annual Reach</div>
+                <div class="ih-chart-sub">Beneficiaries per year</div>
+                <div class="ih-chart-bars">
+                    <div class="ih-bar">
+                        <span class="ih-bar-value">820</span>
+                        <div class="ih-bar-fill" data-h="30%"></div>
+                        <span class="ih-bar-label">2022</span>
+                    </div>
+                    <div class="ih-bar">
+                        <span class="ih-bar-value">1,450</span>
+                        <div class="ih-bar-fill" data-h="48%"></div>
+                        <span class="ih-bar-label">2023</span>
+                    </div>
+                    <div class="ih-bar">
+                        <span class="ih-bar-value">2,380</span>
+                        <div class="ih-bar-fill" data-h="65%"></div>
+                        <span class="ih-bar-label">2024</span>
+                    </div>
+                    <div class="ih-bar">
+                        <span class="ih-bar-value">3,490</span>
+                        <div class="ih-bar-fill" data-h="80%"></div>
+                        <span class="ih-bar-label">2025</span>
+                    </div>
+                    <div class="ih-bar highlight">
+                        <span class="ih-bar-value">4,820</span>
+                        <div class="ih-bar-fill" data-h="95%"></div>
+                        <span class="ih-bar-label">2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — REPORT VAULT -->
+    <section class="ih-vault">
+        <div class="sw-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="eyebrow">The Report Vault</div>
+            <h2>Download Our <span>Transparency</span> Documents</h2>
+            <p>Every report below is independently audited and publicly available — because trust is earned through openness.</p>
+        </div>
+
+        <div class="ih-vault-grid">
+
+            <div class="ih-vault-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="ih-vault-cover">
+                    <div class="ih-vault-cover-img" style="background-image: url('swo13.webp');"></div>
+                    <div class="ih-vault-tag">Annual</div>
+                    <div>
+                        <h3>Annual Impact Report 2025–26</h3>
+                        <div class="ih-vault-date">Published · July 2026</div>
+                    </div>
+                </div>
+                <div class="ih-vault-body">
+                    <div class="ih-vault-meta">
+                        <div><strong>PDF · 68 pages</strong><span>4.8 MB</span></div>
+                        <div><strong>EN / HI</strong><span>Bilingual</span></div>
+                    </div>
+                    <p class="ih-vault-desc">Full-year performance across all 4 programs, with verified numbers from third-party audit.</p>
+                    <div class="ih-vault-actions">
+                        <a href="404.html" class="ih-vault-btn dl"><i class="fas fa-download"></i> Download</a>
+                        <a href="404.html" class="ih-vault-btn view"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-vault-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                <div class="ih-vault-cover">
+                    <div class="ih-vault-cover-img" style="background-image: url('swo14.webp');"></div>
+                    <div class="ih-vault-tag">Financial</div>
+                    <div>
+                        <h3>Financial Transparency Q2 2026</h3>
+                        <div class="ih-vault-date">Published · April 2026</div>
+                    </div>
+                </div>
+                <div class="ih-vault-body">
+                    <div class="ih-vault-meta">
+                        <div><strong>PDF · 22 pages</strong><span>1.4 MB</span></div>
+                        <div><strong>Audited</strong><span>FY 2025-26</span></div>
+                    </div>
+                    <p class="ih-vault-desc">Complete breakdown of income, expenses, and fund allocation by program and region.</p>
+                    <div class="ih-vault-actions">
+                        <a href="404.html" class="ih-vault-btn dl"><i class="fas fa-download"></i> Download</a>
+                        <a href="404.html" class="ih-vault-btn view"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-vault-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <div class="ih-vault-cover">
+                    <div class="ih-vault-cover-img" style="background-image: url('swo15.webp');"></div>
+                    <div class="ih-vault-tag">Program</div>
+                    <div>
+                        <h3>Education Program Deep-Dive</h3>
+                        <div class="ih-vault-date">Published · June 2026</div>
+                    </div>
+                </div>
+                <div class="ih-vault-body">
+                    <div class="ih-vault-meta">
+                        <div><strong>PDF · 34 pages</strong><span>2.6 MB</span></div>
+                        <div><strong>Case Study</strong><span>12 schools</span></div>
+                    </div>
+                    <p class="ih-vault-desc">A detailed look at our education impact — learning outcomes, attendance trends, and child stories.</p>
+                    <div class="ih-vault-actions">
+                        <a href="404.html" class="ih-vault-btn dl"><i class="fas fa-download"></i> Download</a>
+                        <a href="404.html" class="ih-vault-btn view"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-vault-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="ih-vault-cover">
+                    <div class="ih-vault-cover-img" style="background-image: url('swo16.webp');"></div>
+                    <div class="ih-vault-tag">Social Audit</div>
+                    <div>
+                        <h3>Independent Social Audit 2025</h3>
+                        <div class="ih-vault-date">Published · December 2025</div>
+                    </div>
+                </div>
+                <div class="ih-vault-body">
+                    <div class="ih-vault-meta">
+                        <div><strong>PDF · 46 pages</strong><span>3.2 MB</span></div>
+                        <div><strong>External</strong><span>GreenAudit Co.</span></div>
+                    </div>
+                    <p class="ih-vault-desc">Third-party verification of our claims — every number on this page is validated here.</p>
+                    <div class="ih-vault-actions">
+                        <a href="404.html" class="ih-vault-btn dl"><i class="fas fa-download"></i> Download</a>
+                        <a href="404.html" class="ih-vault-btn view"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-vault-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                <div class="ih-vault-cover">
+                    <div class="ih-vault-cover-img" style="background-image: url('swo17.webp');"></div>
+                    <div class="ih-vault-tag">Health</div>
+                    <div>
+                        <h3>Rural Health Outcomes 2026</h3>
+                        <div class="ih-vault-date">Published · May 2026</div>
+                    </div>
+                </div>
+                <div class="ih-vault-body">
+                    <div class="ih-vault-meta">
+                        <div><strong>PDF · 28 pages</strong><span>2.1 MB</span></div>
+                        <div><strong>Data Report</strong><span>3,200 patients</span></div>
+                    </div>
+                    <p class="ih-vault-desc">Health camp outcomes, treatment success rates, and referral follow-up statistics.</p>
+                    <div class="ih-vault-actions">
+                        <a href="404.html" class="ih-vault-btn dl"><i class="fas fa-download"></i> Download</a>
+                        <a href="404.html" class="ih-vault-btn view"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-vault-card" data-aos="fade-up" data-aos-delay="600" data-aos-duration="700">
+                <div class="ih-vault-cover">
+                    <div class="ih-vault-cover-img" style="background-image: url('swo18.webp');"></div>
+                    <div class="ih-vault-tag">Women</div>
+                    <div>
+                        <h3>Women Empowerment Report</h3>
+                        <div class="ih-vault-date">Published · March 2026</div>
+                    </div>
+                </div>
+                <div class="ih-vault-body">
+                    <div class="ih-vault-meta">
+                        <div><strong>PDF · 30 pages</strong><span>2.3 MB</span></div>
+                        <div><strong>Impact</strong><span>280 graduates</span></div>
+                    </div>
+                    <p class="ih-vault-desc">Graduate outcomes — employment rates, income growth, and community ripple effects.</p>
+                    <div class="ih-vault-actions">
+                        <a href="404.html" class="ih-vault-btn dl"><i class="fas fa-download"></i> Download</a>
+                        <a href="404.html" class="ih-vault-btn view"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NEW — Vault footer buttons -->
+        <div class="ih-vault-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="sw-btn teal">
+                <i class="fas fa-archive"></i> Browse Full Archive
+            </a>
+            <a href="404.html" class="sw-btn ghost">
+                <i class="fas fa-circle-question"></i> Request Custom Report
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — VIDEO TESTIMONIAL (smaller + real controls) -->
+    <section class="ih-video">
+        <div class="ih-video-inner">
+            <div class="ih-video-head" data-aos="fade-up" data-aos-duration="700">
+                <h2>See the Impact, <span>Not Just the Numbers</span></h2>
+                <p>A 3-minute field film — real stories from the families whose lives changed this year.</p>
+            </div>
+
+            <div class="ih-video-player" data-aos="zoom-in" data-aos-duration="900" id="videoPlayer">
+                <video id="ihVideo" poster="swo19.webp" playsinline preload="metadata">
+                    <source src="swov3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Center big play button -->
+                <div class="ih-video-center-play" id="videoCenterPlay">
+                    <button class="ih-video-center-play-btn" id="videoCenterBtn" aria-label="Play video">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+
+                <!-- Bottom controls bar -->
+                <div class="ih-video-controls">
+                    <button class="ih-video-btn" id="videoToggleBtn" aria-label="Play/Pause">
+                        <i class="fas fa-play" id="videoToggleIcon"></i>
+                    </button>
+
+                    <span class="ih-video-time" id="videoTime">0:00 / 0:00</span>
+
+                    <div class="ih-video-progress" id="videoProgress">
+                        <div class="ih-video-progress-fill" id="videoProgressFill"></div>
+                    </div>
+
+                    <button class="ih-video-volume" id="videoMuteBtn" aria-label="Mute/Unmute">
+                        <i class="fas fa-volume-high" id="videoMuteIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <p class="ih-video-caption" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <strong>"Before Helping Hands, I couldn't read. Now I teach my own daughter."</strong><br>
+                — Sunita Devi, Education Program · North District
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — IMPACT GALLERY -->
+    <section class="ih-gallery">
+        <div class="sw-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="eyebrow">Field Gallery</div>
+            <h2>Moments That <span>Matter</span></h2>
+            <p>Snapshots from the field — captured by our volunteers across 6 districts this year.</p>
+        </div>
+
+        <div class="ih-gallery-grid">
+            <div class="ih-gallery-item wide" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <img src="swo20.webp" alt="Classroom session" loading="lazy">
+                <div class="ih-gallery-content">
+                    <span class="cat">Education</span>
+                    <h4>Reading session · North District</h4>
+                </div>
+            </div>
+            <div class="ih-gallery-item tall" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                <img src="swo21.webp" alt="Food distribution" loading="lazy">
+                <div class="ih-gallery-content">
+                    <span class="cat">Food Drive</span>
+                    <h4>Weekend distribution</h4>
+                </div>
+            </div>
+            <div class="ih-gallery-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <img src="swo22.webp" alt="Health camp" loading="lazy">
+                <div class="ih-gallery-content">
+                    <span class="cat">Health</span>
+                    <h4>Medical camp · Rural West</h4>
+                </div>
+            </div>
+            <div class="ih-gallery-item" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <img src="swo23.webp" alt="Women skill training" loading="lazy">
+                <div class="ih-gallery-content">
+                    <span class="cat">Empowerment</span>
+                    <h4>Skill training graduation</h4>
+                </div>
+            </div>
+            <div class="ih-gallery-item" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                <img src="swo24.webp" alt="Volunteer team" loading="lazy">
+                <div class="ih-gallery-content">
+                    <span class="cat">Team</span>
+                    <h4>Volunteer orientation</h4>
+                </div>
+            </div>
+            <div class="ih-gallery-item" data-aos="fade-up" data-aos-delay="600" data-aos-duration="700">
+                <img src="swo25.webp" alt="Community meeting" loading="lazy">
+                <div class="ih-gallery-content">
+                    <span class="cat">Community</span>
+                    <h4>Village planning meeting</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW — Gallery footer buttons -->
+        <div class="ih-gallery-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="sw-btn teal">
+                <i class="fas fa-images"></i> View Full Gallery
+            </a>
+            <a href="404.html" class="sw-btn ghost">
+                <i class="fas fa-share-nodes"></i> Share This Story
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — TIMELINE -->
+    <section class="ih-timeline">
+        <div class="ih-timeline-inner">
+            <div class="sw-head" data-aos="fade-up" data-aos-duration="700">
+                <div class="eyebrow">Transparency Timeline</div>
+                <h2>Milestones of <span>Accountability</span></h2>
+                <p>Every key event in our journey toward full financial and programmatic transparency.</p>
+            </div>
+
+            <div class="ih-timeline-list">
+                <div class="ih-timeline-item" data-aos="fade-right" data-aos-duration="700">
+                    <div class="ih-timeline-dot"><i class="fas fa-flag"></i></div>
+                    <div class="ih-timeline-date">March 2022</div>
+                    <div class="ih-timeline-card">
+                        <div class="ih-timeline-thumb">
+                            <img src="swo26.webp" alt="Founding team" loading="lazy">
+                        </div>
+                        <div class="ih-timeline-body">
+                            <h4>Organization Founded</h4>
+                            <p>Helping Hands registered as a non-profit with a mission to serve underserved communities in urban and rural areas.</p>
+                            <div class="ih-timeline-card-meta">
+                                <span><i class="fas fa-check-circle"></i> Registered</span>
+                                <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
+                            </div>
+                        </div>
+                        <div class="ih-timeline-action">
+                            <a href="404.html" class="ih-timeline-btn">
+                                <i class="fas fa-file-lines"></i> Read
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ih-timeline-item" data-aos="fade-right" data-aos-delay="100" data-aos-duration="700">
+                    <div class="ih-timeline-dot"><i class="fas fa-file-invoice"></i></div>
+                    <div class="ih-timeline-date">December 2023</div>
+                    <div class="ih-timeline-card">
+                        <div class="ih-timeline-thumb">
+                            <img src="swo27.webp" alt="Financial audit" loading="lazy">
+                        </div>
+                        <div class="ih-timeline-body">
+                            <h4>First Independent Audit</h4>
+                            <p>Commissioned our first external financial audit — every rupee accounted for, all reports published publicly.</p>
+                            <div class="ih-timeline-card-meta">
+                                <span><i class="fas fa-shield-halved"></i> Audited</span>
+                                <span><i class="fas fa-award"></i> Clean opinion</span>
+                            </div>
+                        </div>
+                        <div class="ih-timeline-action">
+                            <a href="404.html" class="ih-timeline-btn">
+                                <i class="fas fa-download"></i> Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ih-timeline-item" data-aos="fade-right" data-aos-delay="200" data-aos-duration="700">
+                    <div class="ih-timeline-dot"><i class="fas fa-chart-line"></i></div>
+                    <div class="ih-timeline-date">August 2024</div>
+                    <div class="ih-timeline-card">
+                        <div class="ih-timeline-thumb">
+                            <img src="swo28.webp" alt="Impact dashboard" loading="lazy">
+                        </div>
+                        <div class="ih-timeline-body">
+                            <h4>Live Impact Dashboard Launched</h4>
+                            <p>Became one of the first regional NGOs to publish real-time impact numbers on our website, updated monthly.</p>
+                            <div class="ih-timeline-card-meta">
+                                <span><i class="fas fa-bolt"></i> Real-time data</span>
+                                <span><i class="fas fa-users"></i> Public access</span>
+                            </div>
+                        </div>
+                        <div class="ih-timeline-action">
+                            <a href="404.html" class="ih-timeline-btn">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ih-timeline-item" data-aos="fade-right" data-aos-delay="300" data-aos-duration="700">
+                    <div class="ih-timeline-dot"><i class="fas fa-trophy"></i></div>
+                    <div class="ih-timeline-date">April 2025</div>
+                    <div class="ih-timeline-card">
+                        <div class="ih-timeline-thumb">
+                            <img src="swo29.webp" alt="Award ceremony" loading="lazy">
+                        </div>
+                        <div class="ih-timeline-body">
+                            <h4>Transparency Award</h4>
+                            <p>Recognized by the Regional NGO Council for outstanding financial transparency and public reporting standards.</p>
+                            <div class="ih-timeline-card-meta">
+                                <span><i class="fas fa-award"></i> Regional Award</span>
+                                <span><i class="fas fa-star"></i> Top 5 NGO</span>
+                            </div>
+                        </div>
+                        <div class="ih-timeline-action">
+                            <a href="404.html" class="ih-timeline-btn">
+                                <i class="fas fa-arrow-right"></i> Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ih-timeline-item" data-aos="fade-right" data-aos-delay="400" data-aos-duration="700">
+                    <div class="ih-timeline-dot"><i class="fas fa-rocket"></i></div>
+                    <div class="ih-timeline-date">July 2026</div>
+                    <div class="ih-timeline-card">
+                        <div class="ih-timeline-thumb">
+                            <img src="swo30.webp" alt="Community celebration" loading="lazy">
+                        </div>
+                        <div class="ih-timeline-body">
+                            <h4>Impact Crosses 4,800 Lives</h4>
+                            <p>Our largest year yet — 38% growth, expanded to 6 districts, and 186 active volunteers contributing monthly.</p>
+                            <div class="ih-timeline-card-meta">
+                                <span><i class="fas fa-arrow-up"></i> +38% YoY</span>
+                                <span><i class="fas fa-heart"></i> 4,820 lives</span>
+                            </div>
+                        </div>
+                        <div class="ih-timeline-action">
+                            <a href="404.html" class="ih-timeline-btn">
+                                <i class="fas fa-chart-line"></i> See Impact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9 — BENEFICIARY VOICES -->
+    <section class="ih-voices">
+        <div class="sw-head" data-aos="fade-up" data-aos-duration="700">
+            <div class="eyebrow">Beneficiary Voices</div>
+            <h2>Impact, in <span>Their Own Words</span></h2>
+            <p>The most honest report we can ever produce — from the people whose lives changed.</p>
+        </div>
+
+        <div class="ih-voices-grid">
+            <div class="ih-voice" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="ih-voice-bg" style="background-image: url('swo31.webp');"></div>
+                <div class="ih-voice-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="ih-voice-text">
+                    "My daughter used to help me at the market. Now she's the first in our family to read and write.
+                    That's not just education — that's freedom."
+                </p>
+                <div class="ih-voice-author">
+                    <div class="ih-voice-avatar">
+                        <img src="swo32.webp" alt="Sunita Devi" loading="lazy">
+                    </div>
+                    <div class="ih-voice-info">
+                        <strong>Sunita Devi</strong>
+                        <span>Mother · North District</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-voice" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="ih-voice-bg" style="background-image: url('swo1.webp');"></div>
+                <div class="ih-voice-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="ih-voice-text">
+                    "After my husband passed, I had no income. The tailoring course gave me a skill —
+                    now I run a small business from home."
+                </p>
+                <div class="ih-voice-author">
+                    <div class="ih-voice-avatar">
+                        <img src="swo2.webp" alt="Rekha Kumari" loading="lazy">
+                    </div>
+                    <div class="ih-voice-info">
+                        <strong>Rekha Kumari</strong>
+                        <span>Entrepreneur · Central Zone</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-voice" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="ih-voice-bg" style="background-image: url('swo3.webp');"></div>
+                <div class="ih-voice-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="ih-voice-text">
+                    "The medical camp caught my mother's diabetes early. The doctors said three more months
+                    without treatment and it would have been fatal."
+                </p>
+                <div class="ih-voice-author">
+                    <div class="ih-voice-avatar">
+                        <img src="swo4.webp" alt="Ramesh Yadav" loading="lazy">
+                    </div>
+                    <div class="ih-voice-info">
+                        <strong>Ramesh Yadav</strong>
+                        <span>Son · Rural West</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW — Voices footer buttons -->
+        <div class="ih-voices-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="sw-btn teal">
+                <i class="fas fa-comments"></i> Read More Stories
+            </a>
+            <a href="404.html" class="sw-btn ghost">
+                <i class="fas fa-pen-to-square"></i> Share Your Story
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 10 — DOWNLOAD CTA -->
+    <section class="ih-download">
+        <div class="ih-download-wrap">
+            <div class="ih-download-left" data-aos="fade-right" data-aos-duration="700">
+                <h2>Get the Full <span>2026 Report</span> Delivered</h2>
+                <p>Download the complete annual report — 68 pages of verified impact, financial breakdown, and field stories.</p>
+                <div class="ih-download-buttons">
+                    <a href="404.html" class="sw-btn primary">
+                        <i class="fas fa-file-arrow-down"></i> Download PDF Report
+                    </a>
+                    <a href="404.html" class="sw-btn white">
+                        <i class="fas fa-envelope"></i> Get It By Email
+                    </a>
+                </div>
+
+                <div class="ih-download-stats">
+                    <div class="ih-download-stat">
+                        <i class="fas fa-file-pdf"></i>
+                        <strong>68</strong>
+                        <span>Pages</span>
+                    </div>
+                    <div class="ih-download-stat">
+                        <i class="fas fa-users"></i>
+                        <strong>4.8K</strong>
+                        <span>Lives Covered</span>
+                    </div>
+                    <div class="ih-download-stat">
+                        <i class="fas fa-shield-halved"></i>
+                        <strong>100%</strong>
+                        <span>Audited</span>
+                    </div>
+                    <div class="ih-download-stat">
+                        <i class="fas fa-globe"></i>
+                        <strong>2</strong>
+                        <span>Languages</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ih-download-photo" data-aos="fade-left" data-aos-duration="900">
+                <img src="swo5.webp" alt="Impact report" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('header.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Header not found'))
+                .then(d => { document.getElementById('header-placeholder').innerHTML = d; initHeader(); })
+                .catch(err => console.error('Header load failed:', err));
+
+            fetch('footer.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Footer not found'))
+                .then(d => { document.getElementById('footer-placeholder').innerHTML = d; initFooter(); })
+                .catch(err => console.error('Footer load failed:', err));
+        });
+
+        function initHeader() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const header = document.getElementById('mainHeader');
+
+            if (menuBtn && mobileMenu && mobileOverlay) {
+                menuBtn.addEventListener('click', e => {
+                    e.preventDefault(); e.stopPropagation();
+                    mobileMenu.classList.add('open');
+                    mobileOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            if (closeBtn && mobileMenu && mobileOverlay) {
+                closeBtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', e => {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 20);
+                });
+            }
+        }
+
+        /* =========================================================
+           FOOTER INIT — FIXED
+           - Hamburger toggle: preventDefault OK (it's a <button>)
+           - Mobile nav links: close menu only, NO preventDefault
+           - Desktop footer nav links: NO JS — native <a href> works
+           - Social icons: NO JS — native <a href> works
+           ========================================================= */
+        function initFooter() {
+            const footerHamburger = document.getElementById('mobileHamburger');
+            const footerNavMenu = document.getElementById('mobileNavMenu');
+
+            if (footerHamburger && footerNavMenu) {
+                // Clone to remove stale listeners
+                const newH = footerHamburger.cloneNode(true);
+                footerHamburger.parentNode.replaceChild(newH, footerHamburger);
+
+                // Toggle menu — this is a <button>, safe to preventDefault
+                newH.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    footerNavMenu.classList.toggle('open');
+                });
+
+                // Mobile nav links — close menu, let browser navigate natively
+                footerNavMenu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        footerNavMenu.classList.remove('open');
+                        // NO preventDefault → native <a href> navigates
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!footerNavMenu.classList.contains('open')) return;
+                    if (footerNavMenu.contains(e.target)) return;
+                    if (newH.contains(e.target)) return;
+                    footerNavMenu.classList.remove('open');
+                });
+            }
+
+            // Desktop footer nav + social icons: native <a href> works automatically.
+        }
+
+        // Animated counters
+        (function animatedCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            if (!counters.length) return;
+
+            const animate = (el) => {
+                const target = parseInt(el.getAttribute('data-count'), 10);
+                const duration = 1600;
+                const start = performance.now();
+
+                function step(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const value = Math.floor(target * eased);
+                    el.textContent = value.toLocaleString();
+                    if (progress < 1) requestAnimationFrame(step);
+                    else el.textContent = target.toLocaleString();
+                }
+                requestAnimationFrame(step);
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(el => observer.observe(el));
+
+            const bars = document.querySelectorAll('[data-bar]');
+            const barObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const pct = entry.target.getAttribute('data-bar');
+                        setTimeout(() => { entry.target.style.width = pct + '%'; }, 200);
+                        barObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            bars.forEach(el => barObserver.observe(el));
+
+            const chartBars = document.querySelectorAll('.ih-bar-fill[data-h]');
+            const chartObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const h = entry.target.getAttribute('data-h');
+                        setTimeout(() => { entry.target.style.height = h; }, 300);
+                        chartObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            chartBars.forEach(el => chartObserver.observe(el));
+        })();
+
+        // Video player
+        (function initVideoPlayer() {
+            const video = document.getElementById('ihVideo');
+            const toggleBtn = document.getElementById('videoToggleBtn');
+            const toggleIcon = document.getElementById('videoToggleIcon');
+            const centerPlayWrap = document.getElementById('videoCenterPlay');
+            const centerBtn = document.getElementById('videoCenterBtn');
+            const timeLabel = document.getElementById('videoTime');
+            const progressBar = document.getElementById('videoProgress');
+            const progressFill = document.getElementById('videoProgressFill');
+            const muteBtn = document.getElementById('videoMuteBtn');
+            const muteIcon = document.getElementById('videoMuteIcon');
+
+            if (!video || !toggleBtn) return;
+
+            function formatTime(s) {
+                if (isNaN(s) || !isFinite(s)) return '0:00';
+                const m = Math.floor(s / 60);
+                const sec = Math.floor(s % 60);
+                return m + ':' + (sec < 10 ? '0' + sec : sec);
+            }
+
+            function updateTime() {
+                timeLabel.textContent = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+                if (video.duration) {
+                    const pct = (video.currentTime / video.duration) * 100;
+                    progressFill.style.width = pct + '%';
+                }
+            }
+
+            function setPlaying(isPlaying) {
+                if (isPlaying) {
+                    toggleIcon.classList.remove('fa-play');
+                    toggleIcon.classList.add('fa-pause');
+                    centerPlayWrap.classList.add('hide');
+                } else {
+                    toggleIcon.classList.remove('fa-pause');
+                    toggleIcon.classList.add('fa-play');
+                    centerPlayWrap.classList.remove('hide');
+                }
+            }
+
+            function playVideo() {
+                video.play().then(() => setPlaying(true)).catch(() => {});
+            }
+
+            function pauseVideo() {
+                video.pause();
+                setPlaying(false);
+            }
+
+            function toggleVideo() {
+                if (video.paused) playVideo();
+                else pauseVideo();
+            }
+
+            toggleBtn.addEventListener('click', toggleVideo);
+            centerBtn.addEventListener('click', toggleVideo);
+            video.addEventListener('click', toggleVideo);
+
+            video.addEventListener('play', () => setPlaying(true));
+            video.addEventListener('pause', () => setPlaying(false));
+            video.addEventListener('timeupdate', updateTime);
+            video.addEventListener('loadedmetadata', updateTime);
+
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const pct = clickX / rect.width;
+                if (video.duration) {
+                    video.currentTime = pct * video.duration;
+                }
+            });
+
+            muteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                if (video.muted) {
+                    muteIcon.classList.remove('fa-volume-high');
+                    muteIcon.classList.add('fa-volume-xmark');
+                } else {
+                    muteIcon.classList.remove('fa-volume-xmark');
+                    muteIcon.classList.add('fa-volume-high');
+                }
+            });
+
+            updateTime();
+            setPlaying(false);
+
+            console.log('🎬 Video player ready — play/pause/seek/mute controls active');
+        })();
+
+        console.log('✅ Impact & Reports page ready — footer links navigate natively');
+    </script>
+</body>
+</html>

@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Welfare Organization - About</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           SOCIAL WELFARE ORGANIZATION — ABOUT PAGE
+           Font: Inter only · max weight 800 · no italic · no serif
+           Palette: teal · amber · sage · warm off-white
+           ========================================================= */
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-sage-d:    #4E8A63;
+            --sw-bg:        #FBF8F4;
+            --sw-bg-alt:    #F2EDE5;
+            --sw-text:      #1C2A38;
+            --sw-text-soft: #4A5560;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+            --sw-shadow-hi: rgba(28, 42, 56, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+        html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+
+        body {
+            background: var(--sw-bg);
+            min-height: 100vh;
+            padding-top: 110px;
+            color: var(--sw-text);
+            line-height: 1.5;
+        }
+
+        section { overflow-x: clip; max-width: 100vw; }
+
+        /* Section heads */
+        .ab-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 44px;
+            padding: 0 16px;
+        }
+        .ab-head .ab-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 14px;
+            padding: 6px 16px;
+            background: rgba(224, 122, 47, 0.10);
+            border: 1px solid rgba(224, 122, 47, 0.25);
+            border-radius: 30px;
+        }
+        .ab-head h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .ab-head h2 span { color: var(--sw-accent); }
+        .ab-head p {
+            font-size: 0.92rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .ab-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: 2px solid transparent;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        .ab-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 22px rgba(224, 122, 47, 0.35);
+        }
+        .ab-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(196, 99, 28, 0.45);
+        }
+        .ab-btn.teal {
+            background: var(--sw-primary);
+            color: #fff;
+            border-color: var(--sw-primary);
+            box-shadow: 0 8px 22px rgba(29, 91, 121, 0.30);
+        }
+        .ab-btn.teal:hover {
+            background: var(--sw-primary-d);
+            border-color: var(--sw-primary-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(20, 69, 92, 0.40);
+        }
+        .ab-btn.ghost {
+            background: transparent;
+            color: var(--sw-primary);
+            border-color: var(--sw-primary);
+        }
+        .ab-btn.ghost:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .ab-btn.white {
+            background: #fff;
+            color: var(--sw-primary);
+            border-color: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+        }
+        .ab-btn.white:hover {
+            background: var(--sw-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+        }
+
+        /* =========================================================
+           SECTION 1 — DIAGONAL HERO
+           ========================================================= */
+        .ab-hero {
+            position: relative;
+            max-width: 100%;
+            margin: -110px 0 0;
+            padding: 170px 24px 90px;
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+        }
+        .ab-hero::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224, 122, 47, 0.28) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .ab-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -200px; left: -200px;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(123, 168, 140, 0.28) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .ab-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .ab-hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            padding: 7px 16px;
+            background: rgba(224, 122, 47, 0.25);
+            border: 1px solid rgba(224, 122, 47, 0.5);
+            border-radius: 30px;
+            margin-bottom: 22px;
+        }
+        .ab-hero h1 {
+            font-size: clamp(2rem, 4.4vw, 3.4rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+        .ab-hero h1 span { color: #FFD9B3; }
+        .ab-hero-lead {
+            font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+            color: #D8E4EC;
+            line-height: 1.75;
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+        .ab-hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+        .ab-hero-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .ab-hero-meta-item strong {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #FFD9B3;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .ab-hero-meta-item span {
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #B5CDD8;
+            margin-top: 6px;
+            display: block;
+        }
+        .ab-hero-photo {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+            border: 6px solid rgba(255, 255, 255, 0.14);
+        }
+        .ab-hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .ab-hero-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(20, 69, 92, 0.55) 100%);
+        }
+        .ab-hero-badge {
+            position: absolute;
+            bottom: 22px; left: 22px; right: 22px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            border-radius: 14px;
+            border-left: 5px solid var(--sw-accent);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .ab-hero-badge-icon {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            background: rgba(224, 122, 47, 0.12);
+            color: var(--sw-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+        .ab-hero-badge-text strong {
+            display: block;
+            font-size: 0.86rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+        }
+        .ab-hero-badge-text span {
+            font-size: 0.72rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           SECTION 2 — WHO WE ARE (intro + image collage)
+           ========================================================= */
+        .ab-who {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .ab-who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .ab-who-left { min-width: 0; }
+        .ab-who-left h2 {
+            font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.18;
+            margin-bottom: 18px;
+        }
+        .ab-who-left h2 span { color: var(--sw-accent); }
+        .ab-who-left p {
+            font-size: 0.94rem;
+            color: var(--sw-text-soft);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .ab-who-left p strong {
+            color: var(--sw-primary);
+            font-weight: 700;
+        }
+        .ab-who-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 26px;
+        }
+        .ab-who-right {
+            position: relative;
+            min-height: 440px;
+        }
+        .ab-who-photo {
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px var(--sw-shadow-hi);
+            border: 5px solid #fff;
+        }
+        .ab-who-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .ab-who-photo:hover img { transform: scale(1.06); }
+        .ab-who-photo.one {
+            top: 0; left: 0;
+            width: 62%;
+            height: 70%;
+            z-index: 2;
+        }
+        .ab-who-photo.two {
+            bottom: 0; right: 0;
+            width: 58%;
+            height: 62%;
+            z-index: 3;
+        }
+        .ab-who-quote {
+            position: absolute;
+            top: 55%;
+            left: 2%;
+            background: var(--sw-accent);
+            color: #fff;
+            padding: 16px 20px;
+            border-radius: 14px;
+            box-shadow: 0 16px 40px rgba(224, 122, 47, 0.45);
+            z-index: 4;
+            max-width: 220px;
+        }
+        .ab-who-quote i {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .ab-who-quote p {
+            font-size: 0.82rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* =========================================================
+           SECTION 3 — MISSION & VISION (duo cards)
+           ========================================================= */
+        .ab-mv {
+            background: var(--sw-bg-alt);
+            padding: 80px 24px;
+            margin-top: 30px;
+        }
+        .ab-mv-inner { max-width: 1250px; margin: 0 auto; }
+        .ab-mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .ab-mv-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 20px 50px var(--sw-shadow);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .ab-mv-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 70px var(--sw-shadow-hi);
+        }
+        .ab-mv-visual {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: var(--sw-primary);
+        }
+        .ab-mv-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+        .ab-mv-card:hover .ab-mv-visual img { transform: scale(1.06); }
+        .ab-mv-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
+        .ab-mv-visual.teal::after {
+            background: linear-gradient(135deg, rgba(29, 91, 121, 0.75) 0%, rgba(20, 69, 92, 0.55) 100%);
+        }
+        .ab-mv-visual.amber::after {
+            background: linear-gradient(135deg, rgba(224, 122, 47, 0.75) 0%, rgba(196, 99, 28, 0.60) 100%);
+        }
+        .ab-mv-icon {
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            z-index: 2;
+            width: 54px; height: 54px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.96);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+        }
+        .ab-mv-icon.teal { color: var(--sw-primary); }
+        .ab-mv-icon.amber { color: var(--sw-accent); }
+        .ab-mv-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 22px;
+            z-index: 2;
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .ab-mv-body {
+            padding: 30px 32px 34px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .ab-mv-body h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.015em;
+            margin-bottom: 12px;
+        }
+        .ab-mv-body p {
+            font-size: 0.9rem;
+            color: var(--sw-text-soft);
+            line-height: 1.75;
+            margin-bottom: 22px;
+            flex: 1;
+        }
+        .ab-mv-list {
+            list-style: none;
+            margin-bottom: 22px;
+        }
+        .ab-mv-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--sw-text);
+            font-weight: 600;
+            padding: 6px 0;
+        }
+        .ab-mv-list i {
+            color: var(--sw-sage-d);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        /* =========================================================
+           SECTION 4 — OUR VALUES (6 cards grid)
+           ========================================================= */
+        .ab-values {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .ab-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .ab-value {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px 28px;
+            border: 1px solid var(--sw-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+        }
+        .ab-value::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--sw-primary), var(--sw-accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .ab-value:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 50px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.28);
+        }
+        .ab-value:hover::before { transform: scaleX(1); }
+        .ab-value-icon {
+            width: 58px; height: 58px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+        }
+        .ab-value:hover .ab-value-icon { transform: scale(1.1) rotate(-6deg); }
+        .ab-value-icon.teal   { background: rgba(29, 91, 121, 0.12);  color: var(--sw-primary); }
+        .ab-value-icon.amber  { background: rgba(224, 122, 47, 0.14); color: var(--sw-accent); }
+        .ab-value-icon.sage   { background: rgba(123, 168, 140, 0.20); color: var(--sw-sage-d); }
+        .ab-value h3 {
+            font-size: 1.08rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
+        }
+        .ab-value p {
+            font-size: 0.85rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           SECTION 5 — OUR JOURNEY (chapter timeline)
+           ========================================================= */
+        .ab-journey {
+            background: var(--sw-bg-alt);
+            padding: 80px 24px;
+            margin-top: 30px;
+        }
+        .ab-journey-inner { max-width: 1200px; margin: 0 auto; }
+        .ab-journey-list {
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+        }
+        .ab-chapter {
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 16px 40px var(--sw-shadow);
+            display: grid;
+            grid-template-columns: 260px 1fr auto;
+            gap: 0;
+            transition: all 0.4s ease;
+        }
+        .ab-chapter:hover {
+            transform: translateX(6px);
+            box-shadow: 0 24px 55px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.28);
+        }
+        .ab-chapter-image {
+            position: relative;
+            overflow: hidden;
+            background: var(--sw-primary);
+            min-height: 180px;
+        }
+        .ab-chapter-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .ab-chapter:hover .ab-chapter-image img { transform: scale(1.06); }
+        .ab-chapter-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 69, 92, 0.15) 40%, rgba(20, 69, 92, 0.65) 100%);
+        }
+        .ab-chapter-year {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            background: rgba(255, 255, 255, 0.96);
+            color: var(--sw-primary);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            z-index: 2;
+            border-left: 3px solid var(--sw-accent);
+        }
+        .ab-chapter-body {
+            padding: 26px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ab-chapter-body .chapter-label {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 8px;
+        }
+        .ab-chapter-body h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.015em;
+            margin-bottom: 8px;
+        }
+        .ab-chapter-body p {
+            font-size: 0.87rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+        }
+        .ab-chapter-action {
+            padding: 26px 30px 26px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ab-chapter-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--sw-primary);
+            color: #fff;
+            border: 2px solid var(--sw-primary);
+            white-space: nowrap;
+        }
+        .ab-chapter-btn:hover {
+            background: var(--sw-primary-d);
+            border-color: var(--sw-primary-d);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(20, 69, 92, 0.40);
+        }
+
+        /* =========================================================
+           SECTION 6 — LEADERSHIP TEAM (4 members)
+           ========================================================= */
+        .ab-team {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .ab-team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+        .ab-member {
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 16px 40px var(--sw-shadow);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .ab-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 60px var(--sw-shadow-hi);
+            border-color: rgba(29, 91, 121, 0.28);
+        }
+        .ab-member-photo {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--sw-primary), var(--sw-primary-d));
+        }
+        .ab-member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .ab-member:hover .ab-member-photo img { transform: scale(1.06); }
+        .ab-member-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(20, 69, 92, 0.55) 100%);
+            pointer-events: none;
+        }
+        .ab-member-socials {
+            position: absolute;
+            bottom: 16px;
+            left: 0; right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .ab-member:hover .ab-member-socials {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .ab-member-socials a {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--sw-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.20);
+        }
+        .ab-member-socials a:hover {
+            background: var(--sw-accent);
+            color: #fff;
+            transform: scale(1.12);
+        }
+        .ab-member-body {
+            padding: 22px 22px 24px;
+            text-align: center;
+        }
+        .ab-member-body h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+        .ab-member-body .role {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--sw-accent);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .ab-member-body p {
+            font-size: 0.8rem;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+        }
+
+        /* Team footer buttons */
+        .ab-team-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 44px;
+        }
+
+        /* =========================================================
+           SECTION 7 — IMPACT RIBBON (full-width stats bar)
+           ========================================================= */
+        .ab-impact {
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            padding: 70px 24px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ab-impact::before {
+            content: '';
+            position: absolute;
+            top: -160px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224, 122, 47, 0.20) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .ab-impact-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .ab-impact-head {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+        .ab-impact-head h2 {
+            font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+        .ab-impact-head h2 span { color: #FFD9B3; }
+        .ab-impact-head p {
+            font-size: 0.92rem;
+            color: #D8E4EC;
+            line-height: 1.65;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .ab-impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .ab-impact-stat {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            padding: 30px 22px;
+            text-align: center;
+            color: #fff;
+            transition: all 0.35s ease;
+        }
+        .ab-impact-stat:hover {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(224, 122, 47, 0.55);
+            transform: translateY(-6px);
+        }
+        .ab-impact-stat i {
+            font-size: 1.7rem;
+            color: #FFD9B3;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .ab-impact-stat strong {
+            display: block;
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .ab-impact-stat span {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #B5CDD8;
+        }
+        .ab-impact-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* =========================================================
+           SECTION 8 — LETTER CTA (final)
+           ========================================================= */
+        .ab-letter {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .ab-letter-wrap {
+            background: #fff;
+            border-radius: 26px;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 24px 60px var(--sw-shadow);
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 0;
+            overflow: hidden;
+            min-height: 480px;
+        }
+        .ab-letter-visual {
+            position: relative;
+            background: var(--sw-primary);
+            overflow: hidden;
+        }
+        .ab-letter-visual img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.55;
+            display: block;
+        }
+        .ab-letter-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(29, 91, 121, 0.65) 0%, rgba(20, 69, 92, 0.90) 100%);
+        }
+        .ab-letter-visual-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #fff;
+        }
+        .ab-letter-stamp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(224, 122, 47, 0.25);
+            border: 1px solid rgba(224, 122, 47, 0.5);
+            border-radius: 30px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            width: fit-content;
+        }
+        .ab-letter-quote {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.015em;
+            line-height: 1.35;
+        }
+        .ab-letter-quote span { color: #FFD9B3; }
+        .ab-letter-signature {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #B5CDD8;
+            letter-spacing: 0.5px;
+        }
+        .ab-letter-signature strong {
+            display: block;
+            font-size: 0.9rem;
+            color: #fff;
+            letter-spacing: -0.01em;
+            margin-bottom: 2px;
+        }
+
+        .ab-letter-body {
+            padding: 50px 46px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ab-letter-body .ab-eyebrow-sm {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 14px;
+        }
+        .ab-letter-body h2 {
+            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .ab-letter-body h2 span { color: var(--sw-accent); }
+        .ab-letter-body p {
+            font-size: 0.92rem;
+            color: var(--sw-text-soft);
+            line-height: 1.75;
+            margin-bottom: 26px;
+        }
+        .ab-letter-perks {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .ab-letter-perk {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--sw-text);
+            font-weight: 600;
+        }
+        .ab-perk-icon {
+            width: 34px; height: 34px;
+            border-radius: 10px;
+            background: rgba(123, 168, 140, 0.18);
+            color: var(--sw-sage-d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .ab-letter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 1100px) {
+            .ab-hero { clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%); padding-bottom: 120px; }
+            .ab-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+            .ab-hero-photo { max-width: 460px; margin: 0 auto; width: 100%; aspect-ratio: 4/3; }
+            .ab-who-grid { grid-template-columns: 1fr; gap: 40px; }
+            .ab-who-right { min-height: 400px; }
+            .ab-mv-grid { grid-template-columns: 1fr; }
+            .ab-values-grid { grid-template-columns: repeat(2, 1fr); }
+            .ab-chapter { grid-template-columns: 220px 1fr; }
+            .ab-chapter-action { grid-column: 1 / -1; padding: 0 30px 24px; justify-content: flex-end; }
+            .ab-team-grid { grid-template-columns: repeat(2, 1fr); }
+            .ab-impact-grid { grid-template-columns: repeat(2, 1fr); }
+            .ab-letter-wrap { grid-template-columns: 1fr; }
+            .ab-letter-visual { min-height: 300px; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 90px; }
+            .ab-hero { padding: 130px 20px 100px; margin-top: -90px; }
+            .ab-who { padding: 60px 20px; }
+            .ab-mv { padding: 60px 20px; }
+            .ab-values { padding: 60px 20px; }
+            .ab-journey { padding: 60px 20px; }
+            .ab-team { padding: 60px 20px; }
+            .ab-impact { padding: 60px 20px; }
+            .ab-letter { padding: 60px 20px; }
+            .ab-chapter { grid-template-columns: 1fr; }
+            .ab-chapter-image { min-height: 220px; }
+            .ab-chapter-body { padding: 22px 24px 20px; }
+            .ab-chapter-action { padding: 0 24px 22px; }
+            .ab-letter-body { padding: 36px 30px; }
+            .ab-letter-visual-content { padding: 30px 28px; }
+        }
+        @media (max-width: 560px) {
+            .ab-hero { padding: 120px 16px 90px; }
+            .ab-hero-photo { aspect-ratio: 1/1; }
+            .ab-hero-buttons { flex-direction: column; }
+            .ab-hero-buttons .ab-btn { width: 100%; }
+            .ab-hero-meta { gap: 22px; }
+            .ab-who-right { min-height: 320px; }
+            .ab-who-buttons { flex-direction: column; }
+            .ab-who-buttons .ab-btn { width: 100%; }
+            .ab-values-grid { grid-template-columns: 1fr; }
+            .ab-team-grid { grid-template-columns: 1fr; }
+            .ab-impact-grid { grid-template-columns: 1fr; }
+            .ab-letter-buttons { flex-direction: column; }
+            .ab-letter-buttons .ab-btn { width: 100%; }
+            .ab-impact-footer .ab-btn,
+            .ab-team-footer .ab-btn { width: 100%; }
+            .ab-letter-quote { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- SECTION 1 — DIAGONAL HERO -->
+    <section class="ab-hero">
+        <div class="ab-hero-inner">
+            <div class="ab-hero-left">
+                <span class="ab-hero-chip" data-aos="fade-down" data-aos-duration="700">
+                    <i class="fas fa-seedling"></i> Since 2022 · 4 Years of Impact
+                </span>
+                <h1 data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    We Turn <span>Compassion</span> Into Real Change
+                </h1>
+                <p class="ab-hero-lead" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                    Helping Hands began with 20 children in a single classroom. Today, we're a 6-district
+                    movement serving 4,820 lives — and we're still driven by the same belief:
+                    that small, consistent acts of kindness can transform entire communities.
+                </p>
+
+                <div class="ab-hero-buttons" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                    <a href="404.html" class="ab-btn primary">
+                        <i class="fas fa-hand-holding-heart"></i> Join Our Mission
+                    </a>
+                    <a href="404.html" class="ab-btn ghost" style="border-color: rgba(255,255,255,0.5); color:#fff;">
+                        <i class="fas fa-file-lines"></i> Read Our Story
+                    </a>
+                </div>
+
+                <div class="ab-hero-meta" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                    <div class="ab-hero-meta-item">
+                        <strong>4.8K</strong>
+                        <span>Lives Touched</span>
+                    </div>
+                    <div class="ab-hero-meta-item">
+                        <strong>186</strong>
+                        <span>Volunteers</span>
+                    </div>
+                    <div class="ab-hero-meta-item">
+                        <strong>12</strong>
+                        <span>Active Causes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ab-hero-photo" data-aos="fade-left" data-aos-duration="900">
+                <img src="swo32.webp" alt="Helping Hands team in the field">
+                <div class="ab-hero-badge">
+                    <div class="ab-hero-badge-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="ab-hero-badge-text">
+                        <strong>Transparency Award 2025</strong>
+                        <span>Recognized by Regional NGO Council</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 — WHO WE ARE -->
+    <section class="ab-who">
+        <div class="ab-who-grid">
+            <div class="ab-who-left" data-aos="fade-right" data-aos-duration="800">
+                <div class="ab-head" style="text-align:left; padding:0; margin: 0 0 24px 0; max-width:none;">
+                    <span class="ab-eyebrow"><i class="fas fa-users"></i> Who We Are</span>
+                    <h2>A Movement Built on <span>Kindness</span></h2>
+                </div>
+                <p>
+                    We are a <strong>non-profit social welfare organization</strong> working across six districts to bring
+                    education, nutrition, healthcare, and empowerment to communities that need them most.
+                </p>
+                <p>
+                    Our work is field-first, data-driven, and fully transparent — every rupee is tracked,
+                    every program is audited, and every family is treated with dignity.
+                </p>
+                <p>
+                    From a single classroom in 2022 to 12 active causes in 2026, our growth has been fueled
+                    entirely by people who decided that "someone should do something" — and then became that someone.
+                </p>
+                <div class="ab-who-buttons">
+                    <a href="404.html" class="ab-btn primary">
+                        <i class="fas fa-people-group"></i> Meet the Team
+                    </a>
+                    <a href="404.html" class="ab-btn ghost">
+                        <i class="fas fa-file-arrow-down"></i> Download Brochure
+                    </a>
+                </div>
+            </div>
+
+            <div class="ab-who-right" data-aos="fade-left" data-aos-duration="800">
+                <div class="ab-who-photo one">
+                    <img src="swo31.webp" alt="Classroom session">
+                </div>
+                <div class="ab-who-photo two">
+                    <img src="swo30.webp" alt="Food distribution">
+                </div>
+                <div class="ab-who-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"We don't just serve communities. We grow with them."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — MISSION & VISION -->
+    <section class="ab-mv">
+        <div class="ab-mv-inner">
+            <div class="ab-head" data-aos="fade-up" data-aos-duration="700">
+                <span class="ab-eyebrow"><i class="fas fa-compass"></i> What Drives Us</span>
+                <h2>Our Mission &amp; <span>Vision</span></h2>
+                <p>Two statements that guide every decision we make — on the field and off.</p>
+            </div>
+
+            <div class="ab-mv-grid">
+                <div class="ab-mv-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <div class="ab-mv-visual teal">
+                        <img src="swo29.webp" alt="Mission — serving communities">
+                        <div class="ab-mv-icon teal"><i class="fas fa-bullseye"></i></div>
+                        <div class="ab-mv-tag">Our Mission</div>
+                    </div>
+                    <div class="ab-mv-body">
+                        <h3>Serve With Dignity, Always</h3>
+                        <p>
+                            To deliver sustained, dignified support to underserved communities through
+                            education, nutrition, healthcare, and economic empowerment — while holding
+                            ourselves to the highest standards of transparency and impact.
+                        </p>
+                        <ul class="ab-mv-list">
+                            <li><i class="fas fa-check-circle"></i> 100% field-first programs</li>
+                            <li><i class="fas fa-check-circle"></i> Zero overhead on donations</li>
+                            <li><i class="fas fa-check-circle"></i> Independently audited annually</li>
+                        </ul>
+                        <a href="404.html" class="ab-btn teal">
+                            <i class="fas fa-book-open"></i> Read Mission Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ab-mv-card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
+                    <div class="ab-mv-visual amber">
+                        <img src="swo28.webp" alt="Vision — communities thriving">
+                        <div class="ab-mv-icon amber"><i class="fas fa-eye"></i></div>
+                        <div class="ab-mv-tag">Our Vision</div>
+                    </div>
+                    <div class="ab-mv-body">
+                        <h3>A Future Where No One Is Left Behind</h3>
+                        <p>
+                            A world where every child reads, every family eats, every mother earns,
+                            and every community thrives — regardless of where they were born or what
+                            they were handed at birth.
+                        </p>
+                        <ul class="ab-mv-list">
+                            <li><i class="fas fa-check-circle"></i> Every child in school by 2030</li>
+                            <li><i class="fas fa-check-circle"></i> Zero hunger in our districts</li>
+                            <li><i class="fas fa-check-circle"></i> Self-sufficient communities</li>
+                        </ul>
+                        <a href="404.html" class="ab-btn primary">
+                            <i class="fas fa-rocket"></i> See Our Roadmap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — OUR VALUES -->
+    <section class="ab-values">
+        <div class="ab-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="ab-eyebrow"><i class="fas fa-heart"></i> Our Values</span>
+            <h2>The Principles We <span>Live By</span></h2>
+            <p>Six core values that define how we work, who we serve, and why we keep going.</p>
+        </div>
+
+        <div class="ab-values-grid">
+            <div class="ab-value" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="ab-value-icon teal"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3>Compassion First</h3>
+                <p>Every decision starts with a simple question: does this respect and uplift the person we're serving?</p>
+            </div>
+
+            <div class="ab-value" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                <div class="ab-value-icon amber"><i class="fas fa-shield-halved"></i></div>
+                <h3>Radical Transparency</h3>
+                <p>Every rupee is tracked, every report is public, every audit is shared openly on our website.</p>
+            </div>
+
+            <div class="ab-value" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <div class="ab-value-icon sage"><i class="fas fa-seedling"></i></div>
+                <h3>Sustainable Impact</h3>
+                <p>We don't hand out band-aids. We build systems that keep helping long after we leave.</p>
+            </div>
+
+            <div class="ab-value" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="ab-value-icon amber"><i class="fas fa-people-group"></i></div>
+                <h3>Community-Led</h3>
+                <p>Local leaders co-design every program. Our job is to support, not to lead.</p>
+            </div>
+
+            <div class="ab-value" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                <div class="ab-value-icon teal"><i class="fas fa-chart-line"></i></div>
+                <h3>Evidence-Based</h3>
+                <p>We measure everything. If the data says it's not working, we change the approach.</p>
+            </div>
+
+            <div class="ab-value" data-aos="fade-up" data-aos-delay="600" data-aos-duration="700">
+                <div class="ab-value-icon sage"><i class="fas fa-scale-balanced"></i></div>
+                <h3>Equal Dignity</h3>
+                <p>Every person we serve is treated as an equal partner — never as a case number.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — OUR JOURNEY (chapter timeline) -->
+    <section class="ab-journey">
+        <div class="ab-journey-inner">
+            <div class="ab-head" data-aos="fade-up" data-aos-duration="700">
+                <span class="ab-eyebrow"><i class="fas fa-book"></i> Our Journey</span>
+                <h2>Chapters That <span>Shaped Us</span></h2>
+                <p>Four years, four defining moments, and hundreds of small wins that made the big ones possible.</p>
+            </div>
+
+            <div class="ab-journey-list">
+                <div class="ab-chapter" data-aos="fade-right" data-aos-duration="700">
+                    <div class="ab-chapter-image">
+                        <img src="swo27.webp" alt="Chapter 1 — classroom">
+                        <div class="ab-chapter-year">2022</div>
+                    </div>
+                    <div class="ab-chapter-body">
+                        <div class="chapter-label">Chapter 01</div>
+                        <h3>The First Classroom</h3>
+                        <p>Twenty children, two volunteer teachers, one borrowed room. No funding, no staff, no office — just a decision to start. This is where Helping Hands was born.</p>
+                    </div>
+                    <div class="ab-chapter-action">
+                        <a href="404.html" class="ab-chapter-btn">
+                            <i class="fas fa-arrow-right"></i> Read Full Story
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ab-chapter" data-aos="fade-right" data-aos-delay="100" data-aos-duration="700">
+                    <div class="ab-chapter-image">
+                        <img src="swo26.webp" alt="Chapter 2 — food drive">
+                        <div class="ab-chapter-year">2023</div>
+                    </div>
+                    <div class="ab-chapter-body">
+                        <div class="chapter-label">Chapter 02</div>
+                        <h3>Nutrition for 620 Families</h3>
+                        <p>Our food drive crossed 10,000 meals in a single year. Nutrition became our second major program — and the first time we realized the scale of what was possible.</p>
+                    </div>
+                    <div class="ab-chapter-action">
+                        <a href="404.html" class="ab-chapter-btn">
+                            <i class="fas fa-arrow-right"></i> Read Full Story
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ab-chapter" data-aos="fade-right" data-aos-delay="200" data-aos-duration="700">
+                    <div class="ab-chapter-image">
+                        <img src="swo25.webp" alt="Chapter 3 — health camps">
+                        <div class="ab-chapter-year">2024</div>
+                    </div>
+                    <div class="ab-chapter-body">
+                        <div class="chapter-label">Chapter 03</div>
+                        <h3>Rural Health Expansion</h3>
+                        <p>We expanded from 2 to 6 districts, treating over 3,200 patients in the first year. Health camps became a permanent fixture — and saved lives we still think about today.</p>
+                    </div>
+                    <div class="ab-chapter-action">
+                        <a href="404.html" class="ab-chapter-btn">
+                            <i class="fas fa-arrow-right"></i> Read Full Story
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ab-chapter" data-aos="fade-right" data-aos-delay="300" data-aos-duration="700">
+                    <div class="ab-chapter-image">
+                        <img src="swo24.webp" alt="Chapter 4 — women empowerment">
+                        <div class="ab-chapter-year">2026</div>
+                    </div>
+                    <div class="ab-chapter-body">
+                        <div class="chapter-label">Chapter 04</div>
+                        <h3>4,820 Lives, One Movement</h3>
+                        <p>From 20 children to 4,820 lives. Twelve active causes. One hundred eighty-six volunteers. And a promise: we are just getting started. The next chapter is being written now.</p>
+                    </div>
+                    <div class="ab-chapter-action">
+                        <a href="404.html" class="ab-chapter-btn">
+                            <i class="fas fa-arrow-right"></i> Read Full Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — LEADERSHIP TEAM -->
+    <section class="ab-team">
+        <div class="ab-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="ab-eyebrow"><i class="fas fa-user-tie"></i> Our People</span>
+            <h2>Meet the <span>Leaders</span></h2>
+            <p>Field-first, mission-driven, and deeply accountable — the people steering Helping Hands forward.</p>
+        </div>
+
+        <div class="ab-team-grid">
+            <div class="ab-member" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="ab-member-photo">
+                    <img src="swo23.webp" alt="Anita Rao — Executive Director">
+                    <div class="ab-member-socials">
+                        <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="ab-member-body">
+                    <h3>Anita Rao</h3>
+                    <div class="role">Executive Director</div>
+                    <p>Founded Helping Hands in 2022. 12 years in social development.</p>
+                </div>
+            </div>
+
+            <div class="ab-member" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                <div class="ab-member-photo">
+                    <img src="swo22.webp" alt="Rahul Mehta — Program Director">
+                    <div class="ab-member-socials">
+                        <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="ab-member-body">
+                    <h3>Rahul Mehta</h3>
+                    <div class="role">Program Director</div>
+                    <p>Leads all field operations across 6 districts. 8 years experience.</p>
+                </div>
+            </div>
+
+            <div class="ab-member" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <div class="ab-member-photo">
+                    <img src="swo21.webp" alt="Priya Singh — Volunteer Coordinator">
+                    <div class="ab-member-socials">
+                        <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="ab-member-body">
+                    <h3>Priya Singh</h3>
+                    <div class="role">Volunteer Coordinator</div>
+                    <p>Manages 186 active volunteers and all training programs.</p>
+                </div>
+            </div>
+
+            <div class="ab-member" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="ab-member-photo">
+                    <img src="swo20.webp" alt="Arjun Nair — Finance & Compliance">
+                    <div class="ab-member-socials">
+                        <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="ab-member-body">
+                    <h3>Arjun Nair</h3>
+                    <div class="role">Finance &amp; Compliance</div>
+                    <p>Ensures every rupee is accounted for. Chartered Accountant.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ab-team-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="ab-btn teal">
+                <i class="fas fa-people-group"></i> View Full Team
+            </a>
+            <a href="404.html" class="ab-btn ghost">
+                <i class="fas fa-briefcase"></i> Join Our Team
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — IMPACT RIBBON -->
+    <section class="ab-impact">
+        <div class="ab-impact-inner">
+            <div class="ab-impact-head" data-aos="fade-up" data-aos-duration="700">
+                <h2>Our Impact, <span>By the Numbers</span></h2>
+                <p>Verified, audited, and updated in real time — because our work speaks in numbers, not promises.</p>
+            </div>
+
+            <div class="ab-impact-grid">
+                <div class="ab-impact-stat" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
+                    <i class="fas fa-users"></i>
+                    <strong>4,820</strong>
+                    <span>Lives Impacted</span>
+                </div>
+                <div class="ab-impact-stat" data-aos="zoom-in" data-aos-delay="250" data-aos-duration="700">
+                    <i class="fas fa-utensils"></i>
+                    <strong>48,600</strong>
+                    <span>Meals Served</span>
+                </div>
+                <div class="ab-impact-stat" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="700">
+                    <i class="fas fa-book-open"></i>
+                    <strong>1,240</strong>
+                    <span>Children Educated</span>
+                </div>
+                <div class="ab-impact-stat" data-aos="zoom-in" data-aos-delay="550" data-aos-duration="700">
+                    <i class="fas fa-stethoscope"></i>
+                    <strong>3,200</strong>
+                    <span>Health Check-ups</span>
+                </div>
+            </div>
+
+            <div class="ab-impact-footer" data-aos="fade-up" data-aos-duration="700">
+                <a href="404.html" class="ab-btn primary">
+                    <i class="fas fa-chart-line"></i> View Full Impact Report
+                </a>
+                <a href="404.html" class="ab-btn white">
+                    <i class="fas fa-file-arrow-down"></i> Download Annual Report
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — LETTER CTA -->
+    <section class="ab-letter">
+        <div class="ab-letter-wrap" data-aos="fade-up" data-aos-duration="900">
+            <div class="ab-letter-visual">
+                <img src="swo19.webp" alt="Helping Hands team meeting">
+                <div class="ab-letter-visual-content">
+                    <div class="ab-letter-stamp">
+                        <i class="fas fa-envelope-open-text"></i> A Letter From Us
+                    </div>
+                    <p class="ab-letter-quote">
+                        "We started with nothing but a decision. If you've read this far, you already have what we started with — <span>the willingness to care</span>."
+                    </p>
+                    <div class="ab-letter-signature">
+                        <strong>Anita Rao</strong>
+                        Founder &amp; Executive Director, Helping Hands
+                    </div>
+                </div>
+            </div>
+
+            <div class="ab-letter-body" data-aos="fade-left" data-aos-duration="800">
+                <span class="ab-eyebrow-sm">Get Involved</span>
+                <h2>Help Us Write the <span>Next Chapter</span></h2>
+                <p>
+                    Whether you can give an hour, a skill, or a donation — there's a place for you in this
+                    movement. Every person who joins us brings the next chapter a little closer.
+                </p>
+
+                <div class="ab-letter-perks">
+                    <div class="ab-letter-perk">
+                        <div class="ab-perk-icon"><i class="fas fa-clock"></i></div>
+                        <span>Volunteer from 1 hour a week — on-site or remote</span>
+                    </div>
+                    <div class="ab-letter-perk">
+                        <div class="ab-perk-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                        <span>Donate any amount — 100% goes to the field</span>
+                    </div>
+                    <div class="ab-letter-perk">
+                        <div class="ab-perk-icon"><i class="fas fa-handshake"></i></div>
+                        <span>Partner with us as a CSR, brand, or community group</span>
+                    </div>
+                </div>
+
+                <div class="ab-letter-buttons">
+                    <a href="404.html" class="ab-btn primary">
+                        <i class="fas fa-people-carry-box"></i> Become a Volunteer
+                    </a>
+                    <a href="404.html" class="ab-btn ghost">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('header.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Header not found'))
+                .then(d => { document.getElementById('header-placeholder').innerHTML = d; initHeader(); })
+                .catch(err => console.error('Header load failed:', err));
+
+            fetch('footer.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Footer not found'))
+                .then(d => { document.getElementById('footer-placeholder').innerHTML = d; initFooter(); })
+                .catch(err => console.error('Footer load failed:', err));
+        });
+
+        function initHeader() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const header = document.getElementById('mainHeader');
+
+            if (menuBtn && mobileMenu && mobileOverlay) {
+                menuBtn.addEventListener('click', e => {
+                    e.preventDefault(); e.stopPropagation();
+                    mobileMenu.classList.add('open');
+                    mobileOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            if (closeBtn && mobileMenu && mobileOverlay) {
+                closeBtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', e => {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 20);
+                });
+            }
+        }
+
+        /* =========================================================
+           FOOTER INIT — fixed
+           - Hamburger toggles menu (uses preventDefault — it's a button)
+           - Mobile nav links: close menu, then let browser navigate (NO preventDefault)
+           - Desktop footer nav links: NO JavaScript needed — native <a href> works
+           - Social icons: NO JavaScript needed — native <a href> works
+           ========================================================= */
+        function initFooter() {
+            const footerHamburger = document.getElementById('mobileHamburger');
+            const footerNavMenu = document.getElementById('mobileNavMenu');
+
+            if (footerHamburger && footerNavMenu) {
+                // Clone to remove any stale listeners
+                const newH = footerHamburger.cloneNode(true);
+                footerHamburger.parentNode.replaceChild(newH, footerHamburger);
+
+                // Hamburger toggle — safe to preventDefault (it's a <button>)
+                newH.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    footerNavMenu.classList.toggle('open');
+                });
+
+                // Mobile nav links → close menu, then let the browser navigate natively
+                footerNavMenu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        footerNavMenu.classList.remove('open');
+                        // NO preventDefault → the <a href> navigates natively
+                    });
+                });
+
+                // Close on outside click
+                document.addEventListener('click', function (e) {
+                    if (!footerNavMenu.classList.contains('open')) return;
+                    if (footerNavMenu.contains(e.target)) return;
+                    if (newH.contains(e.target)) return;
+                    footerNavMenu.classList.remove('open');
+                });
+            }
+
+            // Desktop footer nav links + social icons: native <a href> handles everything.
+            // No JavaScript listeners needed — that's what was blocking navigation before.
+        }
+
+        console.log('✅ About page ready — footer links now navigate natively');
+    </script>
+</body>
+</html>

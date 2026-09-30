@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Social Welfare Organization - Volunteer Coordinator Dashboard</title>
+
+    <!-- ============================================================
+         AUTH GUARD — Only volunteer coordinators can view this page.
+         ============================================================ -->
+    <script>
+      (function guardVolunteerDashboard() {
+        try {
+          const raw = sessionStorage.getItem('sh_session') || localStorage.getItem('sh_session');
+          const session = raw ? JSON.parse(raw) : null;
+          const now = Date.now();
+          const isValid = session && session.authenticated === true &&
+                          typeof session.expiresAt === 'number' && session.expiresAt > now &&
+                          session.role === 'volunteer';
+          if (!isValid) {
+            sessionStorage.removeItem('sh_session');
+            localStorage.removeItem('sh_session');
+            window.location.replace('login.html');
+            throw new Error('AUTH_REDIRECT');
+          }
+          window.__SH_USER__ = session;
+        } catch (err) {
+          if (err && err.message === 'AUTH_REDIRECT') return;
+          try { sessionStorage.removeItem('sh_session'); localStorage.removeItem('sh_session'); } catch (_) {}
+          window.location.replace('login.html');
+        }
+      })();
+    </script>
+
+    <style>
+      html, body { visibility: hidden; }
+      body.sh-ready { visibility: visible; }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            teal: '#1D5B79',
+                            tealDark: '#14455C',
+                            amber: '#E07A2F',
+                            amberHover: '#C4631C',
+                            sage: '#7BA88C',
+                            cream: '#FBF8F4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #FBF8F4; }
+        ::-webkit-scrollbar-thumb { background: #1D5B79; border-radius: 10px; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #FBF8F4; overflow: hidden; height: 100vh; }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 1px solid rgba(29, 91, 121, 0.12);
+            box-shadow: 0 4px 18px rgba(28, 42, 56, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s ease;
+            overflow: visible;
+        }
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(29, 91, 121, 0.18);
+            transform: translateY(-2px);
+            border-color: rgba(29, 91, 121, 0.30);
+        }
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(28, 42, 56, 0.05), 0 2px 4px -1px rgba(28, 42, 56, 0.03); }
+
+        .chart-h-2 { height: 120px; width: 100%; }
+
+        /* =========================================================
+           SIDEBAR — same teal gradient as Program Manager
+           ========================================================= */
+        .sidebar {
+            height: 100vh; max-height: 100vh; margin: 0;
+            border: none; border-right: 3px solid #E07A2F;
+            box-shadow: 4px 0 24px rgba(28, 42, 56, 0.15);
+            display: flex; flex-direction: column;
+            background: linear-gradient(180deg, #1D5B79 0%, #14455C 100%);
+            border-radius: 0 !important;
+        }
+        .sidebar-logo-area {
+            height: 72px; display: flex; align-items: center;
+            padding: 0 24px; border-bottom: 1px solid rgba(123, 168, 140, 0.20); flex-shrink: 0;
+        }
+        .sidebar .nav-link {
+            transition: all 0.3s ease; cursor: pointer;
+            padding: 8px 12px !important; font-size: 0.8rem !important;
+            color: #E6EEF2; border-left: 3px solid transparent;
+            border-radius: 0 12px 12px 0;
+        }
+        .sidebar .nav-link i { color: #B5CDD8; transition: all 0.3s ease; }
+        .sidebar .nav-link:hover { background: rgba(123, 168, 140, 0.16); color: #7BA88C; border-left-color: #7BA88C; }
+        .sidebar .nav-link:hover i { color: #7BA88C; }
+        .sidebar .nav-link.active {
+            background: linear-gradient(135deg, #E07A2F, #C4631C) !important;
+            color: #FFFFFF !important; border-radius: 12px;
+            border-left-color: #E07A2F;
+            box-shadow: 0 4px 14px rgba(224, 122, 47, 0.45);
+        }
+        .sidebar .nav-link.active i { color: #FFFFFF !important; }
+        .sidebar hr { border-color: rgba(123, 168, 140, 0.22); }
+
+        .nav-scroll { overflow-y: auto; flex: 1; }
+        .nav-scroll::-webkit-scrollbar { width: 3px; }
+        .nav-scroll::-webkit-scrollbar-thumb { background: #E07A2F; border-radius: 10px; }
+        .nav-scroll::-webkit-scrollbar-track { background: transparent; }
+
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+
+        .mobile-nav-bar {
+            display: none; background: linear-gradient(180deg, #1D5B79 0%, #14455C 100%);
+            border-bottom: 3px solid #E07A2F; padding: 12px 16px;
+            overflow-x: auto; white-space: nowrap;
+            -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 8px;
+        }
+        .mobile-nav-bar::-webkit-scrollbar { display: none; }
+        .mobile-nav-bar .nav-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; border: none; padding: 8px 18px;
+            font-size: 0.8rem; font-weight: 600; color: #E6EEF2;
+            cursor: pointer; border-radius: 30px; transition: all 0.3s;
+            font-family: inherit; white-space: nowrap; text-decoration: none;
+        }
+        .mobile-nav-bar .nav-btn i { color: #E07A2F; font-size: 0.9rem; }
+        .mobile-nav-bar .nav-btn:hover { background: rgba(123, 168, 140, 0.16); color: #7BA88C; }
+        .mobile-nav-bar .nav-btn.active {
+            background: linear-gradient(135deg, #E07A2F, #C4631C);
+            color: #FFFFFF; box-shadow: 0 4px 15px rgba(224, 122, 47, 0.45);
+        }
+        .mobile-nav-bar .nav-btn.active i { color: #FFFFFF; }
+        .mobile-header-logo { display: none; }
+
+        /* =========================================================
+           NOTIFICATION DROPDOWN
+           ========================================================= */
+        .notification-dropdown {
+            display: none; position: fixed; top: 70px; right: 20px;
+            background: white; border-radius: 16px;
+            border: 1px solid rgba(29, 91, 121, 0.2);
+            box-shadow: 0 20px 60px rgba(28, 42, 56, 0.25);
+            width: 380px; z-index: 99999; padding: 8px 0;
+            max-height: 460px; overflow-y: auto; border-top: 3px solid #E07A2F;
+        }
+        .notification-dropdown.show { display: block; animation: dropdownSlide 0.25s ease; }
+        @keyframes dropdownSlide {
+            from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .notification-dropdown .notif-header {
+            padding: 12px 20px 10px; font-weight: 800; font-size: 0.9rem;
+            color: #1C2A38; border-bottom: 1px solid rgba(29, 91, 121, 0.15);
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; background: white;
+            border-radius: 16px 16px 0 0; z-index: 2;
+        }
+        .notification-dropdown .notif-header .notif-badge {
+            background: #E07A2F; color: #FFFFFF; font-size: 0.6rem;
+            font-weight: 800; padding: 2px 10px; border-radius: 20px;
+        }
+        .notification-dropdown .notif-item {
+            padding: 12px 20px; display: flex; gap: 12px; align-items: flex-start;
+            border-bottom: 1px solid #EEF2F8; cursor: pointer; transition: background 0.2s;
+        }
+        .notification-dropdown .notif-item:hover { background: #FBF8F4; }
+        .notification-dropdown .notif-item .notif-icon {
+            width: 40px; height: 40px; min-width: 40px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 0.85rem;
+        }
+        .notification-dropdown .notif-item .notif-content { flex: 1; min-width: 0; }
+        .notification-dropdown .notif-item .notif-title { font-size: 0.85rem; font-weight: 700; color: #1C2A38; }
+        .notification-dropdown .notif-item .notif-desc { font-size: 0.75rem; color: #4A5560; margin-top: 2px; word-wrap: break-word; }
+        .notification-dropdown .notif-item .notif-time { font-size: 0.6rem; color: #8B98A5; margin-top: 3px; }
+        .notification-dropdown .notif-footer {
+            padding: 12px 20px; text-align: center; font-size: 0.75rem;
+            color: #E07A2F; font-weight: 700; cursor: pointer;
+            border-top: 1px solid rgba(29, 91, 121, 0.15);
+            position: sticky; bottom: 0; background: white; border-radius: 0 0 16px 16px;
+        }
+        .notification-dropdown .notif-footer:hover { background: #FBF8F4; color: #C4631C; }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 1023px) {
+            .sidebar { display: none !important; }
+            body { padding: 0 !important; overflow-x: hidden !important; }
+            .ml-4 { margin-left: 0 !important; }
+            .mobile-nav-bar { display: flex !important; padding: 16px 20px !important; gap: 12px !important; }
+            .mobile-nav-bar .nav-btn { padding: 12px 24px !important; font-size: 0.9rem !important; gap: 12px !important; }
+            .mobile-nav-bar .nav-btn i { font-size: 1.1rem !important; }
+            .mobile-header-logo { display: block !important; }
+            .mobile-header-logo img { height: 50px !important; width: auto !important; object-fit: contain !important; }
+            .main-header { padding-left: 16px !important; padding-right: 16px !important; min-height: 78px !important; height: auto !important; flex-wrap: wrap !important; gap: 8px !important; }
+            .main-header .flex.items-center.gap-4 { flex-wrap: wrap !important; gap: 6px !important; }
+            .main-header #pageTitle { font-size: 0.95rem !important; }
+            .main-header #pageSubtitle { font-size: 0.65rem !important; }
+            .main-content-wrapper { height: 100vh !important; max-width: 100vw !important; overflow-x: hidden !important; }
+            .dashboard-body-scroll { overflow-x: hidden !important; max-width: 100% !important; padding: 16px !important; }
+            .card, .card-shadow { max-width: 100% !important; overflow: visible !important; }
+            .grid-cols-2.lg\:grid-cols-5 { grid-template-columns: repeat(2, 1fr) !important; }
+            .chart-h-2 { height: 160px; }
+            .section-gap { margin-bottom: 24px !important; }
+            .card.p-4 { padding: 16px !important; }
+            .notification-dropdown { width: 360px !important; right: 20px !important; top: 68px !important; }
+        }
+        @media (max-width: 640px) {
+            .header-date-range { display: none !important; }
+            .header-user-text { display: none !important; }
+            .grid-cols-2.lg\:grid-cols-5 { grid-template-columns: 1fr !important; gap: 12px !important; }
+            .p-4.lg\:p-6 { padding: 12px !important; }
+            .gap-6 { gap: 10px !important; }
+            .mobile-nav-bar { padding: 14px 14px !important; gap: 10px !important; }
+            .mobile-nav-bar .nav-btn { padding: 10px 18px !important; font-size: 0.75rem !important; }
+            .dashboard-body-scroll { padding: 12px !important; }
+            .section-gap { margin-bottom: 16px !important; }
+            .mobile-header-logo img { height: 44px !important; }
+            .notification-dropdown { width: 320px !important; right: 12px !important; top: 64px !important; max-height: 380px !important; }
+            .content-section.active { display: block !important; width: 100% !important; }
+        }
+
+        .main-content-wrapper { height: 100vh; display: flex; flex-direction: column; max-width: 100vw; overflow-x: hidden; background: #FBF8F4; }
+        .dashboard-body-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; max-width: 100%; background: #FBF8F4; }
+        .main-header { border-radius: 0 !important; }
+        .section-gap { margin-bottom: 28px; }
+        .sidebar .nav-link i { width: 20px; font-size: 0.85rem; }
+        .activity-item { display: flex; gap: 10px; padding: 6px 0; }
+        .dropdown-toggle { cursor: pointer; }
+        #adminDropdownMenu { display: none; }
+        #adminDropdownMenu.show { display: block; }
+
+        /* Status pills */
+        .status-pill { display:inline-block; padding:3px 10px; border-radius:20px; font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.3px; }
+        .status-active     { background:rgba(34,197,94,0.12);  color:#15803D; }
+        .status-urgent     { background:rgba(220,38,38,0.10);  color:#991B1B; }
+        .status-progress   { background:rgba(224,122,47,0.14); color:#B45309; }
+        .status-planned    { background:rgba(29,91,121,0.12);  color:#1D5B79; }
+        .status-completed  { background:rgba(123,168,140,0.22); color:#4E8A63; }
+        .status-review     { background:rgba(139,92,246,0.14); color:#6D28D9; }
+        .status-inactive   { background:rgba(107,114,128,0.14); color:#374151; }
+
+        /* Progress bars — skill match etc. */
+        .prog-bar-bg   { background:#EEF5F8; height:6px; border-radius:10px; overflow:hidden; }
+        .prog-bar-fill { height:100%; border-radius:10px; transition: width 0.6s ease; }
+
+        /* Shift cover badge */
+        .shift-cover {
+            background: rgba(224,122,47,0.10);
+            color: #B45309;
+            border: 1px dashed rgba(224,122,47,0.5);
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden bg-[#FBF8F4] p-0">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col overflow-hidden flex-shrink-0 z-20 sidebar">
+        <div class="sidebar-logo-area">
+            <a href="index.html" class="flex items-center">
+                <img src="Stacklylogo.webp" alt="Helping Hands" class="h-12 w-auto object-contain rounded-md">
+            </a>
+        </div>
+
+        <nav class="nav-scroll px-4 py-3 space-y-0.5 flex-1">
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link active mt-2" data-page="dashboard">
+                <i class="fa-solid fa-border-all w-5 text-sm"></i>
+                <span class="font-semibold text-sm">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="volunteers">
+                <i class="fa-solid fa-people-carry-box w-5 text-sm"></i>
+                <span class="font-semibold">Volunteers</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="applications">
+                <i class="fa-solid fa-user-check w-5 text-sm"></i>
+                <span class="font-semibold">Applications</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="shifts">
+                <i class="fa-solid fa-calendar-days w-5 text-sm"></i>
+                <span class="font-semibold">Shift Scheduler</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="training">
+                <i class="fa-solid fa-graduation-cap w-5 text-sm"></i>
+                <span class="font-semibold">Training</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="recognition">
+                <i class="fa-solid fa-award w-5 text-sm"></i>
+                <span class="font-semibold">Recognition</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="engagement">
+                <i class="fa-solid fa-chart-line w-5 text-sm"></i>
+                <span class="font-semibold">Engagement</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="communications">
+                <i class="fa-solid fa-comments w-5 text-sm"></i>
+                <span class="font-semibold">Communications</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="fieldreports">
+                <i class="fa-solid fa-clipboard-list w-5 text-sm"></i>
+                <span class="font-semibold">Field Reports</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-2.5 nav-link" data-page="settings">
+                <i class="fa-solid fa-gear w-5 text-sm"></i>
+                <span class="font-semibold">Settings</span>
+            </a>
+
+            <div class="pt-2 pb-1.5"><hr></div>
+
+            <a href="login.html" class="flex items-center gap-3 px-4 py-2.5 text-red-300 hover:bg-red-500/10 hover:text-red-200 transition text-sm nav-link" onclick="handleLogout(event)">
+                <i class="fa-solid fa-right-from-bracket w-5 text-sm"></i>
+                <span class="font-semibold">Logout</span>
+            </a>
+            <div class="h-4"></div>
+        </nav>
+
+        <div class="px-4 pb-4 flex-shrink-0">
+            <div class="bg-[#14455C] rounded-2xl p-3 border border-[#7BA88C]/30 text-center relative overflow-hidden">
+                <div class="absolute -top-4 -right-4 w-10 h-10 bg-[#E07A2F]/25 rounded-full opacity-60"></div>
+                <div class="w-7 h-7 bg-[#E07A2F]/20 rounded-full flex items-center justify-center text-[#E07A2F] mx-auto mb-1">
+                    <i class="fa-solid fa-people-carry-box text-xs"></i>
+                </div>
+                <p class="text-[9px] font-bold text-white">Volunteer Coordinator</p>
+                <p class="text-[8px] text-[#B5CDD8] mt-0.5 mb-1.5">Helping Hands NGO</p>
+                <div class="flex items-center justify-center gap-1.5 bg-[#1D5B79] rounded-full px-2.5 py-1 border border-[#7BA88C]/40 shadow-sm w-max mx-auto">
+                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                    <span class="text-[8px] font-bold text-green-400">Volunteer Desk Live</span>
+                </div>
+            </div>
+            <div class="text-center mt-2 text-[8px] text-[#B5CDD8]/70">© 2026 Helping Hands</div>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-[#FBF8F4] ml-0 main-content-wrapper">
+
+        <header class="bg-white border-b border-gray-200 px-8 flex items-center justify-between h-[72px] flex-shrink-0 main-header">
+            <div class="flex items-center gap-4">
+                <div class="mobile-header-logo">
+                    <a href="index.html" class="flex items-center">
+                        <img src="Stacklylogo.webp" alt="Helping Hands" class="h-12 w-auto object-contain rounded-md">
+                    </a>
+                </div>
+                <div>
+                    <h1 class="text-lg font-extrabold text-[#1C2A38] tracking-tight" id="pageTitle">Volunteer Coordinator Dashboard</h1>
+                    <p class="text-xs text-[#4A5560] leading-tight mt-0.5 font-medium" id="pageSubtitle">Manage volunteers, shifts, and engagement.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2 bg-[#FBF8F4] border border-gray-200 rounded-lg px-3 py-1.5 text-xs text-[#1C2A38] cursor-pointer hover:bg-gray-50 transition desktop-date font-semibold" id="dateRangePicker">
+                    <i class="fa-regular fa-calendar text-[#1D5B79]"></i>
+                    <span class="font-medium" id="dateRangeText">Today, Jul 23 2026</span>
+                    <i class="fa-solid fa-chevron-down text-[9px] ml-1 text-[#4A5560]"></i>
+                </div>
+                <div class="relative cursor-pointer text-[#1C2A38] hover:text-[#E07A2F] transition dropdown-toggle" id="notificationBell">
+                    <i class="fa-regular fa-bell text-base sm:text-lg"></i>
+                    <span class="absolute -top-1 -right-1 bg-[#E07A2F] text-white text-[8px] font-extrabold w-4 h-4 flex items-center justify-center rounded-full border-2 border-white">6</span>
+
+                    <!-- ===== NOTIFICATIONS — Volunteer Coordinator context ===== -->
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notif-header">
+                            <span>Notifications</span>
+                            <span class="notif-badge">6 new</span>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-icon bg-[#E07A2F]/15 text-[#E07A2F]"><i class="fa-solid fa-user-plus"></i></div>
+                            <div class="notif-content">
+                                <div class="notif-title">3 New Volunteer Applications</div>
+                                <div class="notif-desc">Meera N., Kabir S., Riya D. — awaiting approval</div>
+                                <div class="notif-time">5 min ago</div>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-icon bg-red-50 text-red-600"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div class="notif-content">
+                                <div class="notif-title">Shift Cover Needed</div>
+                                <div class="notif-desc">Fri 4 PM · Food Drive · 2 slots open</div>
+                                <div class="notif-time">20 min ago</div>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-icon bg-[#1D5B79]/15 text-[#1D5B79]"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="notif-content">
+                                <div class="notif-title">Training Completion</div>
+                                <div class="notif-desc">8 volunteers completed Child Safeguarding 101</div>
+                                <div class="notif-time">1 hour ago</div>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-icon bg-[#7BA88C]/25 text-[#4E8A63]"><i class="fa-solid fa-award"></i></div>
+                            <div class="notif-content">
+                                <div class="notif-title">Volunteer of the Month</div>
+                                <div class="notif-desc">Priya S. · 48 hours logged in July 🎉</div>
+                                <div class="notif-time">2 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-calendar-check"></i></div>
+                            <div class="notif-content">
+                                <div class="notif-title">Orientation Session Tomorrow</div>
+                                <div class="notif-desc">10 new volunteers · 10 AM · Community Hall</div>
+                                <div class="notif-time">3 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-comment"></i></div>
+                            <div class="notif-content">
+                                <div class="notif-title">Feedback Received</div>
+                                <div class="notif-desc">Arjun M. rated his experience 5★</div>
+                                <div class="notif-time">5 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="notif-footer">View all notifications →</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 border-l pl-6 border-gray-200">
+                    <div class="text-right hidden sm:block header-user-text">
+                        <p class="text-xs font-extrabold text-[#1C2A38] leading-tight" id="headerUserName">Coordinator</p>
+                        <p class="text-[9px] text-[#4A5560] font-bold leading-tight mt-0.5 uppercase">Volunteer Coordinator</p>
+                    </div>
+                    <div class="w-8 h-8 bg-[#E07A2F] rounded-full flex items-center justify-center text-white font-extrabold text-[10px] cursor-pointer relative hover:bg-[#C4631C] transition dropdown-toggle" id="profileDropdown">
+                        <span id="avatarInitials">V</span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-white rounded-full flex items-center justify-center border-2 border-[#E07A2F]">
+                            <i class="fa-solid fa-chevron-down text-[6px] text-[#E07A2F]"></i>
+                        </span>
+                        <div class="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg w-40 py-1 z-50" id="adminDropdownMenu">
+                            <a href="404.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><i class="fa-regular fa-user mr-2 text-[#E07A2F]"></i>Profile</a>
+                            <a href="404.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"><i class="fa-solid fa-gear mr-2 text-[#E07A2F]"></i>Settings</a>
+                            <hr class="my-1">
+                            <a href="login.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50" onclick="handleLogout(event)"><i class="fa-solid fa-right-from-bracket mr-2"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== MOBILE NAV ===== -->
+        <div class="mobile-nav-bar">
+            <a href="#" class="nav-btn active" data-page="dashboard"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+            <a href="#" class="nav-btn" data-page="volunteers"><i class="fa-solid fa-people-carry-box"></i> Volunteers</a>
+            <a href="#" class="nav-btn" data-page="applications"><i class="fa-solid fa-user-check"></i> Applications</a>
+            <a href="#" class="nav-btn" data-page="shifts"><i class="fa-solid fa-calendar-days"></i> Shifts</a>
+            <a href="#" class="nav-btn" data-page="training"><i class="fa-solid fa-graduation-cap"></i> Training</a>
+            <a href="#" class="nav-btn" data-page="recognition"><i class="fa-solid fa-award"></i> Recognition</a>
+            <a href="#" class="nav-btn" data-page="engagement"><i class="fa-solid fa-chart-line"></i> Engagement</a>
+            <a href="#" class="nav-btn" data-page="communications"><i class="fa-solid fa-comments"></i> Comms</a>
+            <a href="#" class="nav-btn" data-page="fieldreports"><i class="fa-solid fa-clipboard-list"></i> Reports</a>
+            <a href="#" class="nav-btn" data-page="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="login.html" class="nav-btn" onclick="handleLogout(event)"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-4 lg:p-6 bg-[#FBF8F4] dashboard-body-scroll">
+
+            <!-- ===== DASHBOARD ===== -->
+            <div id="section-dashboard" class="content-section active">
+
+                <!-- ===== STAT CARDS — volunteer-coordinator metrics ===== -->
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-4 section-gap">
+                    <div class="card p-2.5 stat-card stat-card-mini">
+                        <div class="stat-content">
+                            <div class="flex items-center justify-between">
+                                <div class="w-6 h-6 bg-[#1D5B79]/15 rounded-lg flex items-center justify-center text-[#1D5B79]"><i class="fa-solid fa-people-carry-box text-[10px]"></i></div>
+                                <span class="text-[8px] text-gray-400 flex items-center gap-1 font-medium"><i class="fa-solid fa-arrow-up text-green-500 text-[6px]"></i> +12 this week</span>
+                            </div>
+                            <p class="text-[9px] text-[#4A5560] font-bold mt-0.5 uppercase tracking-wide">Active Volunteers</p>
+                            <div class="flex items-baseline gap-1"><span class="text-base font-extrabold text-[#1C2A38]">186</span><span class="text-[8px] text-gray-400 font-medium">currently active</span></div>
+                        </div>
+                    </div>
+                    <div class="card p-2.5 stat-card stat-card-mini">
+                        <div class="stat-content">
+                            <div class="flex items-center justify-between">
+                                <div class="w-6 h-6 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600"><i class="fa-solid fa-user-check text-[10px]"></i></div>
+                                <span class="text-[8px] text-gray-400 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle text-[#E07A2F] text-[6px]"></i> needs review</span>
+                            </div>
+                            <p class="text-[9px] text-[#4A5560] font-bold mt-0.5 uppercase tracking-wide">Pending Applications</p>
+                            <div class="flex items-baseline gap-1"><span class="text-base font-extrabold text-[#1C2A38]">14</span><span class="text-[8px] text-gray-400 font-medium">awaiting approval</span></div>
+                        </div>
+                    </div>
+                    <div class="card p-2.5 stat-card stat-card-mini">
+                        <div class="stat-content">
+                            <div class="flex items-center justify-between">
+                                <div class="w-6 h-6 bg-green-50 rounded-lg flex items-center justify-center text-green-600"><i class="fa-solid fa-clock text-[10px]"></i></div>
+                                <span class="text-[8px] text-gray-400 flex items-center gap-1 font-medium"><i class="fa-solid fa-arrow-up text-green-500 text-[6px]"></i> 14% w/w</span>
+                            </div>
+                            <p class="text-[9px] text-[#4A5560] font-bold mt-0.5 uppercase tracking-wide">Hours Logged (Week)</p>
+                            <div class="flex items-baseline gap-1"><span class="text-base font-extrabold text-[#1C2A38]">862h</span><span class="text-[8px] text-gray-400 font-medium">across 6 programs</span></div>
+                        </div>
+                    </div>
+                    <div class="card p-2.5 stat-card stat-card-mini">
+                        <div class="stat-content">
+                            <div class="flex items-center justify-between">
+                                <div class="w-6 h-6 bg-red-50 rounded-lg flex items-center justify-center text-red-600"><i class="fa-solid fa-calendar-xmark text-[10px]"></i></div>
+                                <span class="text-[8px] text-gray-400 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle text-red-500 text-[6px]"></i> urgent</span>
+                            </div>
+                            <p class="text-[9px] text-[#4A5560] font-bold mt-0.5 uppercase tracking-wide">Shifts Needing Cover</p>
+                            <div class="flex items-baseline gap-1"><span class="text-base font-extrabold text-[#1C2A38]">6</span><span class="text-[8px] text-gray-400 font-medium">next 48 hours</span></div>
+                        </div>
+                    </div>
+                    <div class="card p-2.5 stat-card stat-card-mini">
+                        <div class="stat-content">
+                            <div class="flex items-center justify-between">
+                                <div class="w-6 h-6 bg-[#7BA88C]/25 rounded-lg flex items-center justify-center text-[#4E8A63]"><i class="fa-solid fa-heart text-[10px]"></i></div>
+                                <span class="text-[8px] text-gray-400 flex items-center gap-1 font-medium"><i class="fa-solid fa-arrow-up text-green-500 text-[6px]"></i> +0.3</span>
+                            </div>
+                            <p class="text-[9px] text-[#4A5560] font-bold mt-0.5 uppercase tracking-wide">Retention Rate</p>
+                            <div class="flex items-baseline gap-1"><span class="text-base font-extrabold text-[#1C2A38]">82%</span><span class="text-[8px] text-gray-400 font-medium">90-day retention</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== CHARTS — volunteer-focused ===== -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 section-gap">
+                    <div class="card p-4 card-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-extrabold text-[#1C2A38] text-[13px]">⏱️ Volunteer Hours by Program</h3>
+                            <span class="text-[8px] text-[#4A5560] bg-[#EEF5F8] px-1.5 py-0.5 rounded-full font-bold uppercase">This Week</span>
+                        </div>
+                        <div class="chart-h-2"><canvas id="barChart"></canvas></div>
+                    </div>
+                    <div class="card p-4 card-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-extrabold text-[#1C2A38] text-[13px]">📈 New Applications Trend</h3>
+                            <span class="text-[8px] text-[#4A5560] bg-[#EEF5F8] px-1.5 py-0.5 rounded-full font-bold uppercase">Last 6 Weeks</span>
+                        </div>
+                        <div class="chart-h-2"><canvas id="lineChart"></canvas></div>
+                    </div>
+                    <div class="card p-4 card-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-extrabold text-[#1C2A38] text-[13px]">🎯 Volunteer Skills Mix</h3>
+                            <span class="text-[8px] text-[#4A5560] bg-[#EEF5F8] px-1.5 py-0.5 rounded-full font-bold uppercase">All Volunteers</span>
+                        </div>
+                        <div class="chart-h-2"><canvas id="pieChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- ===== 3-COLUMN ROW ===== -->
+                <div class="grid grid-cols-1 lg:grid-cols-[35%_30%_35%] gap-3 lg:gap-4 section-gap">
+
+                    <!-- Panel 1 — Applications to Review (NEW) -->
+                    <div class="card p-4 card-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-extrabold text-[#1C2A38] text-[13px]">📥 New Applications</h3>
+                            <span class="text-[9px] font-bold text-[#E07A2F] bg-[#E07A2F]/10 px-2 py-0.5 rounded-full">14 pending</span>
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <div class="bg-[#FBF8F4] p-2 rounded-lg border border-gray-100">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="text-[10px] font-extrabold text-[#1C2A38]">Meera Nair</span>
+                                    <span class="status-pill status-review">New</span>
+                                </div>
+                                <p class="text-[8px] text-[#4A5560]">Teaching · 8h/week · North District</p>
+                                <div class="flex gap-1 mt-1.5">
+                                    <button class="text-[8px] font-bold bg-[#7BA88C] text-white px-2 py-0.5 rounded hover:bg-[#4E8A63]">Approve</button>
+                                    <button class="text-[8px] font-bold bg-[#FBF8F4] text-[#4A5560] px-2 py-0.5 rounded border hover:bg-red-50 hover:text-red-600">Reject</button>
+                                </div>
+                            </div>
+                            <div class="bg-[#FBF8F4] p-2 rounded-lg border border-gray-100">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="text-[10px] font-extrabold text-[#1C2A38]">Kabir Shah</span>
+                                    <span class="status-pill status-review">New</span>
+                                </div>
+                                <p class="text-[8px] text-[#4A5560]">Logistics · 6h/week · East District</p>
+                                <div class="flex gap-1 mt-1.5">
+                                    <button class="text-[8px] font-bold bg-[#7BA88C] text-white px-2 py-0.5 rounded hover:bg-[#4E8A63]">Approve</button>
+                                    <button class="text-[8px] font-bold bg-[#FBF8F4] text-[#4A5560] px-2 py-0.5 rounded border hover:bg-red-50 hover:text-red-600">Reject</button>
+                                </div>
+                            </div>
+                            <div class="bg-[#FBF8F4] p-2 rounded-lg border border-gray-100">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="text-[10px] font-extrabold text-[#1C2A38]">Riya Desai</span>
+                                    <span class="status-pill status-review">New</span>
+                                </div>
+                                <p class="text-[8px] text-[#4A5560]">Nursing · 10h/week · West District</p>
+                                <div class="flex gap-1 mt-1.5">
+                                    <button class="text-[8px] font-bold bg-[#7BA88C] text-white px-2 py-0.5 rounded hover:bg-[#4E8A63]">Approve</button>
+                                    <button class="text-[8px] font-bold bg-[#FBF8F4] text-[#4A5560] px-2 py-0.5 rounded border hover:bg-red-50 hover:text-red-600">Reject</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2 — Shifts Needing Cover (NEW) -->
+                    <div class="card p-4 card-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-extrabold text-[#1C2A38] text-[13px]">🕐 Shifts Needing Cover</h3>
+                            <span class="text-[9px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">6 urgent</span>
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <div class="bg-[#FBF8F4] p-2 rounded-lg border border-gray-100">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="text-[10px] font-extrabold text-[#1C2A38]">Food Drive · Sat 9 AM</span>
+                                    <span class="shift-cover">2 open</span>
+                                </div>
+                                <p class="text-[8px] text-[#4A5560]">East District · 4-hour shift · Packing & distribution</p>
+                            </div>
+                            <div class="bg-[#FBF8F4] p-2 rounded-lg border border-gray-100">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="text-[10px] font-extrabold text-[#1C2A38]">Health Camp · Sun 8 AM</span>
+                                    <span class="shift-cover">3 open</span>
+                                </div>
+                                <p class="text-[8px] text-[#4A5560]">Rural West · 8-hour shift · Nurses needed</p>
+                            </div>
+                            <div class="bg-[#FBF8F4] p-2 rounded-lg border border-gray-100">
+                                <div class="flex justify-between items-center mb-0.5">
+                                    <span class="text-[10px] font-extrabold text-[#1C2A38]">Teaching · Mon 4 PM</span>
+                                    <span class="shift-cover">1 open</span>
+                                </div>
+                                <p class="text-[8px] text-[#4A5560]">North District · 2-hour shift · Math tutor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 3 — Recent Volunteer Activity (NEW) -->
+                    <div class="card p-4 card-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-extrabold text-[#1C2A38] text-[13px]">🔄 Recent Activity</h3>
+                            <a href="404.html" class="text-[10px] text-[#E07A2F] font-bold hover:underline uppercase">View All</a>
+                        </div>
+                        <div class="space-y-1 flex-1">
+                            <div class="activity-item border-b border-gray-100 pb-2">
+                                <div class="w-6 h-6 bg-[#E07A2F]/15 rounded-full flex items-center justify-center text-[#E07A2F] flex-shrink-0 mt-0.5"><i class="fa-solid fa-user-plus text-[8px]"></i></div>
+                                <div>
+                                    <p class="text-[10px] font-extrabold text-[#1C2A38]">New application <span class="font-medium text-[#4A5560] text-[8px]">5 min ago</span></p>
+                                    <p class="text-[8px] text-[#4A5560]">Meera N. · Teaching role · North District</p>
+                                </div>
+                            </div>
+                            <div class="activity-item border-b border-gray-100 pb-2">
+                                <div class="w-6 h-6 bg-[#1D5B79]/15 rounded-full flex items-center justify-center text-[#1D5B79] flex-shrink-0 mt-0.5"><i class="fa-solid fa-check text-[8px]"></i></div>
+                                <div>
+                                    <p class="text-[10px] font-extrabold text-[#1C2A38]">Shift completed <span class="font-medium text-[#4A5560] text-[8px]">45 min ago</span></p>
+                                    <p class="text-[8px] text-[#4A5560]">Arjun M. · Food Drive · 4 hours logged</p>
+                                </div>
+                            </div>
+                            <div class="activity-item border-b border-gray-100 pb-2">
+                                <div class="w-6 h-6 bg-[#7BA88C]/25 rounded-full flex items-center justify-center text-[#4E8A63] flex-shrink-0 mt-0.5"><i class="fa-solid fa-award text-[8px]"></i></div>
+                                <div>
+                                    <p class="text-[10px] font-extrabold text-[#1C2A38]">Milestone reached <span class="font-medium text-[#4A5560] text-[8px]">2 hours ago</span></p>
+                                    <p class="text-[8px] text-[#4A5560]">Priya S. crossed 100 volunteer hours 🎉</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 flex-shrink-0 mt-0.5"><i class="fa-solid fa-graduation-cap text-[8px]"></i></div>
+                                <div>
+                                    <p class="text-[10px] font-extrabold text-[#1C2A38]">Training completed <span class="font-medium text-[#4A5560] text-[8px]">3 hours ago</span></p>
+                                    <p class="text-[8px] text-[#4A5560]">8 volunteers · Child Safeguarding 101</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BOTTOM ROW ===== -->
+                <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-3 lg:gap-4">
+
+                    <!-- Left — This Week's Volunteer Snapshot -->
+                    <div class="card p-4 card-shadow">
+                        <h3 class="font-extrabold text-[#1C2A38] text-[13px] mb-2">📊 This Week's Volunteer Snapshot</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <div class="bg-[#FBF8F4] p-3 rounded-xl text-center border border-gray-100">
+                                <p class="text-[8px] text-[#4A5560] font-bold uppercase">New Sign-Ups</p>
+                                <p class="text-lg font-extrabold text-[#E07A2F]">12</p>
+                            </div>
+                            <div class="bg-[#FBF8F4] p-3 rounded-xl text-center border border-gray-100">
+                                <p class="text-[8px] text-[#4A5560] font-bold uppercase">Shifts Filled</p>
+                                <p class="text-lg font-extrabold text-[#E07A2F]">48/54</p>
+                            </div>
+                            <div class="bg-[#FBF8F4] p-3 rounded-xl text-center border border-gray-100">
+                                <p class="text-[8px] text-[#4A5560] font-bold uppercase">Hours Logged</p>
+                                <p class="text-lg font-extrabold text-[#E07A2F]">862h</p>
+                            </div>
+                            <div class="bg-[#FBF8F4] p-3 rounded-xl text-center border border-gray-100">
+                                <p class="text-[8px] text-[#4A5560] font-bold uppercase">Retention</p>
+                                <p class="text-lg font-extrabold text-[#E07A2F]">82%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right — Top Performers -->
+                    <div class="card p-4 card-shadow">
+                        <h3 class="font-extrabold text-[#1C2A38] text-[13px] mb-2">🏅 Top Volunteers This Month</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-[#E07A2F] rounded-full flex items-center justify-center text-white text-[10px] font-extrabold">1</div>
+                                <div class="flex-1">
+                                    <p class="text-[10px] font-extrabold text-[#1C2A38]">Priya Singh</p>
+                                    <p class="text-[8px] text-[#4A5560]">48 hours · Education for All</p>
+                                </div>
+                                <span class="status-pill status-active">Top</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-[#1D5B79] rounded-full flex items-center justify-center text-white text-[10px] font-extrabold">2</div>
+                                <div class="flex-1">
+                                    <p class="text-[10px] font-extrabold text-[#1C2A38]">Arjun Mehta</p>
+                                    <p class="text-[8px] text-[#4A5560]">42 hours · Nutrition Support</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-[#7BA88C] rounded-full flex items-center justify-center text-white text-[10px] font-extrabold">3</div>
+                                <div class="flex-1">
+                                    <p class="text-[10px] font-extrabold text-[#1C2A38]">Kavita Rao</p>
+                                    <p class="text-[8px] text-[#4A5560]">38 hours · Rural Health Outreach</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== VOLUNTEERS ===== -->
+            <div id="section-volunteers" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-people-carry-box text-[#E07A2F] mr-2"></i> Volunteers</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Full volunteer roster with skills, assignments, and hours.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-[#1D5B79]/15">
+                            <p class="text-sm text-[#4A5560] font-semibold">Total Volunteers</p>
+                            <p class="text-2xl font-extrabold text-[#E07A2F]">186</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-xl border border-green-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Active This Month</p>
+                            <p class="text-2xl font-extrabold text-green-600">142</p>
+                        </div>
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">New This Month</p>
+                            <p class="text-2xl font-extrabold text-amber-600">28</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Avg. Hours/Week</p>
+                            <p class="text-2xl font-extrabold text-blue-600">6.4h</p>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-[#FBF8F4] text-[#4A5560] text-xs uppercase tracking-wide">
+                                <tr>
+                                    <th class="p-3 text-left">Name</th>
+                                    <th class="p-3 text-left">Skill</th>
+                                    <th class="p-3 text-left">Assigned Program</th>
+                                    <th class="p-3 text-left">Hours (Month)</th>
+                                    <th class="p-3 text-left">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="p-3 font-semibold text-[#1C2A38]">Priya Singh</td><td class="p-3">Teaching</td><td class="p-3">Education for All</td><td class="p-3">48h</td><td class="p-3"><span class="status-pill status-active">Active</span></td></tr>
+                                <tr class="border-b"><td class="p-3 font-semibold text-[#1C2A38]">Arjun Mehta</td><td class="p-3">Logistics</td><td class="p-3">Nutrition Support</td><td class="p-3">42h</td><td class="p-3"><span class="status-pill status-active">Active</span></td></tr>
+                                <tr class="border-b"><td class="p-3 font-semibold text-[#1C2A38]">Kavita Rao</td><td class="p-3">Nursing</td><td class="p-3">Rural Health</td><td class="p-3">38h</td><td class="p-3"><span class="status-pill status-progress">On Break</span></td></tr>
+                                <tr class="border-b"><td class="p-3 font-semibold text-[#1C2A38]">Rohit Verma</td><td class="p-3">Driving</td><td class="p-3">Aid Distribution</td><td class="p-3">34h</td><td class="p-3"><span class="status-pill status-active">Active</span></td></tr>
+                                <tr><td class="p-3 font-semibold text-[#1C2A38]">Sneha Patel</td><td class="p-3">Counselling</td><td class="p-3">Women Skill Training</td><td class="p-3">30h</td><td class="p-3"><span class="status-pill status-active">Active</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== APPLICATIONS ===== -->
+            <div id="section-applications" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-user-check text-[#E07A2F] mr-2"></i> Applications</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Review and approve new volunteer applications.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Pending Review</p>
+                            <p class="text-2xl font-extrabold text-amber-600">14</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-xl border border-green-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Approved This Week</p>
+                            <p class="text-2xl font-extrabold text-green-600">12</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Rejected</p>
+                            <p class="text-2xl font-extrabold text-red-600">3</p>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-[#1D5B79]/15">
+                            <p class="text-sm text-[#4A5560] font-semibold">Avg. Review Time</p>
+                            <p class="text-2xl font-extrabold text-[#E07A2F]">1.8d</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">Meera Nair</p>
+                                    <p class="text-xs text-[#4A5560]">meera.n@email.com · +91 98xxx 12345</p>
+                                    <p class="text-xs text-[#4A5560] mt-1">Skill: Teaching · Preferred: North District · 8h/week</p>
+                                </div>
+                                <span class="status-pill status-review">New</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="text-[10px] font-bold bg-[#7BA88C] text-white px-3 py-1 rounded hover:bg-[#4E8A63]">✓ Approve</button>
+                                <button class="text-[10px] font-bold bg-white text-[#4A5560] px-3 py-1 rounded border hover:bg-red-50 hover:text-red-600">✕ Reject</button>
+                            </div>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">Kabir Shah</p>
+                                    <p class="text-xs text-[#4A5560]">kabir.s@email.com · +91 98xxx 67890</p>
+                                    <p class="text-xs text-[#4A5560] mt-1">Skill: Logistics · Preferred: East District · 6h/week</p>
+                                </div>
+                                <span class="status-pill status-review">New</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="text-[10px] font-bold bg-[#7BA88C] text-white px-3 py-1 rounded hover:bg-[#4E8A63]">✓ Approve</button>
+                                <button class="text-[10px] font-bold bg-white text-[#4A5560] px-3 py-1 rounded border hover:bg-red-50 hover:text-red-600">✕ Reject</button>
+                            </div>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">Riya Desai</p>
+                                    <p class="text-xs text-[#4A5560]">riya.d@email.com · +91 98xxx 11111</p>
+                                    <p class="text-xs text-[#4A5560] mt-1">Skill: Nursing · Preferred: West District · 10h/week</p>
+                                </div>
+                                <span class="status-pill status-review">New</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="text-[10px] font-bold bg-[#7BA88C] text-white px-3 py-1 rounded hover:bg-[#4E8A63]">✓ Approve</button>
+                                <button class="text-[10px] font-bold bg-white text-[#4A5560] px-3 py-1 rounded border hover:bg-red-50 hover:text-red-600">✕ Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SHIFT SCHEDULER ===== -->
+            <div id="section-shifts" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-calendar-days text-[#E07A2F] mr-2"></i> Shift Scheduler</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Upcoming shifts, coverage status, and open slots.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-[#1D5B79]/15">
+                            <p class="text-sm text-[#4A5560] font-semibold">Shifts This Week</p>
+                            <p class="text-2xl font-extrabold text-[#E07A2F]">54</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-xl border border-green-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Fully Covered</p>
+                            <p class="text-2xl font-extrabold text-green-600">48</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Needs Cover</p>
+                            <p class="text-2xl font-extrabold text-red-600">6</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Coverage Rate</p>
+                            <p class="text-2xl font-extrabold text-blue-600">89%</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100 flex justify-between items-center">
+                            <div>
+                                <p class="font-bold text-[#1C2A38]">Food Drive · Saturday 9 AM – 1 PM</p>
+                                <p class="text-xs text-[#4A5560]">East District · 6 volunteers assigned · 2 slots open</p>
+                            </div>
+                            <span class="shift-cover">2 open</span>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100 flex justify-between items-center">
+                            <div>
+                                <p class="font-bold text-[#1C2A38]">Health Camp · Sunday 8 AM – 4 PM</p>
+                                <p class="text-xs text-[#4A5560]">Rural West · 5 volunteers assigned · 3 slots open (nurses needed)</p>
+                            </div>
+                            <span class="shift-cover">3 open</span>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100 flex justify-between items-center">
+                            <div>
+                                <p class="font-bold text-[#1C2A38]">Teaching Session · Monday 4 PM – 6 PM</p>
+                                <p class="text-xs text-[#4A5560]">North District · 3 volunteers assigned · 1 slot open (math tutor)</p>
+                            </div>
+                            <span class="shift-cover">1 open</span>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-xl border border-green-100 flex justify-between items-center">
+                            <div>
+                                <p class="font-bold text-[#1C2A38]">Nutrition Packing · Tuesday 10 AM – 12 PM</p>
+                                <p class="text-xs text-[#4A5560]">Central · 8 volunteers assigned · fully covered</p>
+                            </div>
+                            <span class="status-pill status-active">Full</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== TRAINING ===== -->
+            <div id="section-training" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-graduation-cap text-[#E07A2F] mr-2"></i> Training &amp; Onboarding</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Manage volunteer training, certifications, and onboarding.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-[#1D5B79]/15 text-center">
+                            <p class="text-3xl mb-2">📘</p>
+                            <p class="font-extrabold text-[#1C2A38]">Child Safeguarding 101</p>
+                            <p class="text-sm text-[#4A5560]">142/186 certified</p>
+                            <div class="prog-bar-bg mt-2"><div class="prog-bar-fill" style="width:76%; background:linear-gradient(90deg,#1D5B79,#E07A2F);"></div></div>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-[#1D5B79]/15 text-center">
+                            <p class="text-3xl mb-2">🩺</p>
+                            <p class="font-extrabold text-[#1C2A38]">First Aid &amp; Safety</p>
+                            <p class="text-sm text-[#4A5560]">98/186 certified</p>
+                            <div class="prog-bar-bg mt-2"><div class="prog-bar-fill" style="width:53%; background:linear-gradient(90deg,#E07A2F,#C4631C);"></div></div>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-[#1D5B79]/15 text-center">
+                            <p class="text-3xl mb-2">💬</p>
+                            <p class="font-extrabold text-[#1C2A38]">Community Communication</p>
+                            <p class="text-sm text-[#4A5560]">76/186 certified</p>
+                            <div class="prog-bar-bg mt-2"><div class="prog-bar-fill" style="width:41%; background:linear-gradient(90deg,#7BA88C,#4E8A63);"></div></div>
+                        </div>
+                    </div>
+                    <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                        <p class="font-bold text-[#1C2A38] mb-2">📅 Next Orientation Session</p>
+                        <p class="text-sm text-[#4A5560]">Tomorrow, Jul 24 · 10:00 AM · Community Hall · 10 new volunteers registered</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== RECOGNITION ===== -->
+            <div id="section-recognition" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-award text-[#E07A2F] mr-2"></i> Recognition</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Celebrate volunteers and track achievements.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="bg-[#E07A2F]/10 p-4 rounded-xl border border-[#E07A2F]/30 text-center">
+                            <p class="text-3xl mb-1">🥇</p>
+                            <p class="text-[10px] font-bold text-[#B45309] uppercase">Volunteer of the Month</p>
+                            <p class="font-extrabold text-[#1C2A38] mt-1">Priya Singh</p>
+                            <p class="text-sm text-[#4A5560]">48 hours · July</p>
+                        </div>
+                        <div class="bg-[#1D5B79]/10 p-4 rounded-xl border border-[#1D5B79]/30 text-center">
+                            <p class="text-3xl mb-1">💯</p>
+                            <p class="text-[10px] font-bold text-[#1D5B79] uppercase">100+ Hours Club</p>
+                            <p class="font-extrabold text-[#1C2A38] mt-1">12 volunteers</p>
+                            <p class="text-sm text-[#4A5560]">Lifetime commitment</p>
+                        </div>
+                        <div class="bg-[#7BA88C]/15 p-4 rounded-xl border border-[#7BA88C]/40 text-center">
+                            <p class="text-3xl mb-1">🎂</p>
+                            <p class="text-[10px] font-bold text-[#4E8A63] uppercase">Years of Service</p>
+                            <p class="font-extrabold text-[#1C2A38] mt-1">5 volunteers</p>
+                            <p class="text-sm text-[#4A5560]">3+ years with us</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="bg-[#FBF8F4] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
+                            <span class="text-sm font-bold text-[#1C2A38]">🏆 Priya Singh · crossed 100 hours</span>
+                            <span class="text-xs text-[#4A5560]">Jul 2026</span>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
+                            <span class="text-sm font-bold text-[#1C2A38]">🏆 Arjun Mehta · perfect shift attendance (3 months)</span>
+                            <span class="text-xs text-[#4A5560]">Jul 2026</span>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
+                            <span class="text-sm font-bold text-[#1C2A38]">🏆 Kavita Rao · 5 medical camps attended</span>
+                            <span class="text-xs text-[#4A5560]">Jun 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ENGAGEMENT ===== -->
+            <div id="section-engagement" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-chart-line text-[#E07A2F] mr-2"></i> Engagement</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Track volunteer satisfaction, retention, and participation.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-[#1D5B79]/15">
+                            <p class="text-sm text-[#4A5560] font-semibold">Retention (90d)</p>
+                            <p class="text-2xl font-extrabold text-[#E07A2F]">82%</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-xl border border-green-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Avg. Satisfaction</p>
+                            <p class="text-2xl font-extrabold text-green-600">4.6★</p>
+                        </div>
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Returning Volunteers</p>
+                            <p class="text-2xl font-extrabold text-amber-600">68%</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                            <p class="text-sm text-[#4A5560] font-semibold">Referral Rate</p>
+                            <p class="text-2xl font-extrabold text-blue-600">24%</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <p class="text-sm text-[#4A5560] font-bold">📊 Monthly engagement report coming soon</p>
+                        <p class="text-xs text-[#8B98A5] mt-1">Detailed metrics on retention, satisfaction, and churn.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== COMMUNICATIONS ===== -->
+            <div id="section-communications" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-comments text-[#E07A2F] mr-2"></i> Communications</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Send announcements, reminders, and messages to volunteers.</p>
+                    <div class="space-y-3">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">📢 Shift reminder sent</p>
+                                    <p class="text-sm text-[#4A5560]">To 48 volunteers · Food Drive + Health Camp</p>
+                                </div>
+                                <span class="text-[10px] text-[#8B98A5]">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">🎉 Milestone celebration email</p>
+                                    <p class="text-sm text-[#4A5560]">Priya S. · 100 hours recognition</p>
+                                </div>
+                                <span class="text-[10px] text-[#8B98A5]">3 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">📋 Orientation invite</p>
+                                    <p class="text-sm text-[#4A5560]">10 new volunteers · Tomorrow 10 AM</p>
+                                </div>
+                                <span class="text-[10px] text-[#8B98A5]">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== FIELD REPORTS ===== -->
+            <div id="section-fieldreports" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-clipboard-list text-[#E07A2F] mr-2"></i> Field Reports</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Shift reports from volunteers in the field.</p>
+                    <div class="space-y-3">
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">Food Drive · East District</p>
+                                    <p class="text-xs text-[#4A5560]">Submitted by Arjun M. · Jul 22, 2026</p>
+                                </div>
+                                <span class="status-pill status-completed">Reviewed</span>
+                            </div>
+                            <p class="text-sm text-[#4A5560]">320 meal packs distributed. 6 volunteers participated. 2 new families identified for enrollment.</p>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">Teaching Session · North District</p>
+                                    <p class="text-xs text-[#4A5560]">Submitted by Priya S. · Jul 21, 2026</p>
+                                </div>
+                                <span class="status-pill status-completed">Reviewed</span>
+                            </div>
+                            <p class="text-sm text-[#4A5560]">28 children attended math class. 3 need additional support. Lesson plan for next week ready.</p>
+                        </div>
+                        <div class="bg-[#FBF8F4] p-4 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-[#1C2A38]">Health Camp · Rural West</p>
+                                    <p class="text-xs text-[#4A5560]">Submitted by Kavita R. · Jul 20, 2026</p>
+                                </div>
+                                <span class="status-pill status-review">Under Review</span>
+                            </div>
+                            <p class="text-sm text-[#4A5560]">112 patients screened. 8 referrals to district hospital. Need more first-aid supplies for next camp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SETTINGS ===== -->
+            <div id="section-settings" class="content-section">
+                <div class="card p-6 card-shadow">
+                    <h2 class="text-xl font-extrabold text-[#1C2A38] mb-4 uppercase"><i class="fa-solid fa-gear text-[#E07A2F] mr-2"></i> Settings</h2>
+                    <p class="text-[#4A5560] mb-4 font-medium">Configure volunteer coordination settings.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-[#E07A2F] cursor-pointer transition">
+                            <i class="fa-solid fa-user-group text-[#E07A2F] text-xl mb-2"></i>
+                            <p class="font-bold text-[#1C2A38]">Volunteer Profile Settings</p>
+                            <p class="text-sm text-[#4A5560]">Custom fields, required skills</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-[#E07A2F] cursor-pointer transition">
+                            <i class="fa-solid fa-calendar-days text-[#E07A2F] text-xl mb-2"></i>
+                            <p class="font-bold text-[#1C2A38]">Shift Defaults</p>
+                            <p class="text-sm text-[#4A5560]">Time slots, locations, capacity</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-[#E07A2F] cursor-pointer transition">
+                            <i class="fa-solid fa-bell text-[#E07A2F] text-xl mb-2"></i>
+                            <p class="font-bold text-[#1C2A38]">Notification Preferences</p>
+                            <p class="text-sm text-[#4A5560]">Application alerts, shift cover requests</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-[#E07A2F] cursor-pointer transition">
+                            <i class="fa-solid fa-envelope text-[#E07A2F] text-xl mb-2"></i>
+                            <p class="font-bold text-[#1C2A38]">Message Templates</p>
+                            <p class="text-sm text-[#4A5560]">Reminders, welcome, recognition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-4"></div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const session = window.__SH_USER__;
+            if (session) {
+                const displayName = session.name || 'Coordinator';
+                const initial = displayName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+                const subtitle = document.getElementById('pageSubtitle');
+                if (subtitle) subtitle.textContent = "Welcome back, " + displayName.split(' ')[0] + ". Manage volunteers, shifts, and engagement.";
+                const headerName = document.getElementById('headerUserName');
+                if (headerName) headerName.textContent = displayName;
+                const avatar = document.getElementById('avatarInitials');
+                if (avatar) avatar.textContent = initial;
+            }
+
+            const pageTitles = {
+                'dashboard': ['Volunteer Coordinator Dashboard', 'Manage volunteers, shifts, and engagement.'],
+                'volunteers': ['Volunteers', 'Full volunteer roster with skills, assignments, and hours.'],
+                'applications': ['Applications', 'Review and approve new volunteer applications.'],
+                'shifts': ['Shift Scheduler', 'Upcoming shifts, coverage status, and open slots.'],
+                'training': ['Training & Onboarding', 'Manage volunteer training, certifications, and onboarding.'],
+                'recognition': ['Recognition', 'Celebrate volunteers and track achievements.'],
+                'engagement': ['Engagement', 'Track volunteer satisfaction, retention, and participation.'],
+                'communications': ['Communications', 'Send announcements, reminders, and messages.'],
+                'fieldreports': ['Field Reports', 'Shift reports from volunteers in the field.'],
+                'settings': ['Settings', 'Configure volunteer coordination settings.']
+            };
+
+            function navigateTo(page) {
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                const targetSection = document.getElementById('section-' + page);
+                if (targetSection) targetSection.classList.add('active');
+                if (pageTitles[page]) {
+                    document.getElementById('pageTitle').textContent = pageTitles[page][0];
+                    document.getElementById('pageSubtitle').textContent = pageTitles[page][1];
+                }
+                document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === page) link.classList.add('active');
+                });
+                document.querySelectorAll('.mobile-nav-bar .nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-page') === page) btn.classList.add('active');
+                });
+            }
+
+            document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    if (page) navigateTo(page);
+                });
+            });
+            document.querySelectorAll('.mobile-nav-bar .nav-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const page = btn.getAttribute('data-page');
+                    if (page) { e.preventDefault(); navigateTo(page); }
+                });
+            });
+
+            const dateRangePicker = document.getElementById('dateRangePicker');
+            const dateRangeText = document.getElementById('dateRangeText');
+            if (dateRangePicker) {
+                dateRangePicker.addEventListener('click', function() {
+                    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                    const today = new Date();
+                    const formatted = today.getDate() + ' ' + months[today.getMonth()] + ' ' + today.getFullYear();
+                    dateRangeText.textContent = 'Today, ' + formatted;
+                });
+            }
+
+            const notificationBell = document.getElementById('notificationBell');
+            const notificationDropdown = document.getElementById('notificationDropdown');
+            if (notificationBell && notificationDropdown) {
+                notificationBell.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    notificationDropdown.classList.toggle('show');
+                });
+                document.addEventListener('click', function(e) {
+                    if (!notificationBell.contains(e.target)) notificationDropdown.classList.remove('show');
+                });
+            }
+
+            const profileDropdown = document.getElementById('profileDropdown');
+            const adminMenu = document.getElementById('adminDropdownMenu');
+            if (profileDropdown && adminMenu) {
+                profileDropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    adminMenu.classList.toggle('show');
+                });
+                document.addEventListener('click', function(e) {
+                    if (!profileDropdown.contains(e.target)) adminMenu.classList.remove('show');
+                });
+            }
+
+            navigateTo('dashboard');
+            document.body.classList.add('sh-ready');
+        });
+
+        function handleLogout(e) {
+            if (e) e.preventDefault();
+            sessionStorage.removeItem('sh_session');
+            localStorage.removeItem('sh_session');
+            window.location.replace('login.html');
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const baseOpts = { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } };
+            const colors = { teal: '#1D5B79', amber: '#E07A2F', sage: '#7BA88C', orange: '#F59E0B', purple: '#8B5CF6' };
+
+            // Chart 1 — Volunteer Hours by Program
+            new Chart(document.getElementById('barChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Education','Nutrition','Health','Aid','Women Skills'],
+                    datasets: [{
+                        label: 'Hours',
+                        data: [240, 180, 160, 120, 90],
+                        backgroundColor: colors.amber,
+                        borderRadius: 4, barThickness: 20
+                    }]
+                },
+                options: {
+                    ...baseOpts,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: '#EEF5F8', drawBorder: false }, ticks: { font: { size: 8, family: 'Inter' } } },
+                        x: { grid: { display: false }, ticks: { font: { size: 8, family: 'Inter' } } }
+                    }
+                }
+            });
+
+            // Chart 2 — New Applications Trend
+            new Chart(document.getElementById('lineChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6'],
+                    datasets: [{
+                        label: 'Applications',
+                        data: [8, 12, 9, 15, 11, 14],
+                        borderColor: colors.teal,
+                        backgroundColor: 'rgba(29, 91, 121, 0.15)',
+                        tension: 0.4, borderWidth: 2.5, pointRadius: 3,
+                        pointBackgroundColor: colors.teal, fill: true
+                    }]
+                },
+                options: {
+                    ...baseOpts,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: '#EEF5F8', drawBorder: false }, ticks: { font: { size: 8, family: 'Inter' } } },
+                        x: { grid: { display: false }, ticks: { font: { size: 8, family: 'Inter' } } }
+                    }
+                }
+            });
+
+            // Chart 3 — Volunteer Skills Mix
+            new Chart(document.getElementById('pieChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Teaching','Logistics','Medical','Driving','Counselling'],
+                    datasets: [{
+                        data: [38, 32, 24, 18, 14],
+                        backgroundColor: [colors.amber, colors.teal, colors.sage, colors.orange, colors.purple],
+                        borderWidth: 2, borderColor: '#fff', hoverOffset: 5
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'bottom', labels: { boxWidth: 10, padding: 6, font: { size: 8, family: 'Inter' } } }
+                    },
+                    cutout: '60%'
+                }
+            });
+        });
+    </script>
+
+    <script>
+      window.addEventListener('pageshow', function (e) {
+        if (!e.persisted) return;
+        const raw = sessionStorage.getItem('sh_session') || localStorage.getItem('sh_session');
+        const session = raw ? JSON.parse(raw) : null;
+        const valid = session && session.authenticated === true &&
+                      session.expiresAt > Date.now() && session.role === 'volunteer';
+        if (!valid) window.location.replace('login.html');
+      });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Welfare Organization — Sign Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       SOCIAL WELFARE ORGANIZATION — SIGN UP
+       Primary  (trust)  : #1D5B79  deep teal-blue
+       Accent   (warmth) : #E07A2F  warm amber  (CTA)
+       Secondary(hope)   : #7BA88C  soft sage
+       Background        : #FBF8F4  warm off-white
+       Text              : #1C2A38  deep navy-charcoal
+       ========================================================= */
+    :root {
+      --sw-primary:   #1D5B79;
+      --sw-primary-d: #14455C;
+      --sw-accent:    #E07A2F;
+      --sw-accent-d:  #C4631C;
+      --sw-sage:      #7BA88C;
+      --sw-bg:        #FBF8F4;
+      --sw-text:      #1C2A38;
+      --sw-text-soft: #4A5560;
+      --sw-border:    rgba(29, 91, 121, 0.15);
+      --sw-border-hi: rgba(29, 91, 121, 0.28);
+      --sw-shadow:    rgba(28, 42, 56, 0.08);
+      --sw-shadow-hi: rgba(28, 42, 56, 0.14);
+      --sw-input-bg:  #FBF8F4;
+      --sw-input-bd:  #E2E8ED;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+    body {
+      background: var(--sw-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    #header-placeholder { width: 100%; flex-shrink: 0; }
+    #footer-placeholder { width: 100%; flex-shrink: 0; margin-top: auto; }
+
+    .main-wrapper {
+      max-width: 1140px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+      overflow-x: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .signup-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+      width: 100%;
+      flex: 1;
+    }
+
+    .signup-card {
+      display: flex;
+      flex-direction: column;
+      max-width: 820px;
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 24px;
+      box-shadow: 0 8px 40px var(--sw-shadow), inset 0 -3px 0 0 var(--sw-accent);
+      border: 1px solid var(--sw-border);
+      overflow: hidden;
+    }
+
+    /* ---------- Visual Panel (teal gradient) ---------- */
+    .signup-visual {
+      display: flex;
+      background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+      padding: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      border-bottom: 3px solid var(--sw-accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signup-visual::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(123, 168, 140, 0.25);
+    }
+
+    .signup-visual::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(224, 122, 47, 0.20);
+    }
+
+    .signup-visual img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: contain;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    .signup-svg-fallback {
+      width: 100%;
+      max-width: 180px;
+      display: none;
+      position: relative;
+      z-index: 2;
+    }
+    .signup-svg-fallback svg { width: 100%; height: auto; display: block; }
+
+    .signup-form {
+      flex: 1;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #FFFFFF;
+      text-align: center;
+    }
+
+    .signup-heading {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--sw-text);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .signup-subhead {
+      font-size: 0.85rem;
+      color: var(--sw-text-soft);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .signup-subhead strong { color: var(--sw-primary); font-weight: 700; }
+
+    /* ---------- Google button ---------- */
+    .signup-google-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 16px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--sw-text);
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      border-radius: 10px;
+      padding: 10px 16px;
+      background: var(--sw-input-bg);
+      border: 1.5px solid var(--sw-input-bd);
+      justify-content: center;
+      text-decoration: none;
+    }
+    .signup-google-row:hover {
+      background: #FFFFFF;
+      border-color: var(--sw-primary);
+      box-shadow: 0 2px 10px rgba(29, 91, 121, 0.2);
+      transform: translateY(-1px);
+    }
+    .signup-google-icon { display: inline-flex; width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+    .signup-google-icon svg { width: 100%; height: 100%; display: block; }
+
+    .signup-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin: 4px 0 18px;
+      justify-content: center;
+    }
+    .signup-divider hr { flex: 1; border: none; height: 1px; background: var(--sw-border); }
+    .signup-divider span {
+      color: #8B98A5;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Input groups ---------- */
+    .signup-input-group {
+      position: relative;
+      margin-bottom: 14px;
+      width: 100%;
+    }
+
+    .signup-input-group i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--sw-primary);
+      font-size: 0.9rem;
+      width: 1.1rem;
+      text-align: center;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .signup-input-group input,
+    .signup-input-group select {
+      width: 100%;
+      padding: 0.65rem 0.8rem 0.65rem 2.4rem;
+      border: 1.5px solid var(--sw-input-bd);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      background: var(--sw-input-bg);
+      transition: 0.15s;
+      outline: none;
+      color: var(--sw-text);
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .signup-input-group select {
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 2.5rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231D5B79' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 12px;
+    }
+
+    .signup-input-group input:focus,
+    .signup-input-group select:focus {
+      border-color: var(--sw-primary);
+      box-shadow: 0 0 0 3px rgba(29, 91, 121, 0.15);
+      background: #FFFFFF;
+    }
+
+    .signup-input-group input::placeholder { color: #8B98A5; font-weight: 400; }
+
+    .signup-error-msg {
+      color: #D32F2F;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 4px;
+      margin-bottom: 12px;
+      display: none;
+      padding-left: 0.5rem;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .signup-error-msg.show { display: block; }
+    .signup-input-group.has-error { margin-bottom: 0; }
+    .signup-terms-row.has-error { margin-bottom: 0; }
+
+    /* ---------- Terms row ---------- */
+    .signup-terms-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 0.3rem 0 1.2rem 0;
+      font-size: 0.82rem;
+      color: var(--sw-text);
+      cursor: pointer;
+      justify-content: flex-start;
+      text-align: left;
+      font-weight: 500;
+    }
+    .signup-terms-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--sw-primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .signup-terms-row a { color: var(--sw-accent); text-decoration: none; font-weight: 700; }
+    .signup-terms-row a:hover { color: var(--sw-accent-d); text-decoration: underline; }
+
+    /* ---------- Submit button (amber CTA) ---------- */
+    .signup-btn-wrapper { display: flex; margin-bottom: 18px; width: 100%; }
+
+    .signup-submit-btn {
+      width: 100%;
+      padding: 0.8rem 0.9rem;
+      background: var(--sw-accent);
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      letter-spacing: 0.6px;
+      box-shadow: 0 6px 18px rgba(224, 122, 47, 0.35);
+      text-transform: uppercase;
+      font-family: inherit;
+    }
+    .signup-submit-btn:hover {
+      background: var(--sw-accent-d);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(196, 99, 28, 0.45);
+    }
+    .signup-submit-btn:disabled { opacity: 0.85; cursor: wait; transform: none; }
+
+    /* ---------- Feedback alert ---------- */
+    .signup-feedback {
+      display: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .signup-feedback.show { display: block; }
+    .signup-feedback.success {
+      background: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+      border-left: 4px solid #10B981;
+    }
+    .signup-feedback.error {
+      background: #FEF2F2;
+      color: #991B1B;
+      border: 1px solid #FECACA;
+      border-left: 4px solid #DC2626;
+    }
+    .signup-feedback i { margin-right: 6px; }
+
+    .signin-text { text-align: center; font-size: 0.85rem; color: var(--sw-text-soft); }
+    .signin-text a { color: var(--sw-accent); font-weight: 700; text-decoration: none; }
+    .signin-text a:hover { color: var(--sw-accent-d); text-decoration: underline; }
+
+    /* ---------- Responsive ---------- */
+    @media (min-width: 768px) {
+      .signup-card { flex-direction: row; min-height: 480px; max-height: 820px; border-radius: 24px; }
+      .signup-visual {
+        flex: 0.8;
+        min-height: 280px;
+        padding: 1.5rem;
+        border-bottom: none;
+        border-left: 3px solid var(--sw-accent);
+      }
+      .signup-visual img { max-width: 200px; }
+      .signup-form { padding: 2.5rem 2.5rem 2.5rem 2rem; flex: 1.2; text-align: left; }
+      .signup-heading { font-size: 1.8rem; }
+      .signup-subhead { font-size: 0.9rem; margin-bottom: 24px; }
+      .signup-divider { justify-content: flex-start; }
+    }
+
+    @media (max-width: 767px) {
+      .signup-wrapper { padding: 1.5rem 0; }
+      .signup-card { max-width: 460px; margin: 0 auto; border-radius: 18px; }
+      .signup-form { padding: 2rem 1.5rem; text-align: center; }
+    }
+
+    @media (max-width: 420px) {
+      .signup-form { padding: 1.5rem 1rem; }
+      .signup-heading { font-size: 1.4rem; }
+      .signup-subhead { font-size: 0.8rem; margin-bottom: 18px; }
+      .signup-input-group input,
+      .signup-input-group select { padding: 0.55rem 0.7rem 0.55rem 2.2rem; font-size: 0.8rem; }
+      .signup-submit-btn { padding: 0.7rem 0.6rem; font-size: 0.82rem; }
+      .signup-visual { min-height: 180px; padding: 1rem; }
+      .signup-visual img { max-width: 150px; }
+      .signup-error-msg { font-size: 0.72rem; padding-left: 0.4rem; }
+      .signup-terms-row { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <div class="main-wrapper">
+    <div class="signup-wrapper">
+      <div class="signup-card">
+
+        <div class="signup-visual">
+          <img src="swo14.webp" alt="Helping Hands — Social Welfare Organization" loading="lazy"
+               onerror="this.style.display='none'; document.getElementById('signupSvgFallback').style.display='block';" />
+          <div id="signupSvgFallback" class="signup-svg-fallback" style="display:none;">
+            <svg viewBox="0 0 300 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="350" rx="16" fill="#1D5B79"/>
+              <circle cx="150" cy="150" r="100" fill="#7BA88C" opacity="0.20"/>
+              <circle cx="150" cy="150" r="70" fill="none" stroke="#E07A2F" stroke-width="2" stroke-dasharray="6 6"/>
+              <path d="M150 95 C 138 82, 118 82, 118 100 C 118 118, 150 138, 150 138 C 150 138, 182 118, 182 100 C 182 82, 162 82, 150 95 Z"
+                    fill="#E07A2F" opacity="0.9"/>
+              <text x="150" y="215" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="800" fill="#FBF8F4">HELPING HANDS</text>
+              <text x="150" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#7BA88C">Social Welfare Organization</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="signup-form">
+          <h1 class="signup-heading">Create An Account</h1>
+          <p class="signup-subhead">Join <strong>Helping Hands</strong> and start making a real difference in people's lives.</p>
+
+          <div class="signup-feedback" id="signupFeedback" role="status" aria-live="polite"></div>
+
+          <a href="404.html" class="signup-google-row" id="googleSignupBtn">
+            <span class="signup-google-icon">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+              </svg>
+            </span>
+            <span>Sign up with Google</span>
+          </a>
+
+          <div class="signup-divider"><hr /><span>Or</span><hr /></div>
+
+          <!-- ROLE SELECTOR -->
+          <div class="signup-input-group">
+            <i class="fas fa-user-tag"></i>
+            <select id="signupRole" required>
+              <option value="">Select your role</option>
+              <option value="program">Program Manager</option>
+              <option value="volunteer">Volunteer Coordinator</option>
+            </select>
+          </div>
+          <div class="signup-error-msg" id="roleError">Please select your role.</div>
+
+          <div class="signup-input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="fullName" placeholder="Enter your full name" required />
+          </div>
+          <div class="signup-error-msg" id="nameError">Please enter your full name (letters and spaces only).</div>
+
+          <div class="signup-input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Enter your email address" required />
+          </div>
+          <div class="signup-error-msg" id="emailError">Please enter a valid email address.</div>
+
+          <div class="signup-input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Create a password" required />
+          </div>
+          <div class="signup-error-msg" id="passwordError">Password: min 8 chars, 1 uppercase, 1 number, 1 special.</div>
+
+          <div class="signup-terms-row">
+            <input type="checkbox" id="termsCheck" />
+            <label for="termsCheck">I agree to the <a href="404.html">Terms &amp; Conditions</a></label>
+          </div>
+          <div class="signup-error-msg" id="termsError">You must agree to the Terms &amp; Conditions.</div>
+
+          <div class="signup-btn-wrapper">
+            <button class="signup-submit-btn" id="signupBtn">Create Account</button>
+          </div>
+
+          <div class="signin-text">
+            Already have an account? <a href="login.html" id="signinLink">Sign In</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // ============================
+    // LOAD HEADER & FOOTER
+    // ============================
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('header.html')
+        .then(r => r.ok ? r.text() : Promise.reject('Header not found'))
+        .then(d => {
+          document.getElementById('header-placeholder').innerHTML = d;
+          initHeader();
+        })
+        .catch(err => console.error('Error loading header:', err));
+
+      fetch('footer.html')
+        .then(r => r.ok ? r.text() : Promise.reject('Footer not found'))
+        .then(d => {
+          document.getElementById('footer-placeholder').innerHTML = d;
+          initFooter();
+        })
+        .catch(err => console.error('Error loading footer:', err));
+    });
+
+    // ============================
+    // HEADER INIT
+    // ============================
+    function initHeader() {
+      const menuBtn = document.getElementById('menuBtn');
+      const closeBtn = document.getElementById('closeBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      const header = document.getElementById('mainHeader');
+
+      if (menuBtn && mobileMenu && mobileOverlay) {
+        menuBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          mobileMenu.classList.add('open');
+          mobileOverlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      if (closeBtn && mobileMenu && mobileOverlay) {
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          mobileMenu.classList.remove('open');
+          mobileOverlay.classList.remove('open');
+          document.body.style.overflow = 'auto';
+        });
+      }
+      if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (mobileMenu) mobileMenu.classList.remove('open');
+          mobileOverlay.classList.remove('open');
+          document.body.style.overflow = 'auto';
+        });
+      }
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+        });
+      }
+    }
+
+    // ============================
+    // FOOTER INIT — FIXED
+    // ============================
+    function initFooter() {
+      const footerHamburger = document.getElementById('mobileHamburger');
+      const footerNavMenu = document.getElementById('mobileNavMenu');
+
+      if (footerHamburger && footerNavMenu) {
+        const newHamburger = footerHamburger.cloneNode(true);
+        footerHamburger.parentNode.replaceChild(newHamburger, footerHamburger);
+
+        newHamburger.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          footerNavMenu.classList.toggle('open');
+        });
+
+        // Mobile nav links — close menu, then let browser navigate natively
+        footerNavMenu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            footerNavMenu.classList.remove('open');
+            // NO preventDefault → native <a href> navigates
+          });
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function (e) {
+          if (!footerNavMenu.classList.contains('open')) return;
+          if (footerNavMenu.contains(e.target)) return;
+          if (newHamburger.contains(e.target)) return;
+          footerNavMenu.classList.remove('open');
+        });
+      }
+      // Desktop footer nav + social icons: native <a href> works — no JS needed
+    }
+
+    // ============================
+    // SIGNUP LOGIC
+    // ============================
+    (function signup() {
+      const roleSelect = document.getElementById('signupRole');
+      const fullNameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const termsCheck = document.getElementById('termsCheck');
+
+      const roleError = document.getElementById('roleError');
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const termsError = document.getElementById('termsError');
+      const feedback = document.getElementById('signupFeedback');
+
+      const signupBtn = document.getElementById('signupBtn');
+      const USERS_KEY = 'sh_users';
+
+      function setError(errEl, group, show) {
+        if (show) { errEl.classList.add('show'); if (group) group.classList.add('has-error'); }
+        else { errEl.classList.remove('show'); if (group) group.classList.remove('has-error'); }
+      }
+      function clearGlobal() { feedback.className = 'signup-feedback'; feedback.innerHTML = ''; }
+      function showGlobal(msg, type) {
+        feedback.className = 'signup-feedback show ' + type;
+        feedback.innerHTML = (type === 'success'
+          ? '<i class="fas fa-check-circle"></i>'
+          : '<i class="fas fa-exclamation-circle"></i>') + msg;
+      }
+      function getUsers() { try { return JSON.parse(localStorage.getItem(USERS_KEY) || '[]'); } catch (e) { return []; } }
+      function saveUsers(list) { try { localStorage.setItem(USERS_KEY, JSON.stringify(list)); return true; } catch (e) { return false; } }
+      function emailExists(email) { return getUsers().some(u => u.email === email.toLowerCase()); }
+      function newUserId(count) { return 'HH-' + String(1000 + count + 1).padStart(4, '0'); }
+
+      roleSelect.addEventListener('change', function () {
+        if (roleSelect.value) setError(roleError, roleSelect.closest('.signup-input-group'), false);
+        clearGlobal();
+      });
+      fullNameInput.addEventListener('input', function () {
+        this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+        if (this.value.trim()) setError(nameError, fullNameInput.closest('.signup-input-group'), false);
+        clearGlobal();
+      });
+      emailInput.addEventListener('input', function () {
+        if (this.value.trim()) setError(emailError, emailInput.closest('.signup-input-group'), false);
+        clearGlobal();
+      });
+      passwordInput.addEventListener('input', function () {
+        if (this.value.trim()) setError(passwordError, passwordInput.closest('.signup-input-group'), false);
+        clearGlobal();
+      });
+      termsCheck.addEventListener('change', function () {
+        if (this.checked) setError(termsError, termsCheck.closest('.signup-terms-row'), false);
+        clearGlobal();
+      });
+
+      const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      const pwdOk = v => v.length >= 8 && /[A-Z]/.test(v) && /[0-9]/.test(v) &&
+                          /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(v);
+
+      signupBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        clearGlobal();
+        let valid = true;
+
+        if (!roleSelect.value) {
+          roleError.textContent = 'Please select your role (Program Manager or Volunteer Coordinator).';
+          setError(roleError, roleSelect.closest('.signup-input-group'), true);
+          valid = false;
+        } else setError(roleError, roleSelect.closest('.signup-input-group'), false);
+
+        const name = fullNameInput.value.trim();
+        if (!name || name.length < 2) {
+          nameError.textContent = 'Please enter your full name (min 2 characters).';
+          setError(nameError, fullNameInput.closest('.signup-input-group'), true);
+          valid = false;
+        } else setError(nameError, fullNameInput.closest('.signup-input-group'), false);
+
+        const email = emailInput.value.trim().toLowerCase();
+        if (!email || !emailOk(email)) {
+          emailError.textContent = 'Please enter a valid email address.';
+          setError(emailError, emailInput.closest('.signup-input-group'), true);
+          valid = false;
+        } else setError(emailError, emailInput.closest('.signup-input-group'), false);
+
+        const pwd = passwordInput.value;
+        if (!pwd || !pwdOk(pwd)) {
+          passwordError.textContent = 'Password: min 8 chars, 1 uppercase, 1 number & 1 special character.';
+          setError(passwordError, passwordInput.closest('.signup-input-group'), true);
+          valid = false;
+        } else setError(passwordError, passwordInput.closest('.signup-input-group'), false);
+
+        if (!termsCheck.checked) {
+          termsError.textContent = 'You must agree to the Terms & Conditions.';
+          setError(termsError, termsCheck.closest('.signup-terms-row'), true);
+          valid = false;
+        } else setError(termsError, termsCheck.closest('.signup-terms-row'), false);
+
+        if (!valid) return;
+
+        if (emailExists(email)) {
+          showGlobal('An account with <strong>' + email + '</strong> already exists. Please sign in instead.', 'error');
+          emailError.textContent = 'This email is already registered.';
+          setError(emailError, emailInput.closest('.signup-input-group'), true);
+          return;
+        }
+
+        const users = getUsers();
+        const newUser = {
+          userId: newUserId(users.length),
+          name: name,
+          email: email,
+          password: pwd,
+          role: roleSelect.value,
+          createdAt: Date.now()
+        };
+        users.push(newUser);
+
+        if (!saveUsers(users)) {
+          showGlobal('Could not save your account. Please enable storage and try again.', 'error');
+          return;
+        }
+
+        const roleName = newUser.role === 'program' ? 'Program Manager' : 'Volunteer Coordinator';
+
+        try {
+          sessionStorage.setItem('sh_signup_success',
+            'Welcome, <strong>' + name.split(' ')[0] + '</strong>! ' +
+            'Your <strong>' + roleName + '</strong> account (' +
+            '<strong>' + newUser.userId + '</strong>) is ready. Please sign in to continue.');
+        } catch (e) {}
+
+        signupBtn.disabled = true;
+        signupBtn.innerHTML = '<i class="fas fa-check"></i> Account Created!';
+        signupBtn.style.background = '#10B981';
+
+        showGlobal('Welcome to Helping Hands, <strong>' + name.split(' ')[0] + '</strong>! ' +
+                   'Registered as <strong>' + roleName + '</strong>. ' +
+                   'Redirecting to login…', 'success');
+
+        setTimeout(() => { window.location.href = 'login.html'; }, 1800);
+      });
+
+      document.querySelectorAll('.signup-input-group input, .signup-input-group select').forEach(el => {
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') signupBtn.click(); });
+      });
+
+      document.getElementById('signinLink').addEventListener('click', e => {
+        e.preventDefault();
+        window.location.href = 'login.html';
+      });
+    })();
+  </script>
+
+</body>
+</html>

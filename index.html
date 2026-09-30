@@ -1,0 +1,2976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Welfare Organization - Index</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           SOCIAL WELFARE ORGANIZATION — LANDING PAGE
+           Same palette & design language as causes/about/volunteer
+           ========================================================= */
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-sage-d:    #4E8A63;
+            --sw-bg:        #FBF8F4;
+            --sw-bg-alt:    #F2EDE5;
+            --sw-text:      #1C2A38;
+            --sw-text-soft: #4A5560;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+            --sw-shadow-hi: rgba(28, 42, 56, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+        html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+
+        body {
+            background: var(--sw-bg);
+            min-height: 100vh;
+            padding-top: 110px;
+            color: var(--sw-text);
+            line-height: 1.5;
+        }
+
+        section { overflow-x: clip; max-width: 100vw; }
+
+        /* Section heads */
+        .hh-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 44px;
+            padding: 0 16px;
+        }
+        .hh-head .hh-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 14px;
+            padding: 6px 16px;
+            background: rgba(224, 122, 47, 0.10);
+            border: 1px solid rgba(224, 122, 47, 0.25);
+            border-radius: 30px;
+        }
+        .hh-head h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .hh-head h2 span { color: var(--sw-accent); }
+        .hh-head p {
+            font-size: 0.92rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .hh-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: 2px solid transparent;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        .hh-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 22px rgba(224, 122, 47, 0.35);
+        }
+        .hh-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(196, 99, 28, 0.45);
+        }
+        .hh-btn.teal {
+            background: var(--sw-primary);
+            color: #fff;
+            border-color: var(--sw-primary);
+            box-shadow: 0 8px 22px rgba(29, 91, 121, 0.30);
+        }
+        .hh-btn.teal:hover {
+            background: var(--sw-primary-d);
+            border-color: var(--sw-primary-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(20, 69, 92, 0.40);
+        }
+        .hh-btn.ghost {
+            background: transparent;
+            color: var(--sw-primary);
+            border-color: var(--sw-primary);
+        }
+        .hh-btn.ghost:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .hh-btn.white {
+            background: #fff;
+            color: var(--sw-primary);
+            border-color: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+        }
+        .hh-btn.white:hover {
+            background: var(--sw-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+        }
+        .hh-btn.outline-white {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.55);
+        }
+        .hh-btn.outline-white:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* =========================================================
+           SECTION 1 — HERO with VIDEO BG
+           ========================================================= */
+        .hh-hero {
+            position: relative;
+            margin: -110px 0 0;
+            padding: 170px 24px 90px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--sw-primary-d);
+        }
+        .hh-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .hh-hero-bg video {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+        .hh-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(20, 69, 92, 0.72) 0%, rgba(20, 69, 92, 0.55) 60%, rgba(20, 69, 92, 0.42) 100%);
+        }
+        .hh-hero-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+        .hh-hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            padding: 8px 18px;
+            background: rgba(224, 122, 47, 0.28);
+            border: 1px solid rgba(224, 122, 47, 0.55);
+            border-radius: 30px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .hh-hero-chip .dot {
+            width: 8px; height: 8px;
+            background: #4ADE80;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+            animation: hhPulseDot 2s infinite;
+        }
+        @keyframes hhPulseDot {
+            0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+            70%  { box-shadow: 0 0 0 12px rgba(74, 222, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        }
+        .hh-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+            margin-bottom: 24px;
+        }
+        .hh-hero h1 span { color: #FFD9B3; }
+        .hh-hero-lead {
+            font-size: clamp(1rem, 1.35vw, 1.13rem);
+            color: #E4EEF4;
+            line-height: 1.75;
+            margin-bottom: 34px;
+            max-width: 560px;
+        }
+        .hh-hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
+        }
+        .hh-hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
+            max-width: 560px;
+        }
+        .hh-hero-stat strong {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #FFD9B3;
+            line-height: 1;
+        }
+        .hh-hero-stat span {
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #B5CDD8;
+            margin-top: 6px;
+            display: block;
+        }
+        .hh-hero-card {
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: 24px;
+            padding: 32px 30px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hh-hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.22);
+        }
+        .hh-hero-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.015em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .hh-hero-card > p {
+            font-size: 0.85rem;
+            color: #D8E4EC;
+            line-height: 1.65;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 2;
+        }
+        .hh-hero-card-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.20);
+            position: relative;
+            z-index: 2;
+        }
+        .hh-hero-card-row:last-of-type { border-bottom: none; }
+        .hh-hero-card-row span {
+            font-size: 0.82rem;
+            color: #D8E4EC;
+            font-weight: 600;
+        }
+        .hh-hero-card-row strong {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #FFD9B3;
+            letter-spacing: -0.01em;
+        }
+        .hh-hero-card-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 22px;
+            padding: 12px 20px;
+            background: var(--sw-accent);
+            color: #fff;
+            border-radius: 12px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .hh-hero-card-cta:hover {
+            background: var(--sw-accent-d);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           SECTION 2 — TRUST STRIP
+           ========================================================= */
+        .hh-trust {
+            background: #fff;
+            padding: 60px 24px;
+            border-bottom: 1px solid var(--sw-border);
+        }
+        .hh-trust-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+        .hh-trust-logos {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--sw-border);
+        }
+        .hh-trust-logos a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--sw-text-soft);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .hh-trust-logos a:hover { color: var(--sw-primary); }
+        .hh-trust-logos i { font-size: 1.3rem; color: var(--sw-primary); }
+
+        /* =========================================================
+           SECTION 3 — SPLIT MISSION
+           ========================================================= */
+        .hh-split {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .hh-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hh-split-img {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            box-shadow: 0 24px 60px var(--sw-shadow-hi);
+        }
+        .hh-split-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hh-split-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(20, 69, 92, 0.55) 100%);
+        }
+        .hh-split-badge {
+            position: absolute;
+            bottom: 22px; left: 22px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 14px 18px;
+            border-radius: 14px;
+            border-left: 5px solid var(--sw-accent);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 2;
+        }
+        .hh-split-badge-icon {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            background: rgba(224, 122, 47, 0.12);
+            color: var(--sw-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+        .hh-split-badge-text strong {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.005em;
+        }
+        .hh-split-badge-text span {
+            font-size: 0.72rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+        .hh-split-text { min-width: 0; }
+        .hh-split-text .hh-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: rgba(224, 122, 47, 0.10);
+            border: 1px solid rgba(224, 122, 47, 0.25);
+            border-radius: 30px;
+        }
+        .hh-split-text h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.18;
+            margin-bottom: 18px;
+        }
+        .hh-split-text h2 span { color: var(--sw-accent); }
+        .hh-split-text p {
+            font-size: 0.94rem;
+            color: var(--sw-text-soft);
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+        .hh-checklist {
+            list-style: none;
+            margin: 24px 0 28px;
+            border-top: 1px solid var(--sw-border);
+            border-bottom: 1px solid var(--sw-border);
+        }
+        .hh-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px dashed var(--sw-border);
+            font-size: 0.9rem;
+            color: var(--sw-text);
+            font-weight: 600;
+        }
+        .hh-checklist li:last-child { border-bottom: none; }
+        .hh-checklist li i {
+            color: var(--sw-sage-d);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .hh-split-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================================
+           SECTION 4 — STATS BAND
+           ========================================================= */
+        .hh-stats-band {
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            padding: 70px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hh-stats-band::before {
+            content: '';
+            position: absolute;
+            top: -180px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224, 122, 47, 0.20) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .hh-stats-band-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .hh-stats-band-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+        .hh-stat-col {
+            padding: 20px 30px;
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            text-align: left;
+        }
+        .hh-stat-col:last-child { border-right: none; }
+        .hh-stat-col i {
+            font-size: 1.5rem;
+            color: #FFD9B3;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .hh-stat-col strong {
+            display: block;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .hh-stat-col-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #FFD9B3;
+            margin-bottom: 4px;
+        }
+        .hh-stat-col span {
+            font-size: 0.72rem;
+            color: #B5CDD8;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           SECTION 5 — CAUSES AS LIST (row NOT clickable)
+           ========================================================= */
+        .hh-causes-list {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .hh-list {
+            border-top: 2px solid var(--sw-text);
+        }
+        .hh-list-row {
+            display: grid;
+            grid-template-columns: 180px 1fr 200px 60px;
+            gap: 32px;
+            align-items: center;
+            padding: 26px 0;
+            border-bottom: 1px solid var(--sw-border);
+            transition: background 0.3s ease;
+            position: relative;
+        }
+        .hh-list-row:hover {
+            background: rgba(29, 91, 121, 0.03);
+        }
+        .hh-list-thumb {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--sw-primary);
+        }
+        .hh-list-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .hh-list-row:hover .hh-list-thumb img { transform: scale(1.06); }
+        .hh-list-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 69, 92, 0.10) 50%, rgba(20, 69, 92, 0.55) 100%);
+        }
+        .hh-list-thumb-tag {
+            position: absolute;
+            top: 12px; left: 12px;
+            background: rgba(255, 255, 255, 0.96);
+            color: var(--sw-primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 2;
+            border-left: 3px solid var(--sw-accent);
+        }
+        .hh-list-body h3 {
+            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .hh-list-body p {
+            font-size: 0.86rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+            max-width: 620px;
+        }
+        .hh-list-progress { min-width: 0; }
+        .hh-list-progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--sw-text-soft);
+            margin-bottom: 8px;
+        }
+        .hh-list-progress-label strong { color: var(--sw-accent); }
+        .hh-list-progress-bar {
+            height: 5px;
+            background: var(--sw-bg-alt);
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+        }
+        .hh-list-progress-fill {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--sw-primary), var(--sw-accent));
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.6s cubic-bezier(.22,.61,.36,1);
+        }
+        .hh-list-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+        .hh-list-arrow:hover {
+            background: var(--sw-accent);
+            color: #fff;
+            transform: translateX(6px);
+        }
+        .hh-causes-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 44px;
+        }
+
+        /* =========================================================
+           SECTION 6 — VIDEO
+           ========================================================= */
+        .hh-video {
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            padding: 80px 24px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hh-video::before {
+            content: '';
+            position: absolute;
+            top: -180px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224, 122, 47, 0.20) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .hh-video-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .hh-video-head {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+        .hh-video-head h2 {
+            font-size: clamp(1.5rem, 2.7vw, 2.1rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .hh-video-head h2 span { color: #FFD9B3; }
+        .hh-video-head p {
+            font-size: 0.92rem;
+            color: #D8E4EC;
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .hh-video-wrap {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            max-width: 820px;
+            margin: 0 auto;
+            border: 5px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 26px 60px rgba(0, 0, 0, 0.40);
+            background: #000;
+        }
+        .hh-video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+        .hh-video-controls {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0) 100%);
+            color: #fff;
+            z-index: 3;
+        }
+        .hh-video-btn {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            border: none;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(224, 122, 47, 0.45);
+            font-family: inherit;
+        }
+        .hh-video-btn:hover { background: var(--sw-accent-d); transform: scale(1.08); }
+        .hh-video-time {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.4px;
+            min-width: 82px;
+            font-variant-numeric: tabular-nums;
+        }
+        .hh-video-progress {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.22);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .hh-video-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--sw-accent);
+            border-radius: 6px;
+            transition: width 0.15s linear;
+        }
+        .hh-video-volume {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.92rem;
+            cursor: pointer;
+            padding: 6px;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .hh-video-volume:hover { color: var(--sw-accent); }
+        .hh-video-center {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+        .hh-video-center.hide { opacity: 0; }
+        .hh-video-center-btn {
+            width: 82px; height: 82px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6);
+            animation: hhPulse 2s infinite;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+        }
+        .hh-video-center-btn:hover { transform: scale(1.08); background: var(--sw-accent-d); }
+        @keyframes hhPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6); }
+            70%  { box-shadow: 0 0 0 24px rgba(224, 122, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0); }
+        }
+        .hh-video-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 34px;
+        }
+
+        /* =========================================================
+           SECTION 7 — TIMELINE (item NOT clickable, only the link)
+           ========================================================= */
+        .hh-timeline {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .hh-timeline-wrap {
+            position: relative;
+            padding-top: 30px;
+        }
+        .hh-timeline-line {
+            position: absolute;
+            top: 82px;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sw-accent), var(--sw-primary), var(--sw-sage));
+            border-radius: 3px;
+        }
+        .hh-timeline-items {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            position: relative;
+            z-index: 2;
+            align-items: flex-start;
+        }
+        .hh-timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: default;
+            transition: all 0.3s ease;
+            padding: 8px;
+            border-radius: 14px;
+        }
+        .hh-timeline-date {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: var(--sw-accent);
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .hh-timeline-dot {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid var(--sw-accent);
+            color: var(--sw-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 26px rgba(224, 122, 47, 0.30);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .hh-timeline-item:hover .hh-timeline-dot {
+            transform: scale(1.10) rotate(-5deg);
+            background: var(--sw-accent);
+            color: #fff;
+        }
+        .hh-timeline-item:nth-child(2) .hh-timeline-dot { border-color: var(--sw-primary); color: var(--sw-primary); box-shadow: 0 10px 26px rgba(29, 91, 121, 0.30); }
+        .hh-timeline-item:nth-child(2):hover .hh-timeline-dot { background: var(--sw-primary); color: #fff; }
+        .hh-timeline-item:nth-child(3) .hh-timeline-dot { border-color: var(--sw-sage); color: var(--sw-sage-d); box-shadow: 0 10px 26px rgba(123, 168, 140, 0.30); }
+        .hh-timeline-item:nth-child(3):hover .hh-timeline-dot { background: var(--sw-sage); color: #fff; }
+        .hh-timeline-item:nth-child(4) .hh-timeline-dot { border-color: #6D28D9; color: #6D28D9; box-shadow: 0 10px 26px rgba(109, 40, 217, 0.25); }
+        .hh-timeline-item:nth-child(4):hover .hh-timeline-dot { background: #6D28D9; color: #fff; }
+        .hh-timeline-item:nth-child(5) .hh-timeline-dot { border-color: var(--sw-accent); color: var(--sw-accent); }
+        .hh-timeline-item:nth-child(5):hover .hh-timeline-dot { background: var(--sw-accent); color: #fff; }
+        .hh-timeline-item h4 {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .hh-timeline-item p {
+            font-size: 0.8rem;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+            margin-bottom: 14px;
+            max-width: 220px;
+        }
+        .hh-timeline-read {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--sw-primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .hh-timeline-read:hover { gap: 12px; color: var(--sw-accent); }
+        .hh-timeline-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid var(--sw-border);
+        }
+
+        /* =========================================================
+           SECTION 8 — GALLERY (item NOT clickable, add button)
+           ========================================================= */
+        .hh-gallery {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .hh-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .hh-gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--sw-primary);
+            cursor: default;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+        .hh-gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 55px var(--sw-shadow-hi);
+        }
+        .hh-gallery-item img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+        .hh-gallery-item:hover img { transform: scale(1.08); }
+        .hh-gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(20, 69, 92, 0.88) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hh-gallery-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 22px;
+            color: #fff;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .hh-gallery-content .cat {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+        }
+        .hh-gallery-content h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+        .hh-gallery-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            background: var(--sw-accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+        .hh-gallery-btn:hover {
+            background: var(--sw-accent-d);
+            transform: translateY(-2px);
+        }
+        .hh-gallery-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 42px;
+        }
+
+        /* =========================================================
+           SECTION 9 — PROCESS (row NOT clickable, add arrow link)
+           ========================================================= */
+        .hh-process {
+            background: var(--sw-bg-alt);
+            padding: 80px 24px;
+            margin-top: 30px;
+        }
+        .hh-process-inner { max-width: 900px; margin: 0 auto; }
+        .hh-process-list {
+            border-top: 2px solid var(--sw-text);
+        }
+        .hh-process-row {
+            display: grid;
+            grid-template-columns: 90px 1fr auto;
+            gap: 30px;
+            align-items: center;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--sw-border);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .hh-process-row:hover {
+            padding-left: 16px;
+            background: rgba(29, 91, 121, 0.03);
+        }
+        .hh-process-num {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--sw-accent);
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        .hh-process-row:hover .hh-process-num { color: var(--sw-primary); }
+        .hh-process-content h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+        .hh-process-content p {
+            font-size: 0.86rem;
+            color: var(--sw-text-soft);
+            line-height: 1.65;
+            max-width: 500px;
+        }
+        .hh-process-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--sw-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .hh-process-icon:hover {
+            background: var(--sw-accent);
+            transform: rotate(-8deg);
+        }
+
+        /* =========================================================
+           SECTION 10 — TESTIMONIALS
+           ========================================================= */
+        .hh-testimonials {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .hh-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .hh-testimonial {
+            border-left: 4px solid var(--sw-accent);
+            padding: 8px 0 8px 26px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .hh-testimonial:nth-child(2) { border-left-color: var(--sw-primary); }
+        .hh-testimonial:nth-child(3) { border-left-color: var(--sw-sage); }
+        .hh-testimonial:hover {
+            padding-left: 34px;
+            border-left-width: 6px;
+        }
+        .hh-testimonial-stars {
+            display: flex;
+            gap: 3px;
+            color: var(--sw-accent);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+        .hh-testimonial-text {
+            font-size: 1rem;
+            color: var(--sw-text);
+            line-height: 1.75;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .hh-testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .hh-testimonial-avatar {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--sw-primary);
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 14px var(--sw-shadow);
+        }
+        .hh-testimonial-avatar img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .hh-testimonial-info strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            line-height: 1.25;
+        }
+        .hh-testimonial-info span {
+            font-size: 0.72rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           SECTION 11 — EVENTS (row NOT clickable, arrow link)
+           ========================================================= */
+        .hh-events {
+            background: var(--sw-bg-alt);
+            padding: 80px 24px;
+            margin-top: 30px;
+        }
+        .hh-events-inner { max-width: 1250px; margin: 0 auto; }
+        .hh-events-list { display: flex; flex-direction: column; }
+        .hh-event-row {
+            display: grid;
+            grid-template-columns: 110px 1fr auto;
+            gap: 32px;
+            align-items: center;
+            padding: 26px 16px;
+            border-bottom: 1px solid var(--sw-border);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .hh-event-row:first-child { border-top: 2px solid var(--sw-text); }
+        .hh-event-row:hover {
+            background: rgba(224, 122, 47, 0.04);
+            padding-left: 26px;
+        }
+        .hh-event-date-block {
+            background: var(--sw-accent);
+            color: #fff;
+            border-radius: 14px;
+            padding: 14px 8px;
+            text-align: center;
+            line-height: 1;
+            box-shadow: 0 10px 24px rgba(224, 122, 47, 0.35);
+            transition: all 0.3s ease;
+        }
+        .hh-event-row:hover .hh-event-date-block {
+            background: var(--sw-primary);
+            box-shadow: 0 10px 24px rgba(29, 91, 121, 0.35);
+            transform: scale(1.05);
+        }
+        .hh-event-date-block strong {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 4px;
+        }
+        .hh-event-date-block span {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+        .hh-event-content .cat {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 6px;
+            display: block;
+        }
+        .hh-event-content h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.015em;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        .hh-event-content p {
+            font-size: 0.86rem;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+            margin-bottom: 10px;
+            max-width: 620px;
+        }
+        .hh-event-meta {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-size: 0.74rem;
+            color: var(--sw-text-soft);
+            font-weight: 700;
+        }
+        .hh-event-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hh-event-meta i { color: var(--sw-accent); font-size: 0.78rem; }
+        .hh-event-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+        .hh-event-arrow:hover {
+            background: var(--sw-accent);
+            color: #fff;
+            transform: translateX(6px);
+        }
+
+        /* =========================================================
+           SECTION 12 — VOLUNTEER CTA
+           ========================================================= */
+        .hh-cta {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .hh-cta-wrap {
+            background: linear-gradient(135deg, var(--sw-accent) 0%, var(--sw-accent-d) 100%);
+            border-radius: 26px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            box-shadow: 0 28px 70px rgba(196, 99, 28, 0.35);
+            position: relative;
+        }
+        .hh-cta-wrap::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.10);
+            pointer-events: none;
+        }
+        .hh-cta-left {
+            padding: 56px 52px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hh-cta-left .hh-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 18px;
+        }
+        .hh-cta-left h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .hh-cta-left p {
+            font-size: 0.94rem;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.75;
+            margin-bottom: 28px;
+            max-width: 460px;
+        }
+        .hh-cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .hh-cta-right {
+            position: relative;
+            min-height: 380px;
+            overflow: hidden;
+        }
+        .hh-cta-right img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hh-cta-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(196, 99, 28, 0.45) 0%, rgba(196, 99, 28, 0.05) 100%);
+        }
+
+        /* =========================================================
+           SECTION 13 — AWARDS (row NOT clickable, add button)
+           ========================================================= */
+        .hh-awards {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .hh-awards-list {
+            display: flex;
+            flex-direction: column;
+            border-top: 2px solid var(--sw-text);
+        }
+        .hh-award-row {
+            display: grid;
+            grid-template-columns: 70px 1fr 1fr auto auto;
+            gap: 24px;
+            align-items: center;
+            padding: 22px 16px;
+            border-bottom: 1px solid var(--sw-border);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .hh-award-row:hover {
+            padding-left: 26px;
+            background: rgba(224, 122, 47, 0.04);
+        }
+        .hh-award-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(29, 91, 121, 0.12), rgba(224, 122, 47, 0.12));
+            color: var(--sw-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+        .hh-award-row:hover .hh-award-icon {
+            background: var(--sw-accent);
+            color: #fff;
+            transform: rotate(-8deg);
+        }
+        .hh-award-row h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+        }
+        .hh-award-row p {
+            font-size: 0.82rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .hh-award-year {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--sw-accent);
+            letter-spacing: 1px;
+        }
+        .hh-award-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            background: var(--sw-primary);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .hh-award-btn:hover {
+            background: var(--sw-accent);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           SECTION 14 — STORIES (whole feature card clickable — kept as is)
+           ========================================================= */
+        .hh-stories {
+            background: var(--sw-bg-alt);
+            padding: 80px 24px;
+            margin-top: 30px;
+        }
+        .hh-stories-inner { max-width: 1250px; margin: 0 auto; }
+        .hh-stories-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .hh-stories-feature {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            display: block;
+            text-decoration: none;
+        }
+        .hh-stories-feature img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .hh-stories-feature:hover img { transform: scale(1.05); }
+        .hh-stories-feature::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 69, 92, 0.05) 40%, rgba(20, 69, 92, 0.85) 100%);
+        }
+        .hh-stories-feature-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 30px 32px;
+            color: #fff;
+            z-index: 2;
+        }
+        .hh-stories-feature-content .cat {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            margin-bottom: 10px;
+        }
+        .hh-stories-feature-content h3 {
+            font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .hh-stories-feature-content p {
+            font-size: 0.88rem;
+            color: #D8E4EC;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            max-width: 500px;
+        }
+        .hh-stories-feature-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: #FFD9B3;
+            transition: gap 0.3s ease;
+        }
+        .hh-stories-feature:hover .hh-stories-feature-cta { gap: 14px; }
+        .hh-stories-side {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        .hh-story-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            align-items: center;
+            padding-bottom: 22px;
+            border-bottom: 1px solid var(--sw-border);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .hh-story-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .hh-story-row:hover .hh-story-thumb img { transform: scale(1.08); }
+        .hh-story-row:hover h4 { color: var(--sw-accent); }
+        .hh-story-thumb {
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--sw-primary);
+        }
+        .hh-story-thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .hh-story-info .cat {
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 6px;
+        }
+        .hh-story-info h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+        .hh-story-info .meta {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--sw-text-soft);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .hh-story-info .meta i { color: var(--sw-accent); margin-right: 4px; }
+        .hh-stories-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 44px;
+        }
+
+        /* =========================================================
+           SECTION 15 — NEWSLETTER + FINAL CTA
+           ========================================================= */
+        .hh-newsletter {
+            background: var(--sw-bg);
+            padding: 60px 24px 0;
+        }
+        .hh-newsletter-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            background: var(--sw-text);
+            border-radius: 26px 26px 0 0;
+            padding: 50px 50px 60px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+        .hh-newsletter-inner::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.22);
+            pointer-events: none;
+        }
+        .hh-newsletter-inner::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 240px; height: 240px;
+            border-radius: 50%;
+            background: rgba(123, 168, 140, 0.18);
+            pointer-events: none;
+        }
+        .hh-newsletter-left { position: relative; z-index: 2; }
+        .hh-newsletter-left .hh-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            margin-bottom: 18px;
+            padding: 6px 16px;
+            background: rgba(224, 122, 47, 0.22);
+            border: 1px solid rgba(224, 122, 47, 0.45);
+            border-radius: 30px;
+        }
+        .hh-newsletter-left h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .hh-newsletter-left h2 span { color: #FFD9B3; }
+        .hh-newsletter-left p {
+            font-size: 0.95rem;
+            color: #D8E4EC;
+            line-height: 1.75;
+            margin-bottom: 24px;
+            max-width: 480px;
+        }
+        .hh-newsletter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .hh-newsletter-right { position: relative; z-index: 2; }
+        .hh-newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .hh-newsletter-input-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+        }
+        .hh-newsletter-input-wrap i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--sw-primary);
+            font-size: 0.9rem;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .hh-newsletter-input {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            background: #fff;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--sw-text);
+            font-family: inherit;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+        .hh-newsletter-input:focus {
+            box-shadow: 0 0 0 3px rgba(224, 122, 47, 0.35);
+        }
+        .hh-newsletter-input.has-error {
+            border-color: #D32F2F;
+            background: #FFF7F7;
+        }
+        .hh-newsletter-btn {
+            padding: 14px 26px;
+            border-radius: 12px;
+            background: var(--sw-accent);
+            color: #fff;
+            border: 2px solid var(--sw-accent);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .hh-newsletter-btn:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+        }
+        .hh-newsletter-msg {
+            display: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding-left: 4px;
+        }
+        .hh-newsletter-msg.error {
+            color: #FFB5B5;
+            display: block;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 1100px) {
+            .hh-hero { min-height: auto; padding: 140px 24px 80px; }
+            .hh-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+            .hh-hero-card { max-width: 480px; }
+            .hh-split-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hh-split-img { max-width: 520px; margin: 0 auto; width: 100%; aspect-ratio: 4/3; }
+            .hh-stats-band-grid { grid-template-columns: repeat(2, 1fr); }
+            .hh-stat-col { padding: 24px 30px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+            .hh-stat-col:nth-child(3),
+            .hh-stat-col:nth-child(4) { border-bottom: none; }
+            .hh-list-row { grid-template-columns: 140px 1fr 60px; gap: 24px; }
+            .hh-list-progress { grid-column: 2; }
+            .hh-timeline-items { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .hh-timeline-line { display: none; }
+            .hh-timeline-wrap { padding-top: 0; }
+            .hh-testimonials-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hh-event-row { grid-template-columns: 100px 1fr auto; gap: 22px; }
+            .hh-award-row { grid-template-columns: 60px 1fr auto auto; gap: 20px; }
+            .hh-award-row p { grid-column: 2; }
+            .hh-stories-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hh-newsletter-inner { grid-template-columns: 1fr; gap: 30px; padding: 40px 34px 50px; }
+            .hh-cta-wrap { grid-template-columns: 1fr; }
+            .hh-cta-right { min-height: 300px; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 90px; }
+            .hh-hero { padding: 130px 20px 70px; margin-top: -90px; }
+            .hh-split, .hh-causes-list, .hh-video,
+            .hh-timeline, .hh-gallery, .hh-process,
+            .hh-testimonials, .hh-events, .hh-cta,
+            .hh-awards, .hh-stories { padding-top: 60px; padding-bottom: 60px; }
+            .hh-stats-band { padding: 60px 20px; }
+            .hh-trust { padding: 50px 20px; }
+            .hh-newsletter { padding: 50px 20px 0; }
+            .hh-process-row { grid-template-columns: 70px 1fr auto; gap: 20px; }
+            .hh-process-num { font-size: 2.2rem; }
+            .hh-process-icon { width: 44px; height: 44px; font-size: 1rem; }
+            .hh-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .hh-cta-left { padding: 40px 30px; }
+            .hh-video-center-btn { width: 68px; height: 68px; font-size: 1.45rem; }
+            .hh-timeline-items { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .hh-hero { padding: 120px 16px 60px; }
+            .hh-hero-buttons { flex-direction: column; }
+            .hh-hero-buttons .hh-btn { width: 100%; }
+            .hh-hero-stats { grid-template-columns: 1fr 1fr; gap: 18px; }
+            .hh-hero-card { padding: 24px 22px; }
+            .hh-split, .hh-causes-list, .hh-video,
+            .hh-timeline, .hh-gallery, .hh-process,
+            .hh-testimonials, .hh-events, .hh-cta,
+            .hh-awards, .hh-stories { padding-left: 16px; padding-right: 16px; }
+            .hh-stats-band { padding-left: 16px; padding-right: 16px; }
+            .hh-trust { padding-left: 16px; padding-right: 16px; }
+            .hh-newsletter { padding-left: 16px; padding-right: 16px; }
+            .hh-trust-logos { gap: 20px; }
+            .hh-stats-band-grid { grid-template-columns: 1fr; }
+            .hh-stat-col { border-bottom: 1px solid rgba(255,255,255,0.15) !important; }
+            .hh-stat-col:last-child { border-bottom: none !important; }
+            .hh-list-row { grid-template-columns: 1fr; gap: 20px; }
+            .hh-list-thumb { aspect-ratio: 16/9; max-width: 100%; }
+            .hh-list-progress { grid-column: 1; }
+            .hh-list-arrow { display: none; }
+            .hh-timeline-items { grid-template-columns: 1fr; gap: 40px; }
+            .hh-timeline-item p { max-width: 100%; }
+            .hh-gallery-grid { grid-template-columns: 1fr; }
+            .hh-process-row { grid-template-columns: 1fr; gap: 12px; }
+            .hh-process-num { font-size: 2rem; }
+            .hh-event-row { grid-template-columns: 1fr; gap: 16px; }
+            .hh-event-date-block { width: 80px; }
+            .hh-event-arrow { display: none; }
+            .hh-award-row { grid-template-columns: 50px 1fr; }
+            .hh-award-row .hh-award-year { grid-column: 2; font-size: 0.75rem; }
+            .hh-award-btn { grid-column: 2; justify-self: flex-start; }
+            .hh-newsletter-inner { padding: 30px 22px 40px; border-radius: 22px 22px 0 0; }
+            .hh-newsletter-form { flex-direction: column; }
+            .hh-newsletter-btn { width: 100%; }
+            .hh-cta-left { padding: 32px 22px; }
+            .hh-cta-buttons { flex-direction: column; }
+            .hh-cta-buttons .hh-btn { width: 100%; }
+            .hh-hero-buttons .hh-btn,
+            .hh-split-buttons .hh-btn,
+            .hh-causes-footer .hh-btn,
+            .hh-video-footer .hh-btn,
+            .hh-gallery-footer .hh-btn,
+            .hh-timeline-footer .hh-btn,
+            .hh-stories-footer .hh-btn,
+            .hh-newsletter-buttons .hh-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- SECTION 1 — HERO WITH VIDEO BG -->
+    <section class="hh-hero">
+        <div class="hh-hero-bg">
+            <video autoplay muted loop playsinline preload="auto">
+                <source src="swov5.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="hh-hero-inner">
+            <div>
+                <span class="hh-hero-chip" data-aos="fade-down" data-aos-duration="700">
+                    <span class="dot"></span>
+                    4,820 Lives Changed · 12 Active Causes
+                </span>
+                <h1 data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    Together, We Build a <span>Kinder World</span>
+                </h1>
+                <p class="hh-hero-lead" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                    From a single classroom to 6 districts, we've been on the ground for 4 years —
+                    feeding families, teaching children, healing the sick, and empowering women.
+                    Every act of kindness you give writes a better tomorrow.
+                </p>
+                <div class="hh-hero-buttons" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                    <a href="404.html" class="hh-btn primary">
+                        <i class="fas fa-hand-holding-dollar"></i> Donate Now
+                    </a>
+                    <a href="404.html" class="hh-btn outline-white">
+                        <i class="fas fa-people-carry-box"></i> Become a Volunteer
+                    </a>
+                </div>
+                <div class="hh-hero-stats" data-aos="fade-up" data-aos-delay="550" data-aos-duration="700">
+                    <div class="hh-hero-stat">
+                        <strong data-count="4820">0</strong>
+                        <span>Lives Touched</span>
+                    </div>
+                    <div class="hh-hero-stat">
+                        <strong data-count="186">0</strong>
+                        <span>Volunteers</span>
+                    </div>
+                    <div class="hh-hero-stat">
+                        <strong data-count="6">0</strong>
+                        <span>Districts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hh-hero-card" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
+                <h3>Where Your Support Goes</h3>
+                <p>Every rupee is tracked, audited, and reported — here's this month's allocation.</p>
+                <div class="hh-hero-card-row">
+                    <span>Education Programs</span>
+                    <strong>42%</strong>
+                </div>
+                <div class="hh-hero-card-row">
+                    <span>Food &amp; Nutrition</span>
+                    <strong>28%</strong>
+                </div>
+                <div class="hh-hero-card-row">
+                    <span>Healthcare</span>
+                    <strong>20%</strong>
+                </div>
+                <div class="hh-hero-card-row">
+                    <span>Operations</span>
+                    <strong>10%</strong>
+                </div>
+                <a href="404.html" class="hh-hero-card-cta">
+                    <i class="fas fa-chart-pie"></i> View Full Report
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 — TRUST STRIP -->
+    <section class="hh-trust">
+        <div class="hh-trust-inner">
+            <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+                <span class="hh-eyebrow"><i class="fas fa-shield-halved"></i> Verified &amp; Trusted</span>
+                <h2>Backed by <span>Trusted Organizations</span></h2>
+                <p>Our causes are supported, audited, and co-funded by organizations who share our mission.</p>
+            </div>
+            <div class="hh-trust-logos" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <a href="404.html"><i class="fas fa-globe"></i> UNICEF</a>
+                <a href="404.html"><i class="fas fa-handshake"></i> Rotary</a>
+                <a href="404.html"><i class="fas fa-heart"></i> Red Cross</a>
+                <a href="404.html"><i class="fas fa-landmark"></i> Local Govt.</a>
+                <a href="404.html"><i class="fas fa-shield-halved"></i> GreenAudit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — SPLIT MISSION -->
+    <section class="hh-split">
+        <div class="hh-split-grid">
+            <div class="hh-split-img" data-aos="fade-right" data-aos-duration="800">
+                <img src="swo1.webp" alt="Community work">
+                <div class="hh-split-badge">
+                    <div class="hh-split-badge-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="hh-split-badge-text">
+                        <strong>Transparency Award 2025</strong>
+                        <span>Regional NGO Council</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hh-split-text" data-aos="fade-left" data-aos-duration="800">
+                <span class="hh-eyebrow"><i class="fas fa-compass"></i> Our Mission</span>
+                <h2>Dignity, Transparency, and <span>Sustainable Change</span></h2>
+                <p>
+                    We don't hand out band-aids. We build systems that keep helping long after we leave —
+                    with local leaders co-designing every program and every rupee accounted for.
+                </p>
+                <ul class="hh-checklist">
+                    <li><i class="fas fa-check-circle"></i> 100% field-first programs across 6 districts</li>
+                    <li><i class="fas fa-check-circle"></i> Independently audited every single year</li>
+                    <li><i class="fas fa-check-circle"></i> Every rupee tracked and publicly reported</li>
+                    <li><i class="fas fa-check-circle"></i> Community-led, evidence-based approach</li>
+                </ul>
+                <div class="hh-split-buttons">
+                    <a href="404.html" class="hh-btn primary">
+                        <i class="fas fa-book-open"></i> Read Full Story
+                    </a>
+                    <a href="404.html" class="hh-btn ghost">
+                        <i class="fas fa-chart-line"></i> View Our Impact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — STATS BAND -->
+    <section class="hh-stats-band">
+        <div class="hh-stats-band-inner">
+            <div class="hh-head" data-aos="fade-up" data-aos-duration="700" style="margin-bottom: 50px;">
+                <span class="hh-eyebrow" style="background: rgba(224, 122, 47, 0.22); border-color: rgba(224, 122, 47, 0.45); color: #FFD9B3;">
+                    <i class="fas fa-chart-simple"></i> Impact by Numbers
+                </span>
+                <h2 style="color: #fff;">Numbers That <span style="color: #FFD9B3;">Tell a Story</span></h2>
+                <p style="color: #D8E4EC;">Verified, audited, and updated live — every figure here represents real people, real families, real change.</p>
+            </div>
+            <div class="hh-stats-band-grid">
+                <div class="hh-stat-col" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <i class="fas fa-users"></i>
+                    <strong data-count="4820">0</strong>
+                    <div class="hh-stat-col-label">Lives Impacted</div>
+                    <span>Direct beneficiaries across all programs</span>
+                </div>
+                <div class="hh-stat-col" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    <i class="fas fa-utensils"></i>
+                    <strong data-count="48600">0</strong>
+                    <div class="hh-stat-col-label">Meals Served</div>
+                    <span>Distributed to families in need</span>
+                </div>
+                <div class="hh-stat-col" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                    <i class="fas fa-book-open"></i>
+                    <strong data-count="1240">0</strong>
+                    <div class="hh-stat-col-label">Children Educated</div>
+                    <span>Across 12 schools and 4 centers</span>
+                </div>
+                <div class="hh-stat-col" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                    <i class="fas fa-stethoscope"></i>
+                    <strong data-count="3200">0</strong>
+                    <div class="hh-stat-col-label">Health Check-ups</div>
+                    <span>Free medical services provided</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — CAUSES AS LIST (row NOT clickable, only arrow) -->
+    <section class="hh-causes-list">
+        <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="hh-eyebrow"><i class="fas fa-hands-holding-circle"></i> Active Causes</span>
+            <h2>Support a Cause <span>You Care About</span></h2>
+            <p>Each cause is a real program with real families behind it. Choose the one that moves you.</p>
+        </div>
+
+        <div class="hh-list" data-aos="fade-up" data-aos-duration="800">
+            <div class="hh-list-row">
+                <div class="hh-list-thumb">
+                    <span class="hh-list-thumb-tag">Most Needed</span>
+                    <img src="swo2.webp" alt="Education for All">
+                </div>
+                <div class="hh-list-body">
+                    <h3>Education for All</h3>
+                    <p>Free after-school teaching, learning materials, and mentoring for 1,240 children across 12 schools and 4 community centers.</p>
+                </div>
+                <div class="hh-list-progress">
+                    <div class="hh-list-progress-label">
+                        <span>Funded</span>
+                        <strong>78%</strong>
+                    </div>
+                    <div class="hh-list-progress-bar"><span class="hh-list-progress-fill" data-fill="78"></span></div>
+                </div>
+                <a href="404.html" class="hh-list-arrow" aria-label="View cause"><i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="hh-list-row">
+                <div class="hh-list-thumb">
+                    <span class="hh-list-thumb-tag">Active</span>
+                    <img src="swo3.webp" alt="Nutrition for Families">
+                </div>
+                <div class="hh-list-body">
+                    <h3>Nutrition for Families</h3>
+                    <p>Weekly meal distribution and emergency rations serving 620 families — 48,600 meals served so far.</p>
+                </div>
+                <div class="hh-list-progress">
+                    <div class="hh-list-progress-label">
+                        <span>Funded</span>
+                        <strong>82%</strong>
+                    </div>
+                    <div class="hh-list-progress-bar"><span class="hh-list-progress-fill" data-fill="82"></span></div>
+                </div>
+                <a href="404.html" class="hh-list-arrow" aria-label="View cause"><i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="hh-list-row">
+                <div class="hh-list-thumb">
+                    <span class="hh-list-thumb-tag">Health</span>
+                    <img src="swo4.webp" alt="Rural Health Camps">
+                </div>
+                <div class="hh-list-body">
+                    <h3>Rural Health Camps</h3>
+                    <p>Free check-ups, medicines, and referrals across 6 districts — over 3,200 patients treated so far.</p>
+                </div>
+                <div class="hh-list-progress">
+                    <div class="hh-list-progress-label">
+                        <span>Funded</span>
+                        <strong>65%</strong>
+                    </div>
+                    <div class="hh-list-progress-bar"><span class="hh-list-progress-fill" data-fill="65"></span></div>
+                </div>
+                <a href="404.html" class="hh-list-arrow" aria-label="View cause"><i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="hh-list-row">
+                <div class="hh-list-thumb">
+                    <span class="hh-list-thumb-tag">New</span>
+                    <img src="swo5.webp" alt="Women Empowerment">
+                </div>
+                <div class="hh-list-body">
+                    <h3>Women Empowerment</h3>
+                    <p>Tailoring, computer literacy, and micro-business support — 280 trained, 142 now earning independently.</p>
+                </div>
+                <div class="hh-list-progress">
+                    <div class="hh-list-progress-label">
+                        <span>Funded</span>
+                        <strong>88%</strong>
+                    </div>
+                    <div class="hh-list-progress-bar"><span class="hh-list-progress-fill" data-fill="88"></span></div>
+                </div>
+                <a href="404.html" class="hh-list-arrow" aria-label="View cause"><i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="hh-list-row">
+                <div class="hh-list-thumb">
+                    <span class="hh-list-thumb-tag">Water</span>
+                    <img src="swo6.webp" alt="Clean Water Access">
+                </div>
+                <div class="hh-list-body">
+                    <h3>Clean Water Access</h3>
+                    <p>Borewells and filters for villages without water — 6 villages mapped, 2 priority sites identified.</p>
+                </div>
+                <div class="hh-list-progress">
+                    <div class="hh-list-progress-label">
+                        <span>Funded</span>
+                        <strong>45%</strong>
+                    </div>
+                    <div class="hh-list-progress-bar"><span class="hh-list-progress-fill" data-fill="45"></span></div>
+                </div>
+                <a href="404.html" class="hh-list-arrow" aria-label="View cause"><i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="hh-causes-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="hh-btn teal">
+                <i class="fas fa-hands-holding-circle"></i> View All 12 Causes
+            </a>
+            <a href="404.html" class="hh-btn ghost">
+                <i class="fas fa-file-lines"></i> Download Cause List
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — VIDEO -->
+    <section class="hh-video">
+        <div class="hh-video-inner">
+            <div class="hh-video-head" data-aos="fade-up" data-aos-duration="700">
+                <h2>See the Impact, <span>Not Just the Numbers</span></h2>
+                <p>A 3-minute field film — real stories from the families whose lives changed this year.</p>
+            </div>
+
+            <div class="hh-video-wrap" data-aos="zoom-in" data-aos-duration="900">
+                <video id="hhVideo" poster="swo7.webp" playsinline preload="metadata">
+                    <source src="swov1.mp4" type="video/mp4">
+                </video>
+
+                <div class="hh-video-center" id="hhVideoCenter">
+                    <button class="hh-video-center-btn" id="hhVideoCenterBtn" aria-label="Play video">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+
+                <div class="hh-video-controls">
+                    <button class="hh-video-btn" id="hhVideoToggleBtn" aria-label="Play/Pause">
+                        <i class="fas fa-play" id="hhVideoToggleIcon"></i>
+                    </button>
+                    <span class="hh-video-time" id="hhVideoTime">0:00 / 0:00</span>
+                    <div class="hh-video-progress" id="hhVideoProgress">
+                        <div class="hh-video-progress-fill" id="hhVideoProgressFill"></div>
+                    </div>
+                    <button class="hh-video-volume" id="hhVideoMuteBtn" aria-label="Mute/Unmute">
+                        <i class="fas fa-volume-high" id="hhVideoMuteIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hh-video-footer" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <a href="404.html" class="hh-btn primary">
+                    <i class="fas fa-hand-holding-dollar"></i> Support This Cause
+                </a>
+                <a href="404.html" class="hh-btn outline-white">
+                    <i class="fas fa-share-nodes"></i> Share the Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — TIMELINE (item NOT clickable, only link) -->
+    <section class="hh-timeline">
+        <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="hh-eyebrow"><i class="fas fa-route"></i> Our Journey</span>
+            <h2>Milestones That <span>Changed Everything</span></h2>
+            <p>Four years, four defining moments — and hundreds of small wins that made them possible.</p>
+        </div>
+
+        <div class="hh-timeline-wrap">
+            <div class="hh-timeline-line"></div>
+
+            <div class="hh-timeline-items">
+                <div class="hh-timeline-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="hh-timeline-date">March 2022</div>
+                    <div class="hh-timeline-dot"><i class="fas fa-flag"></i></div>
+                    <h4>First Cause Launched</h4>
+                    <p>20 children, 2 volunteer teachers, 1 borrowed room.</p>
+                    <a href="404.html" class="hh-timeline-read">
+                        Read Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="hh-timeline-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    <div class="hh-timeline-date">Aug 2023</div>
+                    <div class="hh-timeline-dot"><i class="fas fa-utensils"></i></div>
+                    <h4>10K Meals Milestone</h4>
+                    <p>620 families benefited in the very first year.</p>
+                    <a href="404.html" class="hh-timeline-read">
+                        Read Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="hh-timeline-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                    <div class="hh-timeline-date">Feb 2024</div>
+                    <div class="hh-timeline-dot"><i class="fas fa-stethoscope"></i></div>
+                    <h4>Rural Health Expanded</h4>
+                    <p>Grew from 2 to 6 districts in one year.</p>
+                    <a href="404.html" class="hh-timeline-read">
+                        Read Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="hh-timeline-item" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                    <div class="hh-timeline-date">Sep 2024</div>
+                    <div class="hh-timeline-dot"><i class="fas fa-venus"></i></div>
+                    <h4>Women Program Launched</h4>
+                    <p>280 women enrolled — 142 now earn independently.</p>
+                    <a href="404.html" class="hh-timeline-read">
+                        Read Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="hh-timeline-item" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                    <div class="hh-timeline-date">July 2026</div>
+                    <div class="hh-timeline-dot"><i class="fas fa-trophy"></i></div>
+                    <h4>4,820 Lives Touched</h4>
+                    <p>12 causes, 6 districts, and still growing.</p>
+                    <a href="404.html" class="hh-timeline-read">
+                        Read Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hh-timeline-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="hh-btn teal">
+                <i class="fas fa-timeline"></i> View Complete Timeline
+            </a>
+            <a href="404.html" class="hh-btn ghost">
+                <i class="fas fa-video"></i> Watch Documentary
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — GALLERY (item NOT clickable, only button) -->
+    <section class="hh-gallery">
+        <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="hh-eyebrow"><i class="fas fa-images"></i> Field Gallery</span>
+            <h2>Moments From <span>the Ground</span></h2>
+            <p>Captured by our volunteers across 6 districts — real smiles, real stories, real change.</p>
+        </div>
+
+        <div class="hh-gallery-grid">
+            <div class="hh-gallery-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <img src="swo8.webp" alt="Classroom session">
+                <div class="hh-gallery-content">
+                    <span class="cat">Education</span>
+                    <h4>Reading session · North District</h4>
+                    <a href="404.html" class="hh-gallery-btn">
+                        View Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hh-gallery-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                <img src="swo9.webp" alt="Food distribution">
+                <div class="hh-gallery-content">
+                    <span class="cat">Food Drive</span>
+                    <h4>Weekend distribution</h4>
+                    <a href="404.html" class="hh-gallery-btn">
+                        View Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hh-gallery-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <img src="swo10.webp" alt="Health camp">
+                <div class="hh-gallery-content">
+                    <span class="cat">Health</span>
+                    <h4>Medical camp · Rural West</h4>
+                    <a href="404.html" class="hh-gallery-btn">
+                        View Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hh-gallery-item" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <img src="swo11.webp" alt="Women training">
+                <div class="hh-gallery-content">
+                    <span class="cat">Empowerment</span>
+                    <h4>Skill training graduation</h4>
+                    <a href="404.html" class="hh-gallery-btn">
+                        View Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hh-gallery-item" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                <img src="swo12.webp" alt="Volunteer team">
+                <div class="hh-gallery-content">
+                    <span class="cat">Team</span>
+                    <h4>Volunteer orientation</h4>
+                    <a href="404.html" class="hh-gallery-btn">
+                        View Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hh-gallery-item" data-aos="fade-up" data-aos-delay="600" data-aos-duration="700">
+                <img src="swo13.webp" alt="Community meeting">
+                <div class="hh-gallery-content">
+                    <span class="cat">Community</span>
+                    <h4>Village planning meeting</h4>
+                    <a href="404.html" class="hh-gallery-btn">
+                        View Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hh-gallery-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="hh-btn teal">
+                <i class="fas fa-images"></i> View Full Gallery
+            </a>
+            <a href="404.html" class="hh-btn ghost">
+                <i class="fas fa-share-nodes"></i> Share Our Story
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 9 — PROCESS (row NOT clickable, icon is the link) -->
+    <section class="hh-process">
+        <div class="hh-process-inner">
+            <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+                <span class="hh-eyebrow"><i class="fas fa-route"></i> How We Help</span>
+                <h2>Four Steps, <span>One Mission</span></h2>
+                <p>Simple, transparent, effective — how your support turns into real change on the ground.</p>
+            </div>
+
+            <div class="hh-process-list">
+                <div class="hh-process-row" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="hh-process-num">01</div>
+                    <div class="hh-process-content">
+                        <h3>You Give</h3>
+                        <p>Donate, volunteer, or partner with us — every contribution counts, big or small.</p>
+                    </div>
+                    <a href="404.html" class="hh-process-icon" aria-label="Learn more"><i class="fas fa-hand-holding-dollar"></i></a>
+                </div>
+                <div class="hh-process-row" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    <div class="hh-process-num">02</div>
+                    <div class="hh-process-content">
+                        <h3>We Field-Test</h3>
+                        <p>Field officers verify needs, map beneficiaries, and design the program with locals.</p>
+                    </div>
+                    <a href="404.html" class="hh-process-icon" aria-label="Learn more"><i class="fas fa-clipboard-check"></i></a>
+                </div>
+                <div class="hh-process-row" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                    <div class="hh-process-num">03</div>
+                    <div class="hh-process-content">
+                        <h3>Change Happens</h3>
+                        <p>Programs run — meals served, children taught, health camps held, women trained.</p>
+                    </div>
+                    <a href="404.html" class="hh-process-icon" aria-label="Learn more"><i class="fas fa-seedling"></i></a>
+                </div>
+                <div class="hh-process-row" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                    <div class="hh-process-num">04</div>
+                    <div class="hh-process-content">
+                        <h3>We Report Back</h3>
+                        <p>Every rupee tracked. Every outcome audited. Every report published on our website.</p>
+                    </div>
+                    <a href="404.html" class="hh-process-icon" aria-label="Learn more"><i class="fas fa-file-invoice"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10 — TESTIMONIALS -->
+    <section class="hh-testimonials">
+        <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="hh-eyebrow"><i class="fas fa-quote-left"></i> Voices</span>
+            <h2>What People <span>Say About Us</span></h2>
+            <p>Real words from real people — donors, volunteers, and the families we serve.</p>
+        </div>
+
+        <div class="hh-testimonials-grid">
+            <div class="hh-testimonial" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="hh-testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="hh-testimonial-text">
+                    "I've donated to many NGOs — Helping Hands is the only one that sends me a report showing exactly where my money went. That's real transparency."
+                </p>
+                <div class="hh-testimonial-author">
+                    <div class="hh-testimonial-avatar">
+                        <img src="swo14.webp" alt="Rakesh Malhotra">
+                    </div>
+                    <div class="hh-testimonial-info">
+                        <strong>Rakesh Malhotra</strong>
+                        <span>Regular Donor · 3 years</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hh-testimonial" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="hh-testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="hh-testimonial-text">
+                    "I started teaching 2 kids on weekends. Two years later, I've helped 40+ children read. Nothing feels more meaningful."
+                </p>
+                <div class="hh-testimonial-author">
+                    <div class="hh-testimonial-avatar">
+                        <img src="swo15.webp" alt="Priya Sharma">
+                    </div>
+                    <div class="hh-testimonial-info">
+                        <strong>Priya Sharma</strong>
+                        <span>Teaching Volunteer · 2 years</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hh-testimonial" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                <div class="hh-testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="hh-testimonial-text">
+                    "My daughter is the first in our family to read and write. Helping Hands didn't just teach her — they gave us a future."
+                </p>
+                <div class="hh-testimonial-author">
+                    <div class="hh-testimonial-avatar">
+                        <img src="swo16.webp" alt="Sunita Devi">
+                    </div>
+                    <div class="hh-testimonial-info">
+                        <strong>Sunita Devi</strong>
+                        <span>Mother · North District</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11 — EVENTS (row NOT clickable, arrow is the link) -->
+    <section class="hh-events">
+        <div class="hh-events-inner">
+            <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+                <span class="hh-eyebrow"><i class="fas fa-calendar-check"></i> Upcoming Events</span>
+                <h2>Join Us on <span>the Ground</span></h2>
+                <p>Every event is a chance to change lives — health camps, distributions, graduations, and more.</p>
+            </div>
+
+            <div class="hh-events-list">
+                <div class="hh-event-row" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="hh-event-date-block">
+                        <strong>24</strong>
+                        <span>Jul 2026</span>
+                    </div>
+                    <div class="hh-event-content">
+                        <span class="cat">Health</span>
+                        <h3>Health Awareness Drive</h3>
+                        <p>Free check-ups, medicines, and referrals for 500+ families in rural West district.</p>
+                        <div class="hh-event-meta">
+                            <span><i class="fas fa-clock"></i> 9:00 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Rural West</span>
+                            <span><i class="fas fa-users"></i> 12 slots left</span>
+                        </div>
+                    </div>
+                    <a href="404.html" class="hh-event-arrow" aria-label="Register"><i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="hh-event-row" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    <div class="hh-event-date-block">
+                        <strong>02</strong>
+                        <span>Aug 2026</span>
+                    </div>
+                    <div class="hh-event-content">
+                        <span class="cat">Empowerment</span>
+                        <h3>Women Skill Graduation</h3>
+                        <p>Celebrating 60 women who completed our 6-month tailoring and business program.</p>
+                        <div class="hh-event-meta">
+                            <span><i class="fas fa-clock"></i> 11:00 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Central Zone</span>
+                            <span><i class="fas fa-users"></i> Open invite</span>
+                        </div>
+                    </div>
+                    <a href="404.html" class="hh-event-arrow" aria-label="Register"><i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="hh-event-row" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                    <div class="hh-event-date-block">
+                        <strong>12</strong>
+                        <span>Aug 2026</span>
+                    </div>
+                    <div class="hh-event-content">
+                        <span class="cat">Education</span>
+                        <h3>Education Kit Handover</h3>
+                        <p>Distributing 400 school kits — books, uniforms, and supplies — to children in North District.</p>
+                        <div class="hh-event-meta">
+                            <span><i class="fas fa-clock"></i> 10:00 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> North District</span>
+                            <span><i class="fas fa-users"></i> 8 slots left</span>
+                        </div>
+                    </div>
+                    <a href="404.html" class="hh-event-arrow" aria-label="Register"><i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12 — VOLUNTEER CTA -->
+    <section class="hh-cta">
+        <div class="hh-cta-wrap" data-aos="fade-up" data-aos-duration="900">
+            <div class="hh-cta-left">
+                <div class="hh-eyebrow">
+                    <i class="fas fa-people-carry-box"></i> Become a Volunteer
+                </div>
+                <h2>Give an Hour, Change a Life</h2>
+                <p>Join 186 active volunteers bringing hope to communities across 6 districts. Choose your skill, your hours, and your impact.</p>
+                <div class="hh-cta-buttons">
+                    <a href="404.html" class="hh-btn white">
+                        <i class="fas fa-user-plus"></i> Sign Up to Volunteer
+                    </a>
+                    <a href="404.html" class="hh-btn outline-white">
+                        <i class="fas fa-circle-info"></i> How It Works
+                    </a>
+                </div>
+            </div>
+            <div class="hh-cta-right">
+                <img src="swo17.webp" alt="Volunteers working together">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 13 — AWARDS (row NOT clickable, button is the link) -->
+    <section class="hh-awards">
+        <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="hh-eyebrow"><i class="fas fa-award"></i> Recognition</span>
+            <h2>Trusted, Audited, <span>Recognized</span></h2>
+            <p>We hold ourselves to the highest standards — and independent bodies confirm it.</p>
+        </div>
+
+        <div class="hh-awards-list" data-aos="fade-up" data-aos-duration="800">
+            <div class="hh-award-row">
+                <div class="hh-award-icon"><i class="fas fa-trophy"></i></div>
+                <h3>Transparency Award</h3>
+                <p>Regional NGO Council · Recognizing excellence in public reporting</p>
+                <span class="hh-award-year">2025</span>
+                <a href="404.html" class="hh-award-btn">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hh-award-row">
+                <div class="hh-award-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>100% Audited</h3>
+                <p>Independent financial audit conducted yearly by external firm</p>
+                <span class="hh-award-year">Yearly</span>
+                <a href="404.html" class="hh-award-btn">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hh-award-row">
+                <div class="hh-award-icon"><i class="fas fa-star"></i></div>
+                <h3>Top 5 Regional NGO</h3>
+                <p>Ranked in Impact &amp; Governance Rankings by independent body</p>
+                <span class="hh-award-year">2025</span>
+                <a href="404.html" class="hh-award-btn">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hh-award-row">
+                <div class="hh-award-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Registered Non-Profit</h3>
+                <p>Officially registered under Govt. of India · Reg. No. NGO-2022</p>
+                <span class="hh-award-year">2022</span>
+                <a href="404.html" class="hh-award-btn">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 14 — STORIES -->
+    <section class="hh-stories">
+        <div class="hh-stories-inner">
+            <div class="hh-head" data-aos="fade-up" data-aos-duration="700">
+                <span class="hh-eyebrow"><i class="fas fa-newspaper"></i> Field Stories</span>
+                <h2>Latest From <span>the Ground</span></h2>
+                <p>Real stories from our programs — written by our field teams and volunteers.</p>
+            </div>
+
+            <div class="hh-stories-grid">
+                <a href="404.html" class="hh-stories-feature" data-aos="fade-right" data-aos-duration="800">
+                    <img src="swo18.webp" alt="Reading program">
+                    <div class="hh-stories-feature-content">
+                        <span class="cat">Feature Story · Education</span>
+                        <h3>How 40 Volunteers Taught 400 Children to Read</h3>
+                        <p>The story behind our biggest education milestone this year — and what it took to get there.</p>
+                        <span class="hh-stories-feature-cta">
+                            Read Full Story <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <div class="hh-stories-side" data-aos="fade-left" data-aos-duration="800">
+                    <a href="404.html" class="hh-story-row">
+                        <div class="hh-story-thumb">
+                            <img src="swo19.webp" alt="Nutrition drive">
+                        </div>
+                        <div class="hh-story-info">
+                            <div class="cat">Nutrition</div>
+                            <h4>A village where no one goes hungry anymore</h4>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar"></i> Jul 12, 2026</span>
+                                <span><i class="fas fa-clock"></i> 4 min</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="404.html" class="hh-story-row">
+                        <div class="hh-story-thumb">
+                            <img src="swo20.webp" alt="Women empowerment">
+                        </div>
+                        <div class="hh-story-info">
+                            <div class="cat">Empowerment</div>
+                            <h4>From widow to business owner: Rekha's story</h4>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar"></i> Jul 05, 2026</span>
+                                <span><i class="fas fa-clock"></i> 6 min</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="404.html" class="hh-story-row">
+                        <div class="hh-story-thumb">
+                            <img src="swo21.webp" alt="Health camp">
+                        </div>
+                        <div class="hh-story-info">
+                            <div class="cat">Health</div>
+                            <h4>The camp that caught my mother's diabetes early</h4>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar"></i> Jun 28, 2026</span>
+                                <span><i class="fas fa-clock"></i> 3 min</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hh-stories-footer" data-aos="fade-up" data-aos-duration="700">
+                <a href="404.html" class="hh-btn teal">
+                    <i class="fas fa-newspaper"></i> View All Stories
+                </a>
+                <a href="404.html" class="hh-btn ghost">
+                    <i class="fas fa-rss"></i> Subscribe to Updates
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 15 — NEWSLETTER + FINAL CTA -->
+    <section class="hh-newsletter">
+        <div class="hh-newsletter-inner" data-aos="zoom-in" data-aos-duration="900">
+            <div class="hh-newsletter-left">
+                <span class="hh-eyebrow"><i class="fas fa-hand-holding-heart"></i> Get Involved</span>
+                <h2>Your Support <span>Changes Lives</span></h2>
+                <p>
+                    From a single meal to a lifetime of education — every act of kindness you give today
+                    writes a better tomorrow for someone in need. Subscribe for updates, or donate directly.
+                </p>
+                <div class="hh-newsletter-buttons">
+                    <a href="404.html" class="hh-btn primary">
+                        <i class="fas fa-hand-holding-dollar"></i> Donate Now
+                    </a>
+                    <a href="404.html" class="hh-btn white">
+                        <i class="fas fa-people-carry-box"></i> Become a Volunteer
+                    </a>
+                </div>
+            </div>
+
+            <div class="hh-newsletter-right">
+                <form class="hh-newsletter-form" id="hhNewsletterForm" novalidate>
+                    <div class="hh-newsletter-input-wrap">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="hh-newsletter-input" id="hhNewsletterInput" placeholder="Enter your email address" autocomplete="off" />
+                    </div>
+                    <button type="submit" class="hh-newsletter-btn">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </form>
+                <div class="hh-newsletter-msg" id="hhNewsletterMsg"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('header.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Header not found'))
+                .then(d => { document.getElementById('header-placeholder').innerHTML = d; initHeader(); })
+                .catch(err => console.error('Header load failed:', err));
+
+            fetch('footer.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Footer not found'))
+                .then(d => { document.getElementById('footer-placeholder').innerHTML = d; initFooter(); })
+                .catch(err => console.error('Footer load failed:', err));
+        });
+
+        function initHeader() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const header = document.getElementById('mainHeader');
+
+            if (menuBtn && mobileMenu && mobileOverlay) {
+                menuBtn.addEventListener('click', e => {
+                    e.preventDefault(); e.stopPropagation();
+                    mobileMenu.classList.add('open');
+                    mobileOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            if (closeBtn && mobileMenu && mobileOverlay) {
+                closeBtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', e => {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 20);
+                });
+            }
+        }
+
+        function initFooter() {
+            const footerHamburger = document.getElementById('mobileHamburger');
+            const footerNavMenu = document.getElementById('mobileNavMenu');
+
+            if (footerHamburger && footerNavMenu) {
+                // Clone to clear any old listeners
+                const newH = footerHamburger.cloneNode(true);
+                footerHamburger.parentNode.replaceChild(newH, footerHamburger);
+
+                // Hamburger toggle — safe to preventDefault (it's a <button>)
+                newH.addEventListener('click', e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    footerNavMenu.classList.toggle('open');
+                });
+
+                // Mobile nav links → close menu, then let browser navigate natively
+                footerNavMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        footerNavMenu.classList.remove('open');
+                        // NO preventDefault — native <a href> navigates
+                    });
+                });
+
+                // Close when clicking outside the menu
+                document.addEventListener('click', e => {
+                    if (!footerNavMenu.classList.contains('open')) return;
+                    if (footerNavMenu.contains(e.target)) return;
+                    if (newH.contains(e.target)) return;
+                    footerNavMenu.classList.remove('open');
+                });
+            }
+
+            // Desktop footer nav links + social icons need NO JavaScript.
+            // Native <a href> already works perfectly.
+        }
+
+        // Count-up animation
+        (function initCountUp() {
+            const counters = document.querySelectorAll('[data-count]');
+            if (!counters.length) return;
+
+            function animate(el) {
+                const target = parseInt(el.getAttribute('data-count'), 10);
+                if (isNaN(target)) return;
+                const duration = 1800;
+                const start = performance.now();
+
+                function step(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const value = Math.floor(target * eased);
+                    el.textContent = value.toLocaleString();
+                    if (progress < 1) requestAnimationFrame(step);
+                    else el.textContent = target.toLocaleString();
+                }
+                requestAnimationFrame(step);
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            counters.forEach(el => observer.observe(el));
+        })();
+
+        // Cause progress bars
+        (function animateProgressBars() {
+            const fills = document.querySelectorAll('[data-fill]');
+            if (!fills.length) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const pct = entry.target.getAttribute('data-fill');
+                        setTimeout(() => { entry.target.style.width = pct + '%'; }, 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            fills.forEach(el => observer.observe(el));
+        })();
+
+        // Video player
+        (function initVideoPlayer() {
+            const video = document.getElementById('hhVideo');
+            const toggleBtn = document.getElementById('hhVideoToggleBtn');
+            const toggleIcon = document.getElementById('hhVideoToggleIcon');
+            const centerWrap = document.getElementById('hhVideoCenter');
+            const centerBtn = document.getElementById('hhVideoCenterBtn');
+            const timeLabel = document.getElementById('hhVideoTime');
+            const progressBar = document.getElementById('hhVideoProgress');
+            const progressFill = document.getElementById('hhVideoProgressFill');
+            const muteBtn = document.getElementById('hhVideoMuteBtn');
+            const muteIcon = document.getElementById('hhVideoMuteIcon');
+            if (!video || !toggleBtn) return;
+
+            function fmt(s) {
+                if (isNaN(s) || !isFinite(s)) return '0:00';
+                const m = Math.floor(s / 60);
+                const sec = Math.floor(s % 60);
+                return m + ':' + (sec < 10 ? '0' + sec : sec);
+            }
+            function updateTime() {
+                timeLabel.textContent = fmt(video.currentTime) + ' / ' + fmt(video.duration);
+                if (video.duration) {
+                    const pct = (video.currentTime / video.duration) * 100;
+                    progressFill.style.width = pct + '%';
+                }
+            }
+            function setPlaying(isPlaying) {
+                if (isPlaying) {
+                    toggleIcon.classList.remove('fa-play');
+                    toggleIcon.classList.add('fa-pause');
+                    centerWrap.classList.add('hide');
+                } else {
+                    toggleIcon.classList.remove('fa-pause');
+                    toggleIcon.classList.add('fa-play');
+                    centerWrap.classList.remove('hide');
+                }
+            }
+            function play() { video.play().then(() => setPlaying(true)).catch(() => {}); }
+            function pause() { video.pause(); setPlaying(false); }
+            function toggle() { if (video.paused) play(); else pause(); }
+
+            toggleBtn.addEventListener('click', toggle);
+            centerBtn.addEventListener('click', toggle);
+            video.addEventListener('click', toggle);
+            video.addEventListener('play', () => setPlaying(true));
+            video.addEventListener('pause', () => setPlaying(false));
+            video.addEventListener('timeupdate', updateTime);
+            video.addEventListener('loadedmetadata', updateTime);
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const pct = (e.clientX - rect.left) / rect.width;
+                if (video.duration) video.currentTime = pct * video.duration;
+            });
+            muteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                if (video.muted) {
+                    muteIcon.classList.remove('fa-volume-high');
+                    muteIcon.classList.add('fa-volume-xmark');
+                } else {
+                    muteIcon.classList.remove('fa-volume-xmark');
+                    muteIcon.classList.add('fa-volume-high');
+                }
+            });
+            updateTime();
+            setPlaying(false);
+        })();
+
+        // Newsletter validation
+        (function initNewsletter() {
+            const form = document.getElementById('hhNewsletterForm');
+            const input = document.getElementById('hhNewsletterInput');
+            const msg = document.getElementById('hhNewsletterMsg');
+            if (!form || !input) return;
+
+            input.addEventListener('input', () => {
+                input.classList.remove('has-error');
+                msg.classList.remove('error');
+                msg.textContent = '';
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = input.value.trim();
+                const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                if (!ok) {
+                    input.classList.add('has-error');
+                    msg.classList.add('error');
+                    msg.textContent = 'Please enter a valid email address.';
+                    input.focus();
+                    return;
+                }
+                window.location.href = '404.html';
+            });
+        })();
+
+        console.log('✅ Landing page ready — footer links navigate natively, cards are static');
+    </script>
+</body>
+</html>

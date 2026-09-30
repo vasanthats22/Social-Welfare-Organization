@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Welfare Organization-Navbar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           SOCIAL WELFARE ORGANIZATION — COLOR SYSTEM
+           Primary  (trust)  : #1D5B79  deep teal-blue
+           Accent   (warmth) : #E07A2F  warm amber  (Sign Up CTA)
+           Secondary(hope)   : #7BA88C  soft sage
+           Background        : #FBF8F4  warm off-white
+           Text              : #1C2A38  deep navy-charcoal
+           ========================================================= */
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-bg:        #FBF8F4;
+            --sw-text:      #1C2A38;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-border-hi: rgba(29, 91, 121, 0.28);
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+            --sw-shadow-hi: rgba(28, 42, 56, 0.14);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--sw-bg);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 110px;
+        }
+
+        /*=============================================
+        HEADER / NAVBAR
+        =============================================*/
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: 12px 0;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            width: 98%;
+            max-width: 1520px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            height: 92px;
+            background: #FFFFFF;
+            border-radius: 60px;
+            box-shadow: 0 8px 30px var(--sw-shadow);
+            transition: all 0.35s ease;
+            border: 1px solid var(--sw-border);
+            overflow: hidden;
+            gap: 16px;
+        }
+
+        header.scrolled .header-container {
+            background: #FFFFFF;
+            box-shadow: 0 12px 36px var(--sw-shadow-hi);
+            height: 80px;
+            border-color: var(--sw-border-hi);
+        }
+
+        /*------------------------------------------------
+        LOGO — Stacklylogo.webp, links to index.html
+        ------------------------------------------------*/
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 54px;              /* reduced from 62px */
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        header.scrolled .logo img {
+            height: 48px;              /* reduced from 54px */
+        }
+
+        /*------------------------------------------------
+        DESKTOP NAV — social welfare specific (6 buttons)
+        ------------------------------------------------*/
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex: 1;
+            justify-content: center;
+            margin: 0 10px;
+        }
+
+        .desktop-nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--sw-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 6px 0;
+            cursor: pointer;
+            white-space: nowrap;
+            letter-spacing: 0.25px;
+        }
+
+        .desktop-nav a i {
+            margin-right: 7px;
+            font-size: 14px;
+            color: var(--sw-primary);
+            transition: color 0.3s;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2.5px;
+            background: var(--sw-accent);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--sw-primary);
+        }
+
+        .desktop-nav a:hover i {
+            color: var(--sw-primary-d);
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        .desktop-nav a.active {
+            color: var(--sw-primary-d);
+            font-weight: 600;
+        }
+
+        .desktop-nav a.active i {
+            color: var(--sw-accent);
+        }
+
+        /*------------------------------------------------
+        RIGHT SIDE — Login (text) + Sign Up (solid amber CTA)
+        ------------------------------------------------*/
+        .right-side {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Login — text link */
+        .login-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--sw-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 10px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            white-space: nowrap;
+        }
+
+        .login-link i {
+            font-size: 14px;
+            color: var(--sw-primary);
+        }
+
+        .login-link:hover {
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary-d);
+        }
+
+        /* Sign Up — solid amber CTA */
+        .signup-btn {
+            font-size: 14px;
+            font-weight: 600;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 11px 26px;
+            border-radius: 40px;
+            cursor: pointer;
+            background: var(--sw-accent);
+            border: 2px solid var(--sw-accent);
+            box-shadow: 0 6px 18px rgba(224, 122, 47, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .signup-btn i {
+            font-size: 14px;
+        }
+
+        .signup-btn:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(196, 99, 28, 0.45);
+        }
+
+        /*------------------------------------------------
+        MOBILE HAMBURGER
+        ------------------------------------------------*/
+        .menu-btn {
+            width: 44px;
+            height: 44px;
+            background: rgba(29, 91, 121, 0.10);
+            border-radius: 14px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: rgba(29, 91, 121, 0.20);
+        }
+
+        .menu-btn i {
+            color: var(--sw-primary);
+            font-size: 20px;
+        }
+
+        /*------------------------------------------------
+        MOBILE MENU OVERLAY
+        ------------------------------------------------*/
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(28, 42, 56, 0.40);
+            z-index: 9998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.open {
+            display: block;
+            opacity: 1;
+        }
+
+        /*------------------------------------------------
+        MOBILE MENU
+        ------------------------------------------------*/
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 86%;
+            max-width: 380px;
+            height: 100vh;
+            background: var(--sw-bg);
+            padding: 30px 22px;
+            transition: all 0.4s ease;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 40px rgba(28, 42, 56, 0.12);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--sw-border);
+        }
+
+        .mobile-menu-header .mobile-logo img {
+            height: 48px;              /* reduced from 54px */
+            display: block;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .close-btn {
+            font-size: 26px;
+            color: var(--sw-text);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--sw-accent);
+            transform: rotate(90deg);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .mobile-nav-links a {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--sw-text);
+            text-decoration: none;
+            padding: 13px 18px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-nav-links a i {
+            color: var(--sw-primary);
+            width: 22px;
+            font-size: 18px;
+        }
+
+        .mobile-nav-links a:hover {
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary-d);
+            border-left-color: var(--sw-accent);
+        }
+
+        .mobile-nav-links a.active {
+            background: rgba(29, 91, 121, 0.12);
+            color: var(--sw-primary-d);
+            font-weight: 600;
+            border-left-color: var(--sw-accent);
+        }
+
+        .mobile-nav-links a.active i {
+            color: var(--sw-accent);
+        }
+
+        .mobile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--sw-border);
+        }
+
+        /* Mobile Login */
+        .mobile-actions .login-mobile {
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--sw-text);
+            text-decoration: none;
+            border-radius: 50px;
+            background: rgba(29, 91, 121, 0.06);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mobile-actions .login-mobile i {
+            color: var(--sw-primary);
+        }
+
+        .mobile-actions .login-mobile:hover {
+            background: rgba(29, 91, 121, 0.14);
+            border-color: rgba(29, 91, 121, 0.25);
+        }
+
+        /* Mobile Sign Up — solid amber CTA */
+        .mobile-actions .signup-mobile {
+            text-align: center;
+            padding: 13px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 50px;
+            background: var(--sw-accent);
+            border: 2px solid var(--sw-accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(224, 122, 47, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mobile-actions .signup-mobile i {
+            color: #FFFFFF;
+            font-size: 15px;
+        }
+
+        .mobile-actions .signup-mobile:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 26px rgba(196, 99, 28, 0.45);
+        }
+
+        /*=============================================
+        RESPONSIVE BREAKPOINTS
+        =============================================*/
+        @media(max-width: 1280px) {
+            .desktop-nav { gap: 16px; }
+            .desktop-nav a { font-size: 14px; }
+            .login-link { padding: 8px 10px; font-size: 13px; }
+            .signup-btn { padding: 9px 20px; font-size: 13px; }
+            .logo img { height: 50px; }          /* reduced from 56px */
+        }
+
+        @media(max-width: 1100px) {
+            .desktop-nav { gap: 10px; margin: 0 6px; }
+            .desktop-nav a { font-size: 12.5px; }
+            .desktop-nav a i { font-size: 12px; margin-right: 4px; }
+            .login-link { padding: 7px 8px; font-size: 12px; }
+            .login-link i { font-size: 12px; }
+            .signup-btn { padding: 8px 16px; font-size: 12px; }
+            .signup-btn i { font-size: 12px; }
+            .right-side { gap: 5px; }
+            .logo img { height: 46px; }          /* reduced from 52px */
+        }
+
+        @media(max-width: 920px) {
+            .desktop-nav { gap: 8px; }
+            .desktop-nav a { font-size: 11.5px; }
+            .desktop-nav a i { font-size: 11px; margin-right: 3px; }
+            .login-link { padding: 6px 6px; font-size: 11px; }
+            .login-link i { display: none; }
+            .signup-btn { padding: 7px 14px; font-size: 11px; }
+            .signup-btn i { display: none; }
+            .logo img { height: 42px; }          /* reduced from 48px */
+        }
+
+        @media(max-width: 768px) {
+            .desktop-nav { display: none; }
+            .right-side { display: none; }
+            .menu-btn { display: flex; }
+            .header-container {
+                height: 80px;
+                padding: 0 20px;
+                border-radius: 50px;
+                width: 96%;
+            }
+            .logo img { height: 48px; }          /* reduced from 54px */
+            body { padding-top: 104px; }
+        }
+
+        @media(max-width: 480px) {
+            header { padding: 8px 0; }
+            .header-container {
+                width: 100%;
+                border-radius: 0;
+                padding: 0 16px;
+                height: 72px;
+                background: #FFFFFF;
+                box-shadow: 0 2px 12px var(--sw-shadow);
+                overflow: hidden;
+            }
+            .logo img { height: 42px; }          /* reduced from 48px */
+            .menu-btn { width: 42px; height: 42px; border-radius: 12px; }
+            .menu-btn i { font-size: 18px; }
+            .mobile-menu { width: 100%; max-width: 100%; padding: 24px 18px; }
+            .mobile-menu-header .mobile-logo img { height: 42px; }   /* reduced from 48px */
+            .mobile-nav-links a { font-size: 16px; padding: 11px 14px; }
+            .mobile-actions .login-mobile,
+            .mobile-actions .signup-mobile { padding: 11px; font-size: 14px; }
+            body { padding-top: 88px; }
+        }
+
+        @media(max-width: 768px) {
+            body { overflow-x: hidden; }
+            .header-container { overflow: hidden; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER / NAVBAR — Social Welfare Organization ===== -->
+    <header id="mainHeader">
+        <div class="header-container">
+
+            <!-- LOGO — Stacklylogo.webp → index.html -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Stacklylogo.webp" alt="Helping Hands — Social Welfare Organization">
+                </a>
+            </div>
+
+            <!-- DESKTOP NAV — 6 social welfare specific buttons -->
+            <nav class="desktop-nav">
+                <a href="index.html">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="about.html">
+                    <i class="fas fa-users"></i> About Us
+                </a>
+                <a href="causes.html">
+                    <i class="fas fa-hand-holding-heart"></i> Our Causes
+                </a>
+                <a href="impact.html">
+                    <i class="fas fa-chart-line"></i> Impact & Reports
+                </a>
+                <a href="volunteer.html">
+                    <i class="fas fa-people-carry"></i> Volunteer
+                </a>
+                <a href="contact.html">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- RIGHT SIDE — Login + Sign Up (2 buttons only) -->
+            <div class="right-side">
+                <a href="login.html" class="login-link">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <a href="signup.html" class="signup-btn">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
+            </div>
+
+            <!-- MOBILE HAMBURGER -->
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU OVERLAY ===== -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-logo">
+                <img src="Stacklylogo.webp" alt="Helping Hands — Social Welfare Organization">
+            </a>
+            <button class="close-btn" id="closeBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="mobile-nav-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="about.html">
+                <i class="fas fa-users"></i> About Us
+            </a>
+            <a href="causes.html">
+                <i class="fas fa-hand-holding-heart"></i> Our Causes
+            </a>
+            <a href="impact.html">
+                <i class="fas fa-chart-line"></i> Impact & Reports
+            </a>
+            <a href="volunteer.html">
+                <i class="fas fa-people-carry"></i> Volunteer
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+
+        <div class="mobile-actions">
+            <a href="login.html" class="login-mobile">
+                <i class="fas fa-user"></i> Login
+            </a>
+            <a href="signup.html" class="signup-mobile">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileOverlay = document.getElementById("mobileOverlay");
+        const mobileLinks = mobileMenu.querySelectorAll(".mobile-nav-links a");
+        const header = document.getElementById("mainHeader");
+
+        function openMenu() {
+            mobileMenu.classList.add("open");
+            mobileOverlay.classList.add("open");
+            document.body.style.overflow = "hidden";
+        }
+
+        menuBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openMenu();
+        });
+
+        function closeMenu() {
+            mobileMenu.classList.remove("open");
+            mobileOverlay.classList.remove("open");
+            document.body.style.overflow = "auto";
+        }
+
+        closeBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            closeMenu();
+        });
+        mobileOverlay.addEventListener("click", function(e) {
+            e.preventDefault();
+            closeMenu();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+        });
+
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 20);
+        });
+
+        /* ---------- Active link highlighting ---------- */
+        const desktopLinks = document.querySelectorAll(".desktop-nav a");
+        const allMobileLinks = document.querySelectorAll(".mobile-nav-links a");
+
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+        desktopLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) link.classList.add("active");
+        });
+        allMobileLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) link.classList.add("active");
+        });
+
+        /* ---------- Desktop nav click → redirect ---------- */
+        desktopLinks.forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                window.location.href = this.getAttribute("href");
+            });
+        });
+
+        /* ---------- Mobile nav click → close + redirect ---------- */
+        allMobileLinks.forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const href = this.getAttribute("href");
+                closeMenu();
+                setTimeout(() => { window.location.href = href; }, 200);
+            });
+        });
+
+        /* ---------- Desktop right-side buttons ---------- */
+        document.querySelector(".login-link").addEventListener("click", function(e) {
+            e.preventDefault();
+            window.location.href = this.getAttribute("href");
+        });
+        document.querySelector(".signup-btn").addEventListener("click", function(e) {
+            e.preventDefault();
+            window.location.href = this.getAttribute("href");
+        });
+
+        /* ---------- Mobile right-side buttons ---------- */
+        document.querySelector(".login-mobile").addEventListener("click", function(e) {
+            e.preventDefault();
+            closeMenu();
+            setTimeout(() => window.location.href = this.getAttribute("href"), 200);
+        });
+        document.querySelector(".signup-mobile").addEventListener("click", function(e) {
+            e.preventDefault();
+            closeMenu();
+            setTimeout(() => window.location.href = this.getAttribute("href"), 200);
+        });
+
+        console.log("✅ Social Welfare Organization header ready!");
+        console.log("🤝 Logo: Stacklylogo.webp → index.html");
+        console.log("📄 Nav (6): Home | About Us | Our Causes | Impact & Reports | Volunteer | Contact");
+        console.log("👤 Right (2): Login | Sign Up (amber CTA)");
+        console.log("🎨 Palette: teal #1D5B79 · amber #E07A2F · sage #7BA88C · off-white #FBF8F4");
+    </script>
+
+</body>
+</html>

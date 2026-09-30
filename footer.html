@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Welfare Organization — Footer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-bg:        #FBF8F4;
+            --sw-text:      #1C2A38;
+            --sw-text-soft: #4A5560;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        footer {
+            background: var(--sw-bg);
+            padding: 50px 0 32px;
+            margin-top: auto;
+            position: relative;
+            border-top: 1.5px solid var(--sw-border);
+            box-shadow: 0 -4px 20px var(--sw-shadow);
+        }
+
+        .footer-container {
+            max-width: 1520px;
+            width: 98%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .footer-row-1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .footer-brand img {
+            height: 54px;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .footer-brand:hover img {
+            opacity: 0.85;
+            transform: scale(1.03);
+        }
+
+        .footer-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--sw-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 6px 0;
+            cursor: pointer;
+            white-space: nowrap;
+            letter-spacing: 0.25px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .footer-nav a i {
+            margin-right: 7px;
+            font-size: 14px;
+            color: var(--sw-primary);
+            transition: color 0.3s;
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2.5px;
+            background: var(--sw-accent);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .footer-nav a:hover { color: var(--sw-primary); }
+        .footer-nav a:hover i { color: var(--sw-primary-d); }
+        .footer-nav a:hover::after { width: 100%; }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--sw-border);
+            border-radius: 2px;
+        }
+
+        .footer-row-2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-tagline {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--sw-text-soft);
+            line-height: 1.6;
+            letter-spacing: 0.2px;
+            max-width: 620px;
+        }
+
+        .footer-tagline .highlight {
+            color: var(--sw-accent);
+            font-weight: 700;
+        }
+
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 17px;
+            border: 1px solid var(--sw-border);
+        }
+
+        .footer-social a:hover {
+            background: var(--sw-primary);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(29, 91, 121, 0.35);
+            border-color: var(--sw-primary);
+        }
+
+        .mobile-only { display: none; }
+
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            padding: 14px 0;
+            width: 100%;
+        }
+
+        .mobile-nav-menu.open { display: flex; }
+
+        .mobile-nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--sw-text);
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--sw-border);
+            transition: all 0.3s ease;
+            letter-spacing: 0.25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-nav-menu a i {
+            margin-right: 10px;
+            font-size: 15px;
+            color: var(--sw-primary);
+            transition: color 0.3s;
+            width: 20px;
+        }
+
+        .mobile-nav-menu a:hover {
+            color: var(--sw-primary);
+            padding-left: 8px;
+            border-bottom-color: var(--sw-accent);
+        }
+
+        .mobile-nav-menu a:hover i { color: var(--sw-primary-d); }
+
+        @media(max-width: 768px) {
+            footer { padding: 28px 0 24px; }
+
+            .footer-container {
+                width: 94%;
+                gap: 16px;
+                align-items: stretch;
+            }
+
+            .footer-row-1,
+            .footer-row-2,
+            .footer-container > .footer-divider {
+                display: none;
+            }
+
+            .mobile-only {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .mobile-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                padding-bottom: 14px;
+                border-bottom: 1px solid var(--sw-border);
+            }
+
+            .mobile-header .mobile-logo img {
+                height: 48px;
+                display: block;
+                border-radius: 8px;
+                object-fit: contain;
+            }
+
+            .mobile-hamburger {
+                background: rgba(29, 91, 121, 0.08);
+                border: 1px solid var(--sw-border);
+                cursor: pointer;
+                padding: 10px 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-hamburger:hover {
+                background: var(--sw-primary);
+                border-color: var(--sw-primary);
+            }
+
+            .mobile-hamburger span {
+                display: block;
+                width: 22px;
+                height: 2.5px;
+                background: var(--sw-primary);
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-hamburger span:nth-child(2) { width: 16px; }
+            .mobile-hamburger:hover span { background: #FFFFFF; }
+
+            .mobile-text {
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--sw-text-soft);
+                line-height: 1.6;
+                padding: 4px 0;
+            }
+
+            .mobile-text .highlight {
+                color: var(--sw-accent);
+                font-weight: 700;
+            }
+
+            .mobile-social-label {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--sw-text);
+                margin-top: 4px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .mobile-social {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding: 4px 0;
+                flex-wrap: wrap;
+            }
+
+            .mobile-social a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: rgba(29, 91, 121, 0.08);
+                color: var(--sw-primary);
+                text-decoration: none;
+                transition: all 0.3s ease;
+                font-size: 17px;
+                border: 1px solid var(--sw-border);
+            }
+
+            .mobile-social a:hover {
+                background: var(--sw-primary);
+                color: #FFFFFF;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 24px rgba(29, 91, 121, 0.35);
+                border-color: var(--sw-primary);
+            }
+        }
+
+        @media(max-width: 480px) {
+            .mobile-header .mobile-logo img { height: 42px; }
+            .mobile-hamburger { padding: 8px 10px; }
+            .mobile-hamburger span { width: 18px; height: 2px; }
+            .mobile-hamburger span:nth-child(2) { width: 12px; }
+            .mobile-text { font-size: 13px; }
+            .mobile-social-label { font-size: 13px; }
+            .mobile-social { gap: 12px; }
+            .mobile-social a { width: 42px; height: 42px; font-size: 16px; }
+        }
+
+        @media(min-width: 769px) {
+            .mobile-only { display: none !important; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <footer>
+        <div class="footer-container">
+
+            <!-- DESKTOP -->
+            <div class="footer-row-1">
+                <a href="index.html" class="footer-brand">
+                    <img src="Stacklylogo.webp" alt="Helping Hands — Social Welfare Organization">
+                </a>
+                <nav class="footer-nav">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="about.html"><i class="fas fa-users"></i> About Us</a>
+                    <a href="causes.html"><i class="fas fa-hand-holding-heart"></i> Our Causes</a>
+                    <a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a>
+                    <a href="volunteer.html"><i class="fas fa-people-carry"></i> Volunteer</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </nav>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-row-2">
+                <p class="footer-tagline">
+                    Together we can build a kinder world. <span class="highlight">Care. Share. Uplift.</span>
+                </p>
+                <div class="footer-social">
+                    <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404.html"><i class="fab fa-instagram"></i></a>
+                    <a href="404.html"><i class="fab fa-youtube"></i></a>
+                    <a href="404.html"><i class="fab fa-x-twitter"></i></a>
+                    <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- MOBILE -->
+            <div class="mobile-only">
+                <div class="mobile-header">
+                    <a href="index.html" class="mobile-logo">
+                        <img src="Stacklylogo.webp" alt="Helping Hands — Social Welfare Organization">
+                    </a>
+                    <button class="mobile-hamburger" id="mobileHamburger" type="button" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+                <div class="mobile-nav-menu" id="mobileNavMenu">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="about.html"><i class="fas fa-users"></i> About Us</a>
+                    <a href="causes.html"><i class="fas fa-hand-holding-heart"></i> Our Causes</a>
+                    <a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a>
+                    <a href="volunteer.html"><i class="fas fa-people-carry"></i> Volunteer</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
+
+                <div class="mobile-text">
+                    Together we can build a kinder world. <span class="highlight">Care. Share. Uplift.</span>
+                </div>
+
+                <div class="mobile-social-label">Follow us</div>
+
+                <div class="mobile-social">
+                    <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404.html"><i class="fab fa-instagram"></i></a>
+                    <a href="404.html"><i class="fab fa-youtube"></i></a>
+                    <a href="404.html"><i class="fab fa-x-twitter"></i></a>
+                    <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

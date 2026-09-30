@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Welfare Organization - Our Causes</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           SOCIAL WELFARE ORGANIZATION — CAUSES PAGE
+           ========================================================= */
+        :root {
+            --sw-primary:   #1D5B79;
+            --sw-primary-d: #14455C;
+            --sw-accent:    #E07A2F;
+            --sw-accent-d:  #C4631C;
+            --sw-sage:      #7BA88C;
+            --sw-sage-d:    #4E8A63;
+            --sw-bg:        #FBF8F4;
+            --sw-bg-alt:    #F2EDE5;
+            --sw-text:      #1C2A38;
+            --sw-text-soft: #4A5560;
+            --sw-border:    rgba(29, 91, 121, 0.15);
+            --sw-error:     #D32F2F;
+            --sw-shadow:    rgba(28, 42, 56, 0.08);
+            --sw-shadow-hi: rgba(28, 42, 56, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+        /* Global image safety */
+        img, video { max-width: 100%; display: block; }
+
+        html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+
+        body {
+            background: var(--sw-bg);
+            min-height: 100vh;
+            padding-top: 110px;
+            color: var(--sw-text);
+            line-height: 1.5;
+        }
+
+        section { overflow-x: clip; max-width: 100vw; }
+
+        /* Section heads */
+        .cz-head {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 40px;
+            padding: 0 16px;
+        }
+        .cz-head .cz-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 14px;
+            padding: 6px 16px;
+            background: rgba(224, 122, 47, 0.10);
+            border: 1px solid rgba(224, 122, 47, 0.25);
+            border-radius: 30px;
+        }
+        .cz-head h2 {
+            font-size: clamp(1.6rem, 2.9vw, 2.2rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .cz-head h2 span { color: var(--sw-accent); }
+        .cz-head p {
+            font-size: 0.92rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+        }
+
+        /* Generic buttons */
+        .cz-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: 2px solid transparent;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        .cz-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 22px rgba(224, 122, 47, 0.35);
+        }
+        .cz-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(196, 99, 28, 0.45);
+        }
+        .cz-btn.teal {
+            background: var(--sw-primary);
+            color: #fff;
+            border-color: var(--sw-primary);
+            box-shadow: 0 8px 22px rgba(29, 91, 121, 0.30);
+        }
+        .cz-btn.teal:hover {
+            background: var(--sw-primary-d);
+            border-color: var(--sw-primary-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(20, 69, 92, 0.40);
+        }
+        .cz-btn.ghost {
+            background: transparent;
+            color: var(--sw-primary);
+            border-color: var(--sw-primary);
+        }
+        .cz-btn.ghost:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .cz-btn.white {
+            background: #fff;
+            color: var(--sw-primary);
+            border-color: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+        }
+        .cz-btn.white:hover {
+            background: var(--sw-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+        }
+
+        /* =========================================================
+           SECTION 1 — SPLIT HERO
+           ========================================================= */
+        .cz-hero {
+            max-width: 1300px;
+            margin: -110px auto 0;
+            padding: 170px 24px 70px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 0;
+            align-items: stretch;
+            width: 100%;
+        }
+        .cz-hero-left {
+            background: var(--sw-primary);
+            color: #fff;
+            border-radius: 26px 0 0 26px;
+            padding: 56px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+        }
+        .cz-hero-left::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 320px; height: 320px;
+            border-radius: 50%;
+            background: rgba(224, 122, 47, 0.22);
+            pointer-events: none;
+        }
+        .cz-hero-left::after {
+            content: '';
+            position: absolute;
+            bottom: -110px; left: -110px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: rgba(123, 168, 140, 0.20);
+            pointer-events: none;
+        }
+        .cz-hero-left-inner { position: relative; z-index: 2; max-width: 520px; }
+        .cz-hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            padding: 6px 14px;
+            background: rgba(224, 122, 47, 0.25);
+            border: 1px solid rgba(224, 122, 47, 0.5);
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+        .cz-hero h1 {
+            font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .cz-hero h1 span { color: #FFD9B3; }
+        .cz-hero-lead {
+            font-size: clamp(0.92rem, 1.25vw, 1.05rem);
+            color: #D8E4EC;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .cz-hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+        .cz-hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 34px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            flex-wrap: wrap;
+        }
+        .cz-hero-stat strong {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #FFD9B3;
+            line-height: 1;
+        }
+        .cz-hero-stat span {
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #B5CDD8;
+            margin-top: 6px;
+            display: block;
+        }
+        .cz-hero-right {
+            position: relative;
+            border-radius: 0 26px 26px 0;
+            overflow: hidden;
+            min-height: 500px;
+            background: var(--sw-primary-d);
+        }
+        .cz-hero-right img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        .cz-hero-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(29, 91, 121, 0.55) 0%, rgba(20, 69, 92, 0.10) 100%);
+            pointer-events: none;
+        }
+        .cz-hero-float {
+            position: absolute;
+            bottom: 26px; left: 26px; right: 26px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 2;
+            border-left: 5px solid var(--sw-accent);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+        }
+        .cz-hero-float-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(224, 122, 47, 0.12);
+            color: var(--sw-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+        .cz-hero-float-text strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+        }
+        .cz-hero-float-text span {
+            font-size: 0.73rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           SECTION 2 — FEATURED CAUSE
+           ========================================================= */
+        .cz-featured {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 70px 24px;
+        }
+        .cz-featured-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 24px 60px var(--sw-shadow);
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            min-height: 500px;
+        }
+        .cz-featured-image {
+            position: relative;
+            overflow: hidden;
+            background: var(--sw-primary);
+            min-height: 380px;
+        }
+        .cz-featured-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+        .cz-featured-card:hover .cz-featured-image img { transform: scale(1.05); }
+        .cz-featured-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 69, 92, 0.10) 40%, rgba(20, 69, 92, 0.75) 100%);
+            pointer-events: none;
+        }
+        .cz-featured-tag {
+            position: absolute;
+            top: 22px; left: 22px;
+            background: var(--sw-accent);
+            color: #fff;
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            z-index: 2;
+            box-shadow: 0 8px 22px rgba(224, 122, 47, 0.45);
+        }
+        .cz-featured-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 26px 28px 24px;
+            color: #fff;
+            z-index: 2;
+        }
+        .cz-featured-overlay h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        .cz-featured-overlay p {
+            font-size: 0.82rem;
+            color: #D8E4EC;
+            line-height: 1.55;
+        }
+        .cz-featured-body {
+            padding: 44px 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+        .cz-featured-body .cz-eyebrow-sm {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            color: var(--sw-accent);
+            margin-bottom: 12px;
+        }
+        .cz-featured-body h2 {
+            font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .cz-featured-body p {
+            font-size: 0.9rem;
+            color: var(--sw-text-soft);
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+        .cz-progress { margin-bottom: 22px; }
+        .cz-progress-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+        .cz-progress-head strong {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--sw-primary);
+            letter-spacing: -0.02em;
+        }
+        .cz-progress-head strong small {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--sw-text-soft);
+            margin-left: 4px;
+        }
+        .cz-progress-head span {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--sw-text-soft);
+        }
+        .cz-progress-bar {
+            height: 10px;
+            background: var(--sw-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+        }
+        .cz-progress-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--sw-primary), var(--sw-accent));
+            border-radius: 10px;
+            transition: width 1.6s cubic-bezier(.22,.61,.36,1);
+        }
+        .cz-featured-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            padding: 18px 0;
+            margin-bottom: 22px;
+            border-top: 1px solid var(--sw-border);
+            border-bottom: 1px solid var(--sw-border);
+        }
+        .cz-featured-meta div { text-align: center; }
+        .cz-featured-meta strong {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--sw-primary);
+            letter-spacing: -0.02em;
+        }
+        .cz-featured-meta span {
+            font-size: 0.63rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--sw-text-soft);
+            margin-top: 4px;
+            display: block;
+        }
+        .cz-featured-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        /* =========================================================
+           SECTION 3 — CAUSES BENTO GRID
+           ========================================================= */
+        .cz-grid {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 70px 24px;
+        }
+        .cz-bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(230px, auto);
+            gap: 18px;
+        }
+        .cz-tile {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--sw-primary);
+            transition: transform 0.4s ease;
+            min-width: 0;
+            min-height: 230px;
+            display: block;
+        }
+        .cz-tile:hover { transform: translateY(-6px); }
+        .cz-tile img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.7s ease;
+            z-index: 0;
+        }
+        .cz-tile:hover img { transform: scale(1.08); }
+        .cz-tile::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 69, 92, 0.10) 30%, rgba(20, 69, 92, 0.90) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .cz-tile-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 22px;
+            color: #fff;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .cz-tile-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            align-self: flex-start;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            padding: 5px 12px;
+            background: rgba(224, 122, 47, 0.25);
+            border: 1px solid rgba(224, 122, 47, 0.5);
+            border-radius: 30px;
+        }
+        .cz-tile h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+        }
+        .cz-tile p {
+            font-size: 0.78rem;
+            color: #D8E4EC;
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .cz-tile-progress {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.20);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+        .cz-tile-progress span {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--sw-accent), #FFD9B3);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.6s cubic-bezier(.22,.61,.36,1);
+        }
+        .cz-tile-progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #FFD9B3;
+            margin-top: 6px;
+        }
+        .cz-tile-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .cz-tile-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .cz-tile-btn.primary {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 6px 16px rgba(224, 122, 47, 0.40);
+        }
+        .cz-tile-btn.primary:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+        }
+        .cz-tile-btn.ghost {
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(6px);
+        }
+        .cz-tile-btn.ghost:hover {
+            background: #fff;
+            color: var(--sw-primary);
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+        .cz-tile.wide { grid-column: span 2; }
+        .cz-tile.large {
+            grid-column: span 2;
+            grid-row: span 2;
+            min-height: 480px;
+        }
+        .cz-tile.large h3 { font-size: 1.4rem; }
+        .cz-tile.large p { font-size: 0.86rem; -webkit-line-clamp: 3; }
+
+        .cz-grid-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* =========================================================
+           SECTION 4 — VIDEO STORY
+           ========================================================= */
+        .cz-video {
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+            padding: 70px 24px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cz-video::before {
+            content: '';
+            position: absolute;
+            top: -180px; right: -180px;
+            width: 480px; height: 480px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224, 122, 47, 0.22) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .cz-video-inner {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .cz-video-head {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 32px;
+        }
+        .cz-video-head h2 {
+            font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+        .cz-video-head h2 span { color: #FFD9B3; }
+        .cz-video-head p {
+            font-size: 0.9rem;
+            color: #D8E4EC;
+            line-height: 1.65;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .cz-video-player {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.40);
+            aspect-ratio: 16/9;
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            border: 5px solid rgba(255, 255, 255, 0.10);
+            background: #000;
+        }
+        .cz-video-player video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+        .cz-video-controls {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+            color: #fff;
+            z-index: 3;
+        }
+        .cz-video-btn {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            border: none;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(224, 122, 47, 0.45);
+            font-family: inherit;
+        }
+        .cz-video-btn:hover { background: var(--sw-accent-d); transform: scale(1.08); }
+        .cz-video-btn:active { transform: scale(0.96); }
+        .cz-video-time {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.4px;
+            min-width: 82px;
+            font-variant-numeric: tabular-nums;
+        }
+        .cz-video-progress {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.22);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .cz-video-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--sw-accent);
+            border-radius: 6px;
+            transition: width 0.15s linear;
+        }
+        .cz-video-volume {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.92rem;
+            cursor: pointer;
+            padding: 6px;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .cz-video-volume:hover { color: var(--sw-accent); }
+        .cz-video-center-play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+        .cz-video-center-play.hide { opacity: 0; }
+        .cz-video-center-play-btn {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: var(--sw-accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6);
+            animation: czPulse 2s infinite;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+        }
+        .cz-video-center-play-btn:hover { transform: scale(1.08); background: var(--sw-accent-d); }
+        @keyframes czPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0.6); }
+            70%  { box-shadow: 0 0 0 22px rgba(224, 122, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(224, 122, 47, 0); }
+        }
+        .cz-video-caption {
+            text-align: center;
+            color: #D8E4EC;
+            font-size: 0.86rem;
+            line-height: 1.6;
+            margin-top: 22px;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cz-video-caption strong { color: #FFD9B3; font-weight: 700; }
+        .cz-video-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 26px;
+        }
+
+        /* =========================================================
+           SECTION 5 — IMPACT COMPARISON
+           ========================================================= */
+        .cz-compare {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 70px 24px;
+        }
+        .cz-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+        .cz-compare-card {
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--sw-border);
+            box-shadow: 0 20px 46px var(--sw-shadow);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .cz-compare-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px var(--sw-shadow-hi);
+        }
+        .cz-compare-header {
+            padding: 20px 26px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-height: 86px;
+        }
+        .cz-compare-header.teal {
+            background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-d) 100%);
+        }
+        .cz-compare-header.amber {
+            background: linear-gradient(135deg, var(--sw-accent) 0%, var(--sw-accent-d) 100%);
+        }
+        .cz-compare-header i {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            flex-shrink: 0;
+        }
+        .cz-compare-header div { display: flex; flex-direction: column; }
+        .cz-compare-header h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+        .cz-compare-header span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.6px;
+            margin-top: 3px;
+        }
+        .cz-compare-body {
+            padding: 26px 26px 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .cz-compare-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 0;
+            border-bottom: 1px dashed var(--sw-border);
+        }
+        .cz-compare-item:last-child { border-bottom: none; }
+        .cz-compare-item span {
+            font-size: 0.84rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+        }
+        .cz-compare-item strong {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.01em;
+        }
+        .cz-compare-item.highlight strong { color: var(--sw-accent); }
+        .cz-compare-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--sw-primary);
+            border: 2px solid var(--sw-primary);
+            font-family: inherit;
+            width: 100%;
+        }
+        .cz-compare-btn:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .cz-compare-btn.highlight {
+            background: var(--sw-accent);
+            color: #fff;
+            border-color: var(--sw-accent);
+            box-shadow: 0 8px 22px rgba(224, 122, 47, 0.35);
+        }
+        .cz-compare-btn.highlight:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+        }
+        .cz-compare-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* =========================================================
+           SECTION 6 — PARTNERS
+           ========================================================= */
+        .cz-partners {
+            background: var(--sw-bg-alt);
+            padding: 70px 24px;
+            margin-top: 30px;
+        }
+        .cz-partners-inner { max-width: 1250px; margin: 0 auto; }
+        .cz-partners-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        .cz-partner-logo {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid var(--sw-border);
+            transition: all 0.3s ease;
+            min-height: 170px;
+            text-align: center;
+            min-width: 0;
+        }
+        .cz-partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px var(--sw-shadow);
+            border-color: rgba(224, 122, 47, 0.35);
+        }
+        .cz-partner-logo i {
+            font-size: 1.7rem;
+            color: var(--sw-primary);
+            transition: color 0.3s;
+        }
+        .cz-partner-logo:hover i { color: var(--sw-accent); }
+        .cz-partner-logo strong {
+            font-size: 0.84rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.005em;
+        }
+        .cz-partner-logo span {
+            font-size: 0.66rem;
+            color: var(--sw-text-soft);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .cz-partner-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 7px 14px;
+            margin-top: 6px;
+            border-radius: 8px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--sw-primary);
+            border: 2px solid var(--sw-primary);
+            font-family: inherit;
+        }
+        .cz-partner-btn:hover {
+            background: var(--sw-primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .cz-partners-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* =========================================================
+           SECTION 7 — CAUSE TIMELINE
+           ========================================================= */
+        .cz-timeline {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 70px 24px;
+        }
+        .cz-timeline-wrap {
+            position: relative;
+            padding-top: 30px;
+        }
+        .cz-timeline-line {
+            position: absolute;
+            top: 82px;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sw-accent), var(--sw-primary), var(--sw-sage));
+            border-radius: 3px;
+        }
+        .cz-timeline-items {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            position: relative;
+            z-index: 2;
+            align-items: stretch;
+        }
+        .cz-timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 0;
+        }
+        .cz-timeline-date {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: var(--sw-accent);
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .cz-timeline-dot {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid var(--sw-accent);
+            color: var(--sw-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 26px rgba(224, 122, 47, 0.30);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .cz-timeline-item:hover .cz-timeline-dot {
+            transform: scale(1.10) rotate(-5deg);
+            background: var(--sw-accent);
+            color: #fff;
+        }
+        .cz-timeline-item:nth-child(2) .cz-timeline-dot { border-color: var(--sw-primary); color: var(--sw-primary); box-shadow: 0 10px 26px rgba(29, 91, 121, 0.30); }
+        .cz-timeline-item:nth-child(2):hover .cz-timeline-dot { background: var(--sw-primary); color: #fff; }
+        .cz-timeline-item:nth-child(3) .cz-timeline-dot { border-color: var(--sw-sage); color: var(--sw-sage-d); box-shadow: 0 10px 26px rgba(123, 168, 140, 0.30); }
+        .cz-timeline-item:nth-child(3):hover .cz-timeline-dot { background: var(--sw-sage); color: #fff; }
+        .cz-timeline-item:nth-child(4) .cz-timeline-dot { border-color: #6D28D9; color: #6D28D9; box-shadow: 0 10px 26px rgba(109, 40, 217, 0.25); }
+        .cz-timeline-item:nth-child(4):hover .cz-timeline-dot { background: #6D28D9; color: #fff; }
+        .cz-timeline-item:nth-child(5) .cz-timeline-dot { border-color: var(--sw-accent); color: var(--sw-accent); }
+        .cz-timeline-item:nth-child(5):hover .cz-timeline-dot { background: var(--sw-accent); color: #fff; }
+
+        .cz-timeline-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px 18px;
+            border: 1px solid var(--sw-border);
+            width: 100%;
+            transition: all 0.3s ease;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .cz-timeline-item:hover .cz-timeline-card {
+            box-shadow: 0 18px 40px var(--sw-shadow-hi);
+            border-color: rgba(224, 122, 47, 0.35);
+            transform: translateY(-4px);
+        }
+        .cz-timeline-card h4 {
+            font-size: 0.94rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+        .cz-timeline-card p {
+            font-size: 0.76rem;
+            color: var(--sw-text-soft);
+            line-height: 1.55;
+            flex: 1;
+        }
+        .cz-timeline-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 14px;
+            margin-top: 14px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            cursor: pointer;
+            background: rgba(29, 91, 121, 0.08);
+            color: var(--sw-primary);
+            border: 2px solid var(--sw-primary);
+            transition: all 0.3s ease;
+            font-family: inherit;
+            align-self: stretch;
+        }
+        .cz-timeline-btn:hover { background: var(--sw-primary); color: #fff; }
+
+        .cz-timeline-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* =========================================================
+           SECTION 8 — DONATION CTA
+           ========================================================= */
+        .cz-cta {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        .cz-cta-wrap {
+            position: relative;
+            border-radius: 26px;
+            overflow: hidden;
+            background: var(--sw-primary-d);
+            min-height: 460px;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+        }
+        .cz-cta-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(135deg, rgba(29, 91, 121, 0.92) 0%, rgba(20, 69, 92, 0.96) 100%),
+                url('swo10.webp');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+            z-index: 0;
+        }
+        .cz-cta-left {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            padding: 56px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+        .cz-cta-left .cz-eyebrow-sm {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            color: #FFD9B3;
+            margin-bottom: 14px;
+        }
+        .cz-cta-left h2 {
+            font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .cz-cta-left h2 span { color: #FFD9B3; }
+        .cz-cta-left p {
+            font-size: 0.92rem;
+            color: #D8E4EC;
+            line-height: 1.7;
+            margin-bottom: 26px;
+            max-width: 460px;
+        }
+        .cz-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .cz-cta-right {
+            position: relative;
+            z-index: 2;
+            padding: 40px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+        }
+        .cz-donate-card {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            border-radius: 22px;
+            padding: 32px 28px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+            border-top: 5px solid var(--sw-accent);
+        }
+        .cz-donate-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            letter-spacing: -0.015em;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+        .cz-donate-card > p {
+            font-size: 0.8rem;
+            color: var(--sw-text-soft);
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .cz-amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .cz-amount-btn {
+            padding: 12px 6px;
+            border-radius: 12px;
+            background: var(--sw-bg);
+            border: 2px solid var(--sw-border);
+            font-size: 0.86rem;
+            font-weight: 800;
+            color: var(--sw-text);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+        .cz-amount-btn:hover,
+        .cz-amount-btn.active {
+            background: var(--sw-accent);
+            border-color: var(--sw-accent);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 122, 47, 0.35);
+        }
+        .cz-amount-custom {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: var(--sw-bg);
+            border: 2px solid var(--sw-border);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--sw-text);
+            font-family: inherit;
+            margin-bottom: 6px;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+        .cz-amount-custom:focus {
+            border-color: var(--sw-primary);
+            box-shadow: 0 0 0 3px rgba(29, 91, 121, 0.15);
+            background: #fff;
+        }
+        .cz-amount-custom.has-error {
+            border-color: var(--sw-error);
+            background: #FFF7F7;
+        }
+        .cz-amount-custom.is-filled {
+            border-color: var(--sw-accent);
+            background: #FFF8F1;
+            color: var(--sw-accent-d);
+            font-weight: 800;
+        }
+        .cz-amount-error {
+            display: none;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--sw-error);
+            padding-left: 4px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            text-align: left;
+        }
+        .cz-amount-error.show { display: block; }
+        .cz-amount-error i { font-size: 0.68rem; margin-right: 4px; }
+
+        .cz-donate-btn {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: var(--sw-accent);
+            color: #fff;
+            border: 2px solid var(--sw-accent);
+            font-size: 0.86rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 26px rgba(224, 122, 47, 0.40);
+        }
+        .cz-donate-btn:hover {
+            background: var(--sw-accent-d);
+            border-color: var(--sw-accent-d);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(196, 99, 28, 0.50);
+        }
+        .cz-donate-note {
+            font-size: 0.7rem;
+            color: var(--sw-text-soft);
+            text-align: center;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .cz-donate-note i { color: var(--sw-sage-d); }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 1100px) {
+            .cz-hero { grid-template-columns: 1fr; padding-top: 150px; }
+            .cz-hero-left { border-radius: 24px 24px 0 0; padding: 46px 38px; }
+            .cz-hero-right {
+                border-radius: 0 0 24px 24px;
+                min-height: 400px;
+            }
+            .cz-featured-card { grid-template-columns: 1fr; }
+            .cz-featured-image { min-height: 340px; }
+            .cz-featured-body { padding: 36px 30px; }
+            .cz-bento {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: minmax(230px, auto);
+                gap: 16px;
+            }
+            .cz-tile.large {
+                grid-column: span 2;
+                grid-row: span 2;
+                min-height: 480px;
+            }
+            .cz-partners-grid { grid-template-columns: repeat(4, 1fr); }
+            .cz-timeline-items { grid-template-columns: repeat(3, 1fr); }
+            .cz-timeline-line { display: none; }
+            .cz-timeline-wrap { padding-top: 0; }
+            .cz-cta-wrap { grid-template-columns: 1fr; }
+            .cz-cta-right { padding: 30px 22px 36px; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 90px; }
+            .cz-hero { padding: 130px 20px 50px; margin-top: -90px; }
+            .cz-hero-left { padding: 36px 26px; }
+            .cz-hero-right { min-height: 320px; }
+            .cz-featured, .cz-grid, .cz-compare, .cz-timeline { padding: 50px 20px; }
+            .cz-video, .cz-partners { padding: 50px 20px; }
+            .cz-cta { padding: 0 20px 60px; }
+            .cz-featured-card { border-radius: 20px; }
+            .cz-featured-image { min-height: 260px; }
+            .cz-bento {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: minmax(200px, auto);
+                gap: 14px;
+            }
+            .cz-tile.large {
+                grid-column: span 2;
+                grid-row: span 1;
+                min-height: 240px;
+            }
+            .cz-tile.large h3 { font-size: 1.15rem; }
+            .cz-tile.large p { -webkit-line-clamp: 2; }
+            .cz-partners-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+            .cz-timeline-items { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+            .cz-compare-grid { grid-template-columns: 1fr; gap: 20px; }
+            .cz-cta-left { padding: 36px 26px; }
+            .cz-video-center-play-btn { width: 64px; height: 64px; font-size: 1.35rem; }
+            .cz-video-player { max-width: 100%; }
+        }
+
+        @media (max-width: 560px) {
+            .cz-hero { padding: 120px 16px 40px; }
+            .cz-hero-left { padding: 30px 22px; }
+            .cz-hero-right { min-height: 260px; }
+            .cz-hero-buttons { flex-direction: column; }
+            .cz-hero-buttons .cz-btn { width: 100%; }
+            .cz-hero-stats { gap: 18px; }
+            .cz-featured-image { min-height: 240px; }
+            .cz-featured-body { padding: 26px 20px; }
+            .cz-featured-buttons { flex-direction: column; }
+            .cz-featured-buttons .cz-btn { width: 100%; }
+            .cz-bento {
+                grid-template-columns: 1fr;
+                grid-auto-rows: minmax(240px, auto);
+                gap: 16px;
+            }
+            .cz-tile.large {
+                grid-column: span 1;
+                min-height: 280px;
+            }
+            .cz-tile-actions { flex-direction: column; }
+            .cz-tile-btn { width: 100%; }
+            .cz-partners-grid { grid-template-columns: repeat(2, 1fr); }
+            .cz-timeline-items { grid-template-columns: 1fr; }
+            .cz-video-player {
+                aspect-ratio: 16/10;
+                border-width: 3px;
+                border-radius: 14px;
+            }
+            .cz-video-controls { padding: 10px 14px; gap: 10px; }
+            .cz-video-btn { width: 36px; height: 36px; font-size: 0.8rem; }
+            .cz-video-time { font-size: 0.7rem; min-width: 68px; }
+            .cz-video-center-play-btn { width: 56px; height: 56px; font-size: 1.15rem; }
+            .cz-cta-wrap { border-radius: 20px; min-height: 0; }
+            .cz-cta-left { padding: 28px 20px; }
+            .cz-cta-right { padding: 0 20px 30px; }
+            .cz-donate-card { padding: 24px 20px; }
+            .cz-amount-grid { grid-template-columns: repeat(2, 1fr); }
+            .cz-cta-buttons { flex-direction: column; }
+            .cz-cta-buttons .cz-btn { width: 100%; }
+            .cz-grid-footer .cz-btn,
+            .cz-video-footer .cz-btn,
+            .cz-compare-footer .cz-btn,
+            .cz-partners-footer .cz-btn,
+            .cz-timeline-footer .cz-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- SECTION 1 — SPLIT HERO -->
+    <section class="cz-hero">
+        <div class="cz-hero-left" data-aos="fade-right" data-aos-duration="800">
+            <div class="cz-hero-left-inner">
+                <span class="cz-hero-chip">
+                    <i class="fas fa-hand-holding-heart"></i> 12 Active Causes
+                </span>
+                <h1>
+                    Small Actions,<br>
+                    <span>Big Changes</span> in Every Life
+                </h1>
+                <p class="cz-hero-lead">
+                    From a child's first book to a mother's first paycheck — every cause here is a promise
+                    we've made to someone. Choose the one that speaks to your heart, and help us keep it.
+                </p>
+                <div class="cz-hero-buttons">
+                    <a href="404.html" class="cz-btn primary">
+                        <i class="fas fa-hand-holding-dollar"></i> Support a Cause
+                    </a>
+                    <a href="404.html" class="cz-btn ghost" style="border-color: rgba(255,255,255,0.5); color:#fff;">
+                        <i class="fas fa-list-check"></i> Explore All Causes
+                    </a>
+                </div>
+
+                <div class="cz-hero-stats">
+                    <div class="cz-hero-stat">
+                        <strong>12</strong>
+                        <span>Active Causes</span>
+                    </div>
+                    <div class="cz-hero-stat">
+                        <strong>4.8K</strong>
+                        <span>Lives Impacted</span>
+                    </div>
+                    <div class="cz-hero-stat">
+                        <strong>87%</strong>
+                        <span>Fund Efficiency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cz-hero-right" data-aos="fade-left" data-aos-duration="800">
+            <img src="swo11.webp" alt="Field work in progress">
+            <div class="cz-hero-float">
+                <div class="cz-hero-float-icon">
+                    <i class="fas fa-circle-check"></i>
+                </div>
+                <div class="cz-hero-float-text">
+                    <strong>Every cause verified &amp; audited</strong>
+                    <span>Independent third-party confirmation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 — FEATURED CAUSE -->
+    <section class="cz-featured">
+        <div class="cz-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="cz-eyebrow"><i class="fas fa-star"></i> Featured This Month</span>
+            <h2>Cause of the <span>Month</span></h2>
+            <p>Each month we highlight the cause that needs your support the most — and this one is close to its goal.</p>
+        </div>
+
+        <div class="cz-featured-card" data-aos="fade-up" data-aos-duration="900">
+            <div class="cz-featured-image">
+                <span class="cz-featured-tag">Urgent</span>
+                <img src="swo12.webp" alt="Education for All program">
+                <div class="cz-featured-overlay">
+                    <h3>Education for All — Rural Schools</h3>
+                    <p>Bringing learning materials, teachers, and safe classrooms to 12 villages</p>
+                </div>
+            </div>
+
+            <div class="cz-featured-body">
+                <span class="cz-eyebrow-sm">Featured Cause</span>
+                <h2>Every Child Deserves a Classroom</h2>
+                <p>
+                    1,240 children are learning to read and write today because of this program.
+                    But 3 more villages are still waiting — with your help, we can reach them before the school year ends.
+                </p>
+
+                <div class="cz-progress">
+                    <div class="cz-progress-head">
+                        <strong>$62,400 <small>raised</small></strong>
+                        <span>78% of $80,000</span>
+                    </div>
+                    <div class="cz-progress-bar">
+                        <div class="cz-progress-fill" data-fill="78"></div>
+                    </div>
+                </div>
+
+                <div class="cz-featured-meta">
+                    <div>
+                        <strong>1,240</strong>
+                        <span>Children</span>
+                    </div>
+                    <div>
+                        <strong>12</strong>
+                        <span>Villages</span>
+                    </div>
+                    <div>
+                        <strong>38</strong>
+                        <span>Teachers</span>
+                    </div>
+                </div>
+
+                <div class="cz-featured-buttons">
+                    <a href="404.html" class="cz-btn primary">
+                        <i class="fas fa-hand-holding-dollar"></i> Donate to This Cause
+                    </a>
+                    <a href="404.html" class="cz-btn ghost">
+                        <i class="fas fa-circle-info"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — CAUSES BENTO GRID -->
+    <section class="cz-grid">
+        <div class="cz-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="cz-eyebrow"><i class="fas fa-hands-holding-circle"></i> Our Causes</span>
+            <h2>Choose the Cause <span>You Care About</span></h2>
+            <p>Every cause is a real, ongoing program with real people behind it. Support the one that moves you.</p>
+        </div>
+
+        <div class="cz-bento">
+
+            <div class="cz-tile large" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
+                <img src="swo13.webp" alt="Nutrition and food drive">
+                <div class="cz-tile-content">
+                    <span class="cz-tile-tag"><i class="fas fa-utensils"></i> Food &amp; Nutrition</span>
+                    <h3>No Family Sleeps Hungry</h3>
+                    <p>Weekly meal distribution, emergency rations, and community kitchens serving 620 families across 6 districts.</p>
+                    <div class="cz-tile-progress"><span data-fill="82"></span></div>
+                    <div class="cz-tile-progress-label"><span>82% funded</span><span>$41K of $50K</span></div>
+                    <div class="cz-tile-actions">
+                        <a href="404.html" class="cz-tile-btn primary">
+                            <i class="fas fa-hand-holding-dollar"></i> Support This Cause
+                        </a>
+                        <a href="404.html" class="cz-tile-btn ghost">
+                            <i class="fas fa-circle-info"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cz-tile" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="700">
+                <img src="swo14.webp" alt="Rural health outreach">
+                <div class="cz-tile-content">
+                    <span class="cz-tile-tag"><i class="fas fa-stethoscope"></i> Health</span>
+                    <h3>Rural Health Camps</h3>
+                    <p>Free check-ups and medicines in 6 districts.</p>
+                    <div class="cz-tile-progress"><span data-fill="65"></span></div>
+                    <div class="cz-tile-progress-label"><span>65% funded</span><span>$32K of $50K</span></div>
+                    <div class="cz-tile-actions">
+                        <a href="404.html" class="cz-tile-btn primary">
+                            <i class="fas fa-hand-holding-dollar"></i> Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cz-tile" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="700">
+                <img src="swo15.webp" alt="Women skill training">
+                <div class="cz-tile-content">
+                    <span class="cz-tile-tag"><i class="fas fa-venus"></i> Empowerment</span>
+                    <h3>Women Skill Training</h3>
+                    <p>Tailoring, computers, and micro-business support.</p>
+                    <div class="cz-tile-progress"><span data-fill="88"></span></div>
+                    <div class="cz-tile-progress-label"><span>88% funded</span><span>$18K of $20K</span></div>
+                    <div class="cz-tile-actions">
+                        <a href="404.html" class="cz-tile-btn primary">
+                            <i class="fas fa-hand-holding-dollar"></i> Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cz-tile wide" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="700">
+                <img src="swo16.webp" alt="Education program">
+                <div class="cz-tile-content">
+                    <span class="cz-tile-tag"><i class="fas fa-book-open"></i> Education</span>
+                    <h3>Scholarships for Orphaned Children</h3>
+                    <p>Full school funding, uniforms, and mentoring for 240 orphaned students across rural districts.</p>
+                    <div class="cz-tile-progress"><span data-fill="71"></span></div>
+                    <div class="cz-tile-progress-label"><span>71% funded</span><span>$42K of $60K</span></div>
+                    <div class="cz-tile-actions">
+                        <a href="404.html" class="cz-tile-btn primary">
+                            <i class="fas fa-hand-holding-dollar"></i> Support This Cause
+                        </a>
+                        <a href="404.html" class="cz-tile-btn ghost">
+                            <i class="fas fa-circle-info"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cz-tile" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="700">
+                <img src="swo17.webp" alt="Clean water project">
+                <div class="cz-tile-content">
+                    <span class="cz-tile-tag"><i class="fas fa-droplet"></i> Water</span>
+                    <h3>Clean Water Access</h3>
+                    <p>Borewells and filters for villages without water.</p>
+                    <div class="cz-tile-progress"><span data-fill="45"></span></div>
+                    <div class="cz-tile-progress-label"><span>45% funded</span><span>$27K of $60K</span></div>
+                    <div class="cz-tile-actions">
+                        <a href="404.html" class="cz-tile-btn primary">
+                            <i class="fas fa-hand-holding-dollar"></i> Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cz-tile" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="700">
+                <img src="swo18.webp" alt="Community support">
+                <div class="cz-tile-content">
+                    <span class="cz-tile-tag"><i class="fas fa-house-chimney"></i> Housing</span>
+                    <h3>Shelter for Families</h3>
+                    <p>Safe roofing and repair for homeless families.</p>
+                    <div class="cz-tile-progress"><span data-fill="53"></span></div>
+                    <div class="cz-tile-progress-label"><span>53% funded</span><span>$16K of $30K</span></div>
+                    <div class="cz-tile-actions">
+                        <a href="404.html" class="cz-tile-btn primary">
+                            <i class="fas fa-hand-holding-dollar"></i> Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cz-grid-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="cz-btn teal">
+                <i class="fas fa-hands-holding-circle"></i> View All 12 Causes
+            </a>
+            <a href="404.html" class="cz-btn ghost">
+                <i class="fas fa-file-lines"></i> Download Cause List
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — VIDEO STORY -->
+    <section class="cz-video">
+        <div class="cz-video-inner">
+            <div class="cz-video-head" data-aos="fade-up" data-aos-duration="700">
+                <h2>Every Cause Has a <span>Story</span></h2>
+                <p>Watch how a single donation, a single volunteer, a single cause — changed a whole village.</p>
+            </div>
+
+            <div class="cz-video-player" data-aos="zoom-in" data-aos-duration="900">
+                <video id="czVideo" poster="swo19.webp" playsinline preload="metadata">
+                    <source src="swov2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <div class="cz-video-center-play" id="czVideoCenterPlay">
+                    <button class="cz-video-center-play-btn" id="czVideoCenterBtn" aria-label="Play video">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+
+                <div class="cz-video-controls">
+                    <button class="cz-video-btn" id="czVideoToggleBtn" aria-label="Play/Pause">
+                        <i class="fas fa-play" id="czVideoToggleIcon"></i>
+                    </button>
+                    <span class="cz-video-time" id="czVideoTime">0:00 / 0:00</span>
+                    <div class="cz-video-progress" id="czVideoProgress">
+                        <div class="cz-video-progress-fill" id="czVideoProgressFill"></div>
+                    </div>
+                    <button class="cz-video-volume" id="czVideoMuteBtn" aria-label="Mute/Unmute">
+                        <i class="fas fa-volume-high" id="czVideoMuteIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <p class="cz-video-caption" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <strong>"I walked 4 km to school every day. Now the school is in my village."</strong><br>
+                — Rohit, 11 · Education Cause Beneficiary
+            </p>
+
+            <div class="cz-video-footer" data-aos="fade-up" data-aos-delay="450" data-aos-duration="700">
+                <a href="404.html" class="cz-btn primary">
+                    <i class="fas fa-hand-holding-dollar"></i> Support This Cause
+                </a>
+                <a href="404.html" class="cz-btn white">
+                    <i class="fas fa-share-nodes"></i> Share the Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — IMPACT COMPARISON -->
+    <section class="cz-compare">
+        <div class="cz-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="cz-eyebrow"><i class="fas fa-scale-balanced"></i> Progress Snapshot</span>
+            <h2>Where We Are <span>Today</span></h2>
+            <p>A transparent look at how each cause is performing — before and after your support.</p>
+        </div>
+
+        <div class="cz-compare-grid">
+
+            <div class="cz-compare-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="cz-compare-header teal">
+                    <i class="fas fa-arrow-trend-up"></i>
+                    <div>
+                        <h3>Before Your Support</h3>
+                        <span>Baseline · January 2026</span>
+                    </div>
+                </div>
+                <div class="cz-compare-body">
+                    <div class="cz-compare-item">
+                        <span>Children in school</span>
+                        <strong>620</strong>
+                    </div>
+                    <div class="cz-compare-item">
+                        <span>Meals served weekly</span>
+                        <strong>3,400</strong>
+                    </div>
+                    <div class="cz-compare-item">
+                        <span>Health camps held</span>
+                        <strong>4</strong>
+                    </div>
+                    <div class="cz-compare-item">
+                        <span>Women in training</span>
+                        <strong>48</strong>
+                    </div>
+                    <div class="cz-compare-item">
+                        <span>Villages reached</span>
+                        <strong>2</strong>
+                    </div>
+                    <a href="404.html" class="cz-compare-btn">
+                        <i class="fas fa-file-lines"></i> View Baseline Report
+                    </a>
+                </div>
+            </div>
+
+            <div class="cz-compare-card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="cz-compare-header amber">
+                    <i class="fas fa-rocket"></i>
+                    <div>
+                        <h3>After Your Support</h3>
+                        <span>Current · July 2026</span>
+                    </div>
+                </div>
+                <div class="cz-compare-body">
+                    <div class="cz-compare-item highlight">
+                        <span>Children in school</span>
+                        <strong>1,240 <small style="font-size:0.68rem;color:var(--sw-sage-d);">+100%</small></strong>
+                    </div>
+                    <div class="cz-compare-item highlight">
+                        <span>Meals served weekly</span>
+                        <strong>9,300 <small style="font-size:0.68rem;color:var(--sw-sage-d);">+173%</small></strong>
+                    </div>
+                    <div class="cz-compare-item highlight">
+                        <span>Health camps held</span>
+                        <strong>18 <small style="font-size:0.68rem;color:var(--sw-sage-d);">+350%</small></strong>
+                    </div>
+                    <div class="cz-compare-item highlight">
+                        <span>Women in training</span>
+                        <strong>280 <small style="font-size:0.68rem;color:var(--sw-sage-d);">+483%</small></strong>
+                    </div>
+                    <div class="cz-compare-item highlight">
+                        <span>Villages reached</span>
+                        <strong>12 <small style="font-size:0.68rem;color:var(--sw-sage-d);">+500%</small></strong>
+                    </div>
+                    <a href="404.html" class="cz-compare-btn highlight">
+                        <i class="fas fa-chart-line"></i> See Full Impact
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cz-compare-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="cz-btn teal">
+                <i class="fas fa-chart-line"></i> View Full Impact Report
+            </a>
+            <a href="404.html" class="cz-btn ghost">
+                <i class="fas fa-download"></i> Download Detailed Data
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — PARTNERS -->
+    <section class="cz-partners">
+        <div class="cz-partners-inner">
+            <div class="cz-head" data-aos="fade-up" data-aos-duration="700">
+                <span class="cz-eyebrow"><i class="fas fa-handshake"></i> Our Partners</span>
+                <h2>Backed by <span>Trusted Partners</span></h2>
+                <p>Our causes are supported, audited, and co-funded by organizations who share our mission.</p>
+            </div>
+
+            <div class="cz-partners-grid">
+                <div class="cz-partner-logo" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <i class="fas fa-globe"></i>
+                    <strong>UNICEF</strong>
+                    <span>Education Partner</span>
+                    <a href="404.html" class="cz-partner-btn">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="cz-partner-logo" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    <i class="fas fa-handshake"></i>
+                    <strong>Rotary Club</strong>
+                    <span>Health Partner</span>
+                    <a href="404.html" class="cz-partner-btn">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="cz-partner-logo" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                    <i class="fas fa-heart"></i>
+                    <strong>Red Cross</strong>
+                    <span>Emergency Relief</span>
+                    <a href="404.html" class="cz-partner-btn">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="cz-partner-logo" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                    <i class="fas fa-laptop-code"></i>
+                    <strong>Tech for Good</strong>
+                    <span>Digital Partner</span>
+                    <a href="404.html" class="cz-partner-btn">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="cz-partner-logo" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                    <i class="fas fa-landmark"></i>
+                    <strong>Local Govt.</strong>
+                    <span>Infrastructure</span>
+                    <a href="404.html" class="cz-partner-btn">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="cz-partners-footer" data-aos="fade-up" data-aos-duration="700">
+                <a href="404.html" class="cz-btn teal">
+                    <i class="fas fa-handshake"></i> Become a Partner
+                </a>
+                <a href="404.html" class="cz-btn ghost">
+                    <i class="fas fa-file-signature"></i> Partner With Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — CAUSE TIMELINE -->
+    <section class="cz-timeline">
+        <div class="cz-head" data-aos="fade-up" data-aos-duration="700">
+            <span class="cz-eyebrow"><i class="fas fa-route"></i> Journey So Far</span>
+            <h2>Milestones That <span>Changed Everything</span></h2>
+            <p>Every cause has a turning point — here are the moments that mattered most in the last 4 years.</p>
+        </div>
+
+        <div class="cz-timeline-wrap">
+            <div class="cz-timeline-line"></div>
+
+            <div class="cz-timeline-items">
+                <div class="cz-timeline-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="cz-timeline-date">March 2022</div>
+                    <div class="cz-timeline-dot"><i class="fas fa-flag"></i></div>
+                    <div class="cz-timeline-card">
+                        <h4>First Cause Launched</h4>
+                        <p>Our first education cause began with just 20 children and 2 volunteer teachers.</p>
+                        <a href="404.html" class="cz-timeline-btn">
+                            <i class="fas fa-arrow-right"></i> Read Story
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cz-timeline-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                    <div class="cz-timeline-date">Aug 2023</div>
+                    <div class="cz-timeline-dot"><i class="fas fa-utensils"></i></div>
+                    <div class="cz-timeline-card">
+                        <h4>Food Drive Crossed 10K Meals</h4>
+                        <p>Nutrition became our second major cause — 620 families benefited in the first year.</p>
+                        <a href="404.html" class="cz-timeline-btn">
+                            <i class="fas fa-arrow-right"></i> Read Story
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cz-timeline-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                    <div class="cz-timeline-date">Feb 2024</div>
+                    <div class="cz-timeline-dot"><i class="fas fa-stethoscope"></i></div>
+                    <div class="cz-timeline-card">
+                        <h4>Rural Health Expanded</h4>
+                        <p>Expanded from 2 to 6 districts, treating over 3,200 patients in the first year.</p>
+                        <a href="404.html" class="cz-timeline-btn">
+                            <i class="fas fa-arrow-right"></i> Read Story
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cz-timeline-item" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
+                    <div class="cz-timeline-date">Sep 2024</div>
+                    <div class="cz-timeline-dot"><i class="fas fa-venus"></i></div>
+                    <div class="cz-timeline-card">
+                        <h4>Women Program Launched</h4>
+                        <p>280 women enrolled in skill training — 142 are now earning independently.</p>
+                        <a href="404.html" class="cz-timeline-btn">
+                            <i class="fas fa-arrow-right"></i> Read Story
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cz-timeline-item" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+                    <div class="cz-timeline-date">July 2026</div>
+                    <div class="cz-timeline-dot"><i class="fas fa-trophy"></i></div>
+                    <div class="cz-timeline-card">
+                        <h4>Impact Crossed 4,800</h4>
+                        <p>12 active causes, 6 districts, 4,820 lives touched — and we're just getting started.</p>
+                        <a href="404.html" class="cz-timeline-btn">
+                            <i class="fas fa-arrow-right"></i> Read Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cz-timeline-footer" data-aos="fade-up" data-aos-duration="700">
+            <a href="404.html" class="cz-btn teal">
+                <i class="fas fa-timeline"></i> View Complete Timeline
+            </a>
+            <a href="404.html" class="cz-btn ghost">
+                <i class="fas fa-video"></i> Watch Documentary
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — DONATION CTA -->
+    <section class="cz-cta">
+        <div class="cz-cta-wrap" data-aos="fade-up" data-aos-duration="900">
+            <div class="cz-cta-bg"></div>
+
+            <div class="cz-cta-left" data-aos="fade-right" data-aos-duration="800">
+                <span class="cz-eyebrow-sm">Make a Difference Today</span>
+                <h2>One Small Donation,<br><span>One Life Forever Changed</span></h2>
+                <p>
+                    Whatever cause you choose — education, food, health, or empowerment —
+                    100% of your donation goes directly to the field. Verified, audited, and reported back to you.
+                </p>
+                <div class="cz-cta-buttons">
+                    <a href="404.html" class="cz-btn white">
+                        <i class="fas fa-bullseye"></i> Choose a Cause
+                    </a>
+                    <a href="404.html" class="cz-btn ghost" style="border-color: rgba(255,255,255,0.5); color:#fff;">
+                        <i class="fas fa-circle-info"></i> How Donations Work
+                    </a>
+                </div>
+            </div>
+
+            <div class="cz-cta-right" data-aos="fade-left" data-aos-duration="800">
+                <div class="cz-donate-card">
+                    <h3>Quick Donate</h3>
+                    <p>Choose an amount to support any cause</p>
+
+                    <div class="cz-amount-grid">
+                        <button type="button" class="cz-amount-btn" data-amount="500">$500</button>
+                        <button type="button" class="cz-amount-btn" data-amount="1000">$1,000</button>
+                        <button type="button" class="cz-amount-btn" data-amount="2500">$2,500</button>
+                    </div>
+
+                    <input type="text" class="cz-amount-custom" id="czCustomAmount" placeholder="Or enter custom amount ($)" inputmode="numeric" autocomplete="off" />
+
+                    <div class="cz-amount-error" id="czAmountError">
+                        <i class="fas fa-circle-exclamation"></i>Please enter a valid amount (minimum $10).
+                    </div>
+
+                    <button type="button" class="cz-donate-btn" id="czDonateBtn">
+                        <i class="fas fa-hand-holding-dollar"></i> Donate Now
+                    </button>
+
+                    <div class="cz-donate-note">
+                        <i class="fas fa-shield-halved"></i> Secure · 100% to the field
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('header.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Header not found'))
+                .then(d => { document.getElementById('header-placeholder').innerHTML = d; initHeader(); })
+                .catch(err => console.error('Header load failed:', err));
+
+            fetch('footer.html')
+                .then(r => r.ok ? r.text() : Promise.reject('Footer not found'))
+                .then(d => { document.getElementById('footer-placeholder').innerHTML = d; initFooter(); })
+                .catch(err => console.error('Footer load failed:', err));
+        });
+
+        function initHeader() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const header = document.getElementById('mainHeader');
+
+            if (menuBtn && mobileMenu && mobileOverlay) {
+                menuBtn.addEventListener('click', e => {
+                    e.preventDefault(); e.stopPropagation();
+                    mobileMenu.classList.add('open');
+                    mobileOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            if (closeBtn && mobileMenu && mobileOverlay) {
+                closeBtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', e => {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 20);
+                });
+            }
+        }
+
+        function initFooter() {
+            const footerHamburger = document.getElementById('mobileHamburger');
+            const footerNavMenu = document.getElementById('mobileNavMenu');
+
+            if (footerHamburger && footerNavMenu) {
+                const newH = footerHamburger.cloneNode(true);
+                footerHamburger.parentNode.replaceChild(newH, footerHamburger);
+
+                newH.addEventListener('click', e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    footerNavMenu.classList.toggle('open');
+                });
+
+                footerNavMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        footerNavMenu.classList.remove('open');
+                    });
+                });
+
+                document.addEventListener('click', e => {
+                    if (!footerNavMenu.classList.contains('open')) return;
+                    if (footerNavMenu.contains(e.target)) return;
+                    if (newH.contains(e.target)) return;
+                    footerNavMenu.classList.remove('open');
+                });
+            }
+        }
+
+        (function animateProgressBars() {
+            const fills = document.querySelectorAll('[data-fill]');
+            if (!fills.length) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const pct = entry.target.getAttribute('data-fill');
+                        setTimeout(() => { entry.target.style.width = pct + '%'; }, 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            fills.forEach(el => observer.observe(el));
+        })();
+
+        (function initVideoPlayer() {
+            const video = document.getElementById('czVideo');
+            const toggleBtn = document.getElementById('czVideoToggleBtn');
+            const toggleIcon = document.getElementById('czVideoToggleIcon');
+            const centerPlayWrap = document.getElementById('czVideoCenterPlay');
+            const centerBtn = document.getElementById('czVideoCenterBtn');
+            const timeLabel = document.getElementById('czVideoTime');
+            const progressBar = document.getElementById('czVideoProgress');
+            const progressFill = document.getElementById('czVideoProgressFill');
+            const muteBtn = document.getElementById('czVideoMuteBtn');
+            const muteIcon = document.getElementById('czVideoMuteIcon');
+
+            if (!video || !toggleBtn) return;
+
+            function formatTime(s) {
+                if (isNaN(s) || !isFinite(s)) return '0:00';
+                const m = Math.floor(s / 60);
+                const sec = Math.floor(s % 60);
+                return m + ':' + (sec < 10 ? '0' + sec : sec);
+            }
+
+            function updateTime() {
+                timeLabel.textContent = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+                if (video.duration) {
+                    const pct = (video.currentTime / video.duration) * 100;
+                    progressFill.style.width = pct + '%';
+                }
+            }
+
+            function setPlaying(isPlaying) {
+                if (isPlaying) {
+                    toggleIcon.classList.remove('fa-play');
+                    toggleIcon.classList.add('fa-pause');
+                    centerPlayWrap.classList.add('hide');
+                } else {
+                    toggleIcon.classList.remove('fa-pause');
+                    toggleIcon.classList.add('fa-play');
+                    centerPlayWrap.classList.remove('hide');
+                }
+            }
+
+            function playVideo() { video.play().then(() => setPlaying(true)).catch(() => {}); }
+            function pauseVideo() { video.pause(); setPlaying(false); }
+            function toggleVideo() { if (video.paused) playVideo(); else pauseVideo(); }
+
+            toggleBtn.addEventListener('click', toggleVideo);
+            centerBtn.addEventListener('click', toggleVideo);
+            video.addEventListener('click', toggleVideo);
+
+            video.addEventListener('play', () => setPlaying(true));
+            video.addEventListener('pause', () => setPlaying(false));
+            video.addEventListener('timeupdate', updateTime);
+            video.addEventListener('loadedmetadata', updateTime);
+
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const pct = clickX / rect.width;
+                if (video.duration) video.currentTime = pct * video.duration;
+            });
+
+            muteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                if (video.muted) {
+                    muteIcon.classList.remove('fa-volume-high');
+                    muteIcon.classList.add('fa-volume-xmark');
+                } else {
+                    muteIcon.classList.remove('fa-volume-xmark');
+                    muteIcon.classList.add('fa-volume-high');
+                }
+            });
+
+            updateTime();
+            setPlaying(false);
+        })();
+
+        (function initDonate() {
+            const amountBtns = document.querySelectorAll('.cz-amount-btn');
+            const customInput = document.getElementById('czCustomAmount');
+            const donateBtn = document.getElementById('czDonateBtn');
+            const errorEl = document.getElementById('czAmountError');
+
+            if (!amountBtns.length || !customInput) return;
+
+            const MIN_AMOUNT = 10;
+
+            function clearError() {
+                errorEl.classList.remove('show');
+                customInput.classList.remove('has-error');
+            }
+            function showError(msg) {
+                errorEl.innerHTML = '<i class="fas fa-circle-exclamation"></i>' + msg;
+                errorEl.classList.add('show');
+                customInput.classList.add('has-error');
+            }
+
+            amountBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    amountBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const presetAmount = btn.getAttribute('data-amount');
+                    customInput.value = presetAmount;
+                    customInput.classList.add('is-filled');
+                    customInput.classList.remove('has-error');
+                    clearError();
+                });
+            });
+
+            customInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                if (this.value && !this.classList.contains('is-filled')) {
+                    amountBtns.forEach(b => b.classList.remove('active'));
+                }
+
+                if (!this.value) {
+                    this.classList.remove('is-filled');
+                    amountBtns.forEach(b => b.classList.remove('active'));
+                }
+
+                clearError();
+            });
+
+            customInput.addEventListener('keydown', function () {
+                this.classList.remove('is-filled');
+            });
+
+            donateBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                clearError();
+
+                const custom = customInput.value.trim();
+                const selected = document.querySelector('.cz-amount-btn.active');
+                let amount = 0;
+
+                if (!custom && !selected) {
+                    showError('Please select or enter a donation amount.');
+                    customInput.focus();
+                    return;
+                }
+
+                if (custom) {
+                    if (!/^\d+$/.test(custom)) {
+                        showError('Amount must contain numbers only.');
+                        return;
+                    }
+                    amount = parseInt(custom, 10);
+                    if (amount < MIN_AMOUNT) {
+                        showError('Minimum donation is $' + MIN_AMOUNT + '.');
+                        return;
+                    }
+                } else if (selected) {
+                    amount = parseInt(selected.getAttribute('data-amount'), 10);
+                    if (isNaN(amount) || amount < MIN_AMOUNT) {
+                        showError('Please select a valid amount.');
+                        return;
+                    }
+                }
+
+                window.location.href = '404.html';
+            });
+        })();
+
+        console.log('✅ Causes page ready — responsive images, presets fill input, strict donate validation');
+    </script>
+</body>
+</html>
